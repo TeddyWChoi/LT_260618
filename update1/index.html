@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>LaTale - An Exciting and Amazing Story</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Whisper of the Devil">
+  <meta property="og:description" content="The mirror that deceived the world and covered the truth">
+  <meta property="og:image" content="img/og.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/mobile.css">
+  <link rel="stylesheet" href="css/global-hub.css">
+</head>
+
+<body>
+  <!-- Global Hub Portal Navigation Bar -->
+  <div id="global-hub-nav">
+    <div class="hub-logo">
+      <a href="https://latale.papayaplay.com/latale.do" target="_self">
+        <img src="img/logo_papaya.png" alt="Papaya Play" />
+      </a>
+    </div>
+    <div class="hub-menu">
+      <a href="../update1/index.html" class="hub-link active-update1">Whisper of the Devil</a>
+      <span class="hub-divider">/</span>
+      <a href="../update2/index.html" class="hub-link">The Road of Choice</a>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       VUE TEMPLATES (script type=text/x-template)
+       ============================================================ -->
+
+  <!-- ROOT APP -->
+  <script type="text/x-template" id="tpl-app">
+    <div id="wrap">
+      <layout-wrap></layout-wrap>
+    </div>
+  </script>
+
+  <!-- LAYOUT WRAP -->
+  <script type="text/x-template" id="tpl-layout-wrap">
+    <div class="layout-wrap" :class="{ 'is-mobile': isMobile }">
+      <layout-header-mobile v-if="isMobile && headerView"></layout-header-mobile>
+      <layout-header v-else-if="!isMobile && headerView"></layout-header>
+      <router-view></router-view>
+      <layout-footer-mobile v-if="isMobile && footerView"></layout-footer-mobile>
+      <layout-footer v-else-if="!isMobile && footerView"></layout-footer>
+      <popup-overlay></popup-overlay>
+    </div>
+  </script>
+
+  <!-- LAYOUT HEADER -->
+  <script type="text/x-template" id="tpl-layout-header">
+    <header id="header">
+      <div class="header-wrap">
+        <!-- Logo -->
+        <h1 class="logo">
+          <router-link to="/main" class="to-main text-hidden">Whisper of the Devil</router-link>
+        </h1>
+        <!-- Main Navigation -->
+        <nav class="navigation">
+          <ul>
+            <li>
+              <router-link to="/map-senario/senario" class="menu">Map & Scenario</router-link>
+              <ul>
+                <li><router-link to="/map-senario/senario" class="menu ripple">Scenario</router-link></li>
+                <li><router-link to="/map-senario/map/1" class="menu ripple">Map</router-link></li>
+              </ul>
+            </li>
+            <li>
+              <router-link to="/monster/boss/1" class="menu">Monsters</router-link>
+              <ul>
+                <li><router-link to="/monster/boss/1" class="menu ripple">Boss Monsters</router-link></li>
+                <li><router-link to="/monster/normal" class="menu ripple">Normal Monsters</router-link></li>
+              </ul>
+            </li>
+            <li>
+              <router-link to="/npc/1" class="menu">NPC</router-link>
+            </li>
+          </ul>
+        </nav>
+       
+        <!-- Page Menu Icons -->
+        <nav class="page-menu">
+          <ul>
+            <li>
+              <a
+                class="menu home text-hidden"
+                :href="links.site"
+                target="_self"
+              >
+                <span class="ripple" style="display:block;position:absolute;inset:0;border-radius:50%;"></span>
+                Home
+              </a>
+            </li>
+            <li>
+              <button
+                class="menu music text-hidden"
+                :class="{ playing: soundState }"
+                type="button"
+                @click="soundToggle"
+              >
+                <span class="ripple" style="display:block;position:absolute;inset:0;border-radius:50%;"></span>
+                BGM
+              </button>
+            </li>
+          </ul>
+        </nav>
+       
+      </div>
+      <!-- Aside Floating Menu -->
+     
+    </header>
+  </script>
+
+  <!-- LAYOUT HEADER MOBILE -->
+  <script type="text/x-template" id="tpl-layout-header-mobile">
+    <header id="header" class="mobile-header">
+      <div class="header">
+        <button class="menu-open text-hidden" type="button" @click="menuOpen = true">Open Menu</button>
+        <h1 class="to-main">
+          <router-link to="/main">Whisper of the Devil</router-link>
+        </h1>
+      </div>
+      <div v-if="menuOpen" class="aside-menu-back" @click="menuOpen = false"></div>
+      <div class="aside-menu" :class="{ open: menuOpen }">
+        <div class="user-menu">
+          <button class="menu-close text-hidden" type="button" @click="menuOpen = false">Close Menu</button>
+        </div>
+        <nav class="mobile-navigation">
+          <ul>
+            <li>
+              <input type="checkbox" id="m-menu-1">
+              <label for="m-menu-1" class="menu">Map & Scenario</label>
+              <ul>
+                <li><router-link to="/map-senario/senario" class="menu">Scenario</router-link></li>
+                <li><router-link to="/map-senario/map/1" class="menu">Map</router-link></li>
+              </ul>
+            </li>
+            <li>
+              <input type="checkbox" id="m-menu-2">
+              <label for="m-menu-2" class="menu">Monsters</label>
+              <ul>
+                <li><router-link to="/monster/boss/1" class="menu">Boss Monsters</router-link></li>
+                <li><router-link to="/monster/normal" class="menu">Normal Monsters</router-link></li>
+              </ul>
+            </li>
+            <li>
+              <router-link to="/npc/1" class="menu">NPC</router-link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  </script>
+
+  <!-- LAYOUT FOOTER MOBILE -->
+  <script type="text/x-template" id="tpl-layout-footer-mobile">
+    <footer id="footer" class="mobile-footer" :class="footerType">{{ footerHtml }}</footer>
+  </script>
+
+  <!-- LAYOUT FOOTER -->
+  <script type="text/x-template" id="tpl-layout-footer">
+    <footer id="footer" :class="footerType">{{ footerHtml }}</footer>
+  </script>
+
+  <!-- POPUP -->
+  <script type="text/x-template" id="tpl-popup">
+    <transition name="popup">
+      <section
+        v-if="popupFlag"
+        class="popup-overlay"
+        :class="{ 'popup-play': popupPlayFlag }"
+        @click.self="closePopup"
+      >
+        <!-- Image Popup -->
+        <template v-if="popupImageFlag">
+          <h1 class="hide">View Image</h1>
+          <div class="popup-body">
+            <button class="popup-close-btn text-hidden" type="button" @click="closePopup">
+              <span>Close</span>
+            </button>
+            <div class="popup-images" :class="popupImageClass && popupImageClass[0]">
+              <div class="flicking-viewport">
+                <div class="flicking-camera" :style="{ transform: 'translateX(-' + (currentIndex * 100) + '%)' }">
+                  <div
+                    v-for="(imgClass, idx) in popupImageClass"
+                    :key="idx"
+                    :class="imgClass"
+                    style="flex-shrink:0; width:100%;"
+                  ></div>
+                </div>
+              </div>
+              <template v-if="hasMultipleImages">
+                <button class="popup-arrow prev text-hidden" type="button" @click="prevImage">
+                  <span>Prev</span>
+                </button>
+                <button class="popup-arrow next text-hidden" type="button" @click="nextImage">
+                  <span>Next</span>
+                </button>
+              </template>
+            </div>
+          </div>
+        </template>
+        <!-- Video Popup -->
+        <template v-if="popupPlayFlag">
+          <h1 class="hide">Watch Video</h1>
+          <div class="popup-body">
+            <button class="popup-close-btn text-hidden" type="button" @click="closePopup">
+              <span>Close</span>
+            </button>
+            <div class="popup-player" id="youtube-player"></div>
+          </div>
+        </template>
+      </section>
+    </transition>
+  </script>
+
+  <!-- LEFT TITLE -->
+  <script type="text/x-template" id="tpl-left-title">
+    <h1 class="left-title" :style="color ? { '--lt-color': color } : {}">
+      <span class="left-title-inner">
+        <span class="left-title-text"><slot name="title">{{ title }}</slot></span>
+        <span v-if="subTitle" class="left-title-sub">{{ subTitle }}</span>
+      </span>
+    </h1>
+  </script>
+
+  <!-- RIGHT MENU -->
+  <script type="text/x-template" id="tpl-right-menu">
+    <nav class="right-menu" :class="{ 'is-mobile': isMobile }">
+      <template v-if="isMobile">
+        <button
+          class="right-menu-toggle text-hidden"
+          :class="{ on: menuOpen }"
+          type="button"
+          @click="menuOpen = !menuOpen"
+        >Menu</button>
+        <transition name="list">
+          <div v-show="menuOpen" class="right-menu-list-wrap">
+            <slot></slot>
+          </div>
+        </transition>
+      </template>
+      <template v-else>
+        <div class="right-menu-list-wrap">
+          <slot></slot>
+        </div>
+      </template>
+    </nav>
+  </script>
+
+  <!-- ============================================================
+       MAIN VIEW
+       ============================================================ -->
+  <script type="text/x-template" id="tpl-main-view">
+    <div v-if="isMobile" id="main-mobile" class="floating-child">
+      <div class="char-1-effect floating"></div>
+      <div class="char-1 floating"></div>
+      <div class="mirror floating"></div>
+      <div class="char-1-hand floating"></div>
+      <h1 class="title floating text-hidden">Whisper of the Devil</h1>
+    </div>
+    <main v-else id="main">
+      <!-- INTRO -->
+      <section id="main-intro" class="floating-child">
+        <!-- char-1 with SVG reveal -->
+        <div class="char-1" data-class="char-1">
+          <svg style="position:absolute;width:100%;height:100%;">
+            <defs>
+              <filter id="displacementFilter1">
+                <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="1000" result="noise"/>
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="800" xChannelSelector="R" yChannelSelector="G"/>
+              </filter>
+              <mask id="circleMask1">
+                <circle class="displacement" cx="50%" cy="50%" fill="white" r="0"/>
+              </mask>
+            </defs>
+            <g mask="url(#circleMask1)">
+              <image class="char-1-effect-img" href="img/web/page/main/intro/char_1_effect.png" alt="char-1-effect" width="1770" height="1204"/>
+              <image href="img/web/page/main/intro/char_1.png" alt="char-1" width="2583" height="1376"/>
+            </g>
+          </svg>
+          <!-- mirror -->
+          <div class="floating mirror" data-anim="slide-left" data-anim-delay="200"></div>
+          <!-- char-1 hand SVG -->
+          <svg style="position:absolute;width:100%;height:100%;pointer-events:none;">
+            <defs>
+              <mask id="circleMask2">
+                <circle class="displacement" cx="50%" cy="50%" fill="white" r="0"/>
+              </mask>
+            </defs>
+            <g mask="url(#circleMask2)">
+              <image class="char-1-hand-img" href="img/web/page/main/intro/char_1_hand.png" alt="char-1-hand" width="387" height="323"/>
+            </g>
+          </svg>
+        </div>
+        <!-- char-3 (hover로 등장) -->
+        <div class="char-3" :class="{ on: char3On }"></div>
+        <!-- mirror-effect -->
+        <div class="mirror-effect" data-anim="fade" data-anim-delay="400"></div>
+        <!-- char-2 -->
+        <div class="char-2" data-anim="fade" data-anim-delay="600"></div>
+        <!-- bg-cover -->
+        <div class="bg-cover"></div>
+        <!-- title SVG reveal -->
+        <h1 class="main-title text-hidden" data-class="title">
+          <svg style="width:100%;height:100%;">
+            <defs>
+              <filter id="displacementFilter2">
+                <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="1000" result="noise"/>
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="800" xChannelSelector="R" yChannelSelector="G"/>
+              </filter>
+              <mask id="circleMask2b">
+                <circle class="displacement" cx="50%" cy="50%" fill="white" r="0"/>
+              </mask>
+            </defs>
+            <image href="img/web/page/main/intro/title.png" alt="Whisper of the Devil" mask="url(#circleMask2b)" width="2183" height="527"/>
+          </svg>
+          Whisper of the Devil
+        </h1>
+        <!-- char-3 hover zone -->
+        <div
+          class="char-3-hover"
+          @mouseenter="setChar3(true)"
+          @mouseleave="setChar3(false)"
+        ></div>
+      </section>
+
+      <!-- UPDATE -->
+      <section id="main-update">
+        <div class="update-title floating" data-anim="slide-bottom" data-anim-delay="100">
+          <h1 class="title">New Encounters and Stories</h1>
+          <p class="sub-title">Amazing stories hidden within new areas, monsters, and NPCs are here!</p>
+        </div>
+        <div class="update-deco-butterfly floating" data-anim="fade" data-anim-delay="150">
+          <img src="img/web/page/main/update/deco_butterfly.png" alt="" aria-hidden="true" />
+        </div>
+        <nav>
+          <ul>
+            <li>
+              <router-link
+                class="update-menu update-menu-map floating"
+                :to="{ name: 'senario' }"
+                data-anim="fade"
+                data-anim-delay="200"
+              >
+                <span class="menu-title">Map & Scenario</span>
+                <span class="menu-btn">View Details</span>
+              </router-link>
+            </li>
+            <li>
+              <router-link
+                class="update-menu update-menu-monster floating"
+                :to="{ name: 'boss-1' }"
+                data-anim="fade"
+                data-anim-delay="300"
+              >
+                <span class="menu-title">New Monsters</span>
+                <span class="menu-btn">View Details</span>
+              </router-link>
+            </li>
+            <li>
+              <router-link
+                class="update-menu update-menu-npc floating"
+                :to="{ name: 'npc-1' }"
+                data-anim="fade"
+                data-anim-delay="400"
+              >
+                <span class="menu-title">New NPC</span>
+                <span class="menu-btn">View Details</span>
+              </router-link>
+            </li>
+          </ul>
+        </nav>
+      </section>
+    </main>
+  </script>
+
+  <!-- ============================================================
+       SENARIO VIEW
+       ============================================================ -->
+  <script type="text/x-template" id="tpl-senario-view">
+    <div v-if="isMobile" id="senario-mobile" class="floating-child">
+      <div class="description floating">
+        <p>The wings of Icarus have fallen,<br>and the shadow of Lux has disappeared,<br>but before the Adventurer and Iris,<br>those with their own purposes still approach.</p>
+        <p>With the appearance of one who walks the path of despair,<br>the Adventurer, chasing his traces,<br>arrives at 'Debesys', the village of the Sage's Tower.<br>There, where memories of the past unfold like a dream and shake everyone,<br>they encounter a story within the mirror<br>that someone had harbored for a long time...</p>
+      </div>
+    </div>
+    <section v-else id="senario">
+      <layout-left-title title="Scenario" :color="'#fff'"></layout-left-title>
+      <div class="senario-description floating" data-anim="slide-flip-top" data-anim-delay="0">
+        <p data-anim="slide-top" data-anim-delay="200">
+          The wings of Icarus have fallen,<br>
+          and the shadow of Lux has disappeared,<br>
+          but before the Adventurer and Iris,<br>
+          those with their own purposes still approach.
+        </p>
+        <p data-anim="slide-top" data-anim-delay="400">
+          With the appearance of one who walks the path of despair, the Adventurer, chasing his traces,<br>
+          arrives at 'Debesys', the village of the Sage's Tower,<br>
+          and there, where memories of the past unfold like a dream and shake everyone,<br>
+          they encounter a story within the mirror<br>
+          that someone had harbored for a long time...
+        </p>
+      </div>
+      <div class="senario-char floating" data-anim="slide-top" data-anim-delay="300"></div>
+    </section>
+  </script>
+
+  <!-- ============================================================
+       MAP WRAP VIEW
+       ============================================================ -->
+  <script type="text/x-template" id="tpl-map-wrap-view">
+    <section id="map" :class="{ 'is-mobile': isMobile }">
+      <template v-if="isMobile">
+        <layout-right-menu>
+          <ol class="right-menu-list">
+            <li><router-link class="right-menu-item" :to="{ name: 'map-1' }">Debesys<br>(Town)</router-link></li>
+            <li><router-link class="right-menu-item" :to="{ name: 'map-2' }">Whispering Hill<br>(Field)</router-link></li>
+            <li><router-link class="right-menu-item" :to="{ name: 'map-3' }">Nest of the Blind Bird<br>(4-Player Inst. Dungeon)</router-link></li>
+            <li><router-link class="right-menu-item" :to="{ name: 'map-4' }">Likimo Pelkė<br>(8-Player Inst. Dungeon)</router-link></li>
+          </ol>
+        </layout-right-menu>
+        <router-view></router-view>
+      </template>
+      <template v-else>
+        <layout-left-title :sub-title="leftTitleSubTitle" :color="'#fff'">
+          <template v-slot:title>Map</template>
+        </layout-left-title>
+        <layout-right-menu>
+          <ol class="right-menu-list">
+            <li><router-link class="right-menu-item" :to="{ name: 'map-1' }">Debesys</router-link></li>
+            <li><router-link class="right-menu-item" :to="{ name: 'map-2' }">Whispering<br>Hill</router-link></li>
+            <li><router-link class="right-menu-item" :to="{ name: 'map-3' }">Nest of the<br>Blind Bird</router-link></li>
+            <li><router-link class="right-menu-item" :to="{ name: 'map-4' }">Likimo<br>Pelkė</router-link></li>
+          </ol>
+        </layout-right-menu>
+        <router-view @update:left-title="onUpdateLeftTitle"></router-view>
+      </template>
+    </section>
+  </script>
+
+  <!-- MAP 1 -->
+  <script type="text/x-template" id="tpl-map1-view">
+    <div v-if="isMobile" id="map-1-mobile" class="map-view mobile-map-view floating-child">
+      <h1 class="title floating">Debesys (Town)</h1>
+      <button class="thumbnail floating text-hidden" type="button" @click="openPopup('map-image-1')">Zoom Image</button>
+      <div class="text">
+        <h2 class="sub-title">A Village in the Clouds with a Strange Tower</h2>
+        <div class="description">
+          <p>A long, long time ago, so distant that no one remembers,<br>there were people who crossed the canyon to survive.<br>Those who climbed endlessly up the hill where only clouds were visible<br>faced an exotic landscape at the end of the road that opened between the clouds.</p>
+          <p>A strange tower topped with a large wizard hat,<br>and an old man wearing a hat just like the tower greeted them.<br>Feeling sorry for their plight, the old man allowed them to stay near the tower,<br>and with the help of the old man, who seemed to know all the principles of the world,<br>the people built a small village under the tower and settled down.<br>That was the beginning of what is now Debesys.</p>
+        </div>
+      </div>
+      <div class="text">
+        <h2 class="sub-title sub-title-2">The Will of the Sage</h2>
+        <div class="description description-2">
+          <p>The old man taught magic to talented children,<br>and disappeared suddenly when the children grew up enough to lead Debesys.<br>Everyone set out to find the old man, who was both their benefactor and teacher, but<br>his traces could not be found anywhere in the world.<br>The village chief, who led the village at the time, opened the tower according to the message left by the old man,<br>allowing competent wizards to study magic inside it for the people.</p>
+          <p>As time passed, people called the vanished old man the 'Sage' who enlightened everyone, and named his tower the 'Sage's Tower.'<br>In this way, Debesys developed into a magic research city centered around the Sage's Tower, and established itself as a key pillar of the Silvaria Empire as well as the continent of Freios.</p>
+        </div>
+      </div>
+    </div>
+    <div v-else id="map-1" class="map-view floating-child">
+      <h1 class="map-title floating" data-anim="slide-top" data-anim-delay="0">
+        Debesys (Town)
+      </h1>
+      <button class="map-thumbnail floating text-hidden" type="button" @click="openPopup('map-image-1')">
+        Zoom Image
+        <span class="map-zoom-btn">
+          <span class="icon-zoom"><span></span></span>
+        </span>
+      </button>
+      <h2 class="map-sub-title floating" data-anim="slide-top" data-anim-delay="200">A Village in the Clouds with a Strange Tower</h2>
+      <div class="map-description floating" style="--top: 709px; --left: 944px;">
+        <p data-anim="slide-top" data-anim-delay="300">
+          A long, long time ago, so distant that no one remembers, there were people who crossed the canyon to survive.<br>
+          Those who climbed endlessly up the hill where only clouds were visible faced an exotic landscape at the end of the road that opened between the clouds.
+        </p>
+        <p data-anim="slide-top" data-anim-delay="500">
+          A strange tower topped with a large wizard hat, and an old man wearing a hat just like the tower greeted them.<br>
+          Feeling sorry for their plight, the old man allowed them to stay near the tower,<br>
+          and with the help of the old man, who seemed to know all the principles of the world,<br>
+          the people built a small village under the tower and settled down.<br>
+          That was the beginning of what is now Debesys.
+        </p>
+      </div>
+      <h2 class="map-sub-title-2 floating" data-anim="slide-top" data-anim-delay="200">The Will of the Sage</h2>
+      <div class="map-description-2 floating" style="--top: 709px; --left: 1462px;">
+        <p data-anim="slide-top" data-anim-delay="300">
+          The old man taught magic to talented children, and disappeared suddenly when the children<br>
+          grew up enough to lead Debesys.<br>
+          Everyone set out to find the old man, who was both their benefactor and teacher, but<br>
+          his traces could not be found anywhere in the world.<br>
+          The village chief, who led the village at the time, opened the tower according to the message left by the old man,<br>
+          allowing competent wizards to study magic inside it for the people.
+        </p>
+        <p data-anim="slide-top" data-anim-delay="500">
+          As time passed, people called the vanished old man the 'Sage' who enlightened everyone,<br>
+          and named his tower the 'Sage's Tower.'<br>
+          In this way, Debesys developed into a magic research city centered around the Sage's Tower, and<br>
+          established itself as a key pillar of the Silvaria Empire as well as the continent of Freios.
+        </p>
+      </div>
+    </div>
+  </script>
+
+  <!-- MAP 2 -->
+  <script type="text/x-template" id="tpl-map2-view">
+    <div v-if="isMobile" id="map-2-mobile" class="map-view mobile-map-view floating-child">
+      <h1 class="title floating">Whispering Hill (Field)</h1>
+      <button class="thumbnail floating text-hidden" type="button" @click="openPopup('map-2-image-1')">Zoom Image</button>
+      <div class="text">
+        <h2 class="sub-title">A Breath-taking View</h2>
+        <div class="description">
+          <p>As the 'Sage's Tower' of Debesys, a strange village with a strange tower, became widely known,<br>many people gathered, including wizards studying magic.<br>The path forward through the dense clouds that blocked the view was not easy,<br>but no one ever complained about the journey.</p>
+          <p>People stopped their steps on the hill they climbed to find the location of the tower<br>and were captivated by the scenery before their eyes.<br>With the clouds filling the view spreading out like a horizon,<br>the sight of the strange tower with the wizard hat rising was somehow awe-inspiring.<br>Some said it was as if a god or a spirit was whispering a message of blessing.</p>
+          <p data-anim=slide-top data-anim-delay=500>
+            Perhaps because of this, the place, which used to be called Sage's Hill or Debesys Hill,<br>naturally came to be called 'Whispering Hill'.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div v-else id="map-2" class="map-view floating-child">
+      <h1 class="map-title floating" data-anim="slide-top" data-anim-delay="0">
+        Whispering Hill (Field)
+      </h1>
+      <button class="map-thumbnail floating text-hidden" type="button" @click="openPopup('map-2-image-1')">
+        Zoom Image
+        <span class="map-zoom-btn">
+          <span class="icon-zoom"><span></span></span>
+        </span>
+      </button>
+      <h2 class="map-sub-title floating" data-anim="slide-top" data-anim-delay="200">A Breath-taking View</h2>
+      <div class="map-description floating" style="--top: 709px; --left: 944px;">
+        <p data-anim="slide-top" data-anim-delay="300">
+          As the 'Sage's Tower' of Debesys, a strange village with a strange tower, became widely known,<br>
+          many people gathered, including wizards studying magic.<br>
+          The path forward through the dense clouds that blocked the view was not easy,<br>
+          but no one ever complained about the journey.
+        </p>
+      </div>
+      <div class="map-description-2 floating" style="--top: 709px; --left: 1462px;">
+        <p data-anim="slide-top" data-anim-delay="300">
+          People stopped their steps on the hill they climbed to find the location of the tower<br>
+          and were captivated by the scenery before their eyes.<br>
+          With the clouds filling the view spreading out like a horizon,<br>
+          the sight of the strange tower with the wizard hat rising was somehow awe-inspiring.<br>
+          Some said it was as if a god or a spirit was whispering a message of blessing.
+        </p>
+        <p data-anim="slide-top" data-anim-delay="500">
+          Perhaps because of this, the place, which used to be called Sage's Hill or Debesys Hill,<br>
+          naturally came to be called 'Whispering Hill'.
+        </p>
+      </div>
+    </div>
+  </script>
+
+  <!-- MAP 3 -->
+  <script type=text/x-template id=tpl-map3-view>
+    <div v-if="isMobile" id="map-3-mobile" class="map-view mobile-map-view floating-child">
+      <h1 class="title floating">Nest of the Blind Bird (4-Player Inst. Dungeon)</h1>
+      <button class="thumbnail floating text-hidden" type="button" @click="openPopup('map-3-image-1')">Zoom Image</button>
+      <div class="text">
+        <h2 class="sub-title">Another Place Hidden in the Clouds</h2>
+        <div class="description">
+          <p>If you go in the opposite direction of the tower from Whispering Hill,<br>a new place hidden in the clouds reveals itself.<br>It is a mysterious canyon with steep cliffs and high peaks.</p>
+          <p>At first glance, it looks like a beautiful landscape you might encounter during a journey,<br>but the bizarre sounds carried by the wind and the huge nests occupying the peaks<br>are by no means ordinary.<br>Furthermore, a massive monster is flapping its wings above the nests.</p>
+        </div>
+      </div>
+      <div class="text">
+        <h2 class="sub-title sub-title-2">The Blind Bird that Became a Threat</h2>
+        <div class="description description-2">
+          <p>As the number of wizards studying magic at the Sage's Tower increased one by one,<br>naturaly, those exploring the canyon also began to increase.<br>As a result, those who set out on exploration discover that the owner of the nests often seen in the canyon<br>was a magical beast known as the 'Monstrous Bird'.</p>
+          <p>It did not particularly threaten people, and even if it was food, it only ate bugs or berries,<br>usually spending most of its time in the nest, so there was no noticeable movement.<br>However, unusually, its eyes hold gems.<br>It was not in the shape of a commonly known eye, and it did not recognize people well,<br>so everyone began to call the Monstrous Bird the 'Blind Bird'.</p>
+          <p>Then one day, the Monstrous Birds, which usually only stayed in the canyon, suddenly flew all the way to Debesys village and threatened people.<br>At first, they dismissed it as a coincidence and drove them away, but the number of times the Monstrous Birds flew in increased steadily.<br>Furthermore, as rumors of strange dreams began to spread,<br>Debesys village falls into unprecedented confusion and anxiety.</p>
+        </div>
+      </div>
+    </div>
+    <div v-else id="map-3" class="map-view floating-child">
+      <h1 class="map-title floating" data-anim="slide-top" data-anim-delay="0">Nest of the Blind Bird (4-Player Inst. Dungeon)</h1>
+      <button class="map-thumbnail floating text-hidden" type="button" @click="openPopup('map-3-image-1')">
+        Zoom Image<span class="map-zoom-btn"><span class="icon-zoom"><span></span></span></span>
+      </button>
+      <h2 class="map-sub-title floating" data-anim="slide-top" data-anim-delay="200">Another Place Hidden in the Clouds</h2>
+      <div class="map-description floating" style="--top: 709px; --left: 944px;">
+        <p data-anim="slide-top" data-anim-delay="300">
+          If you go in the opposite direction of the tower from Whispering Hill,<br>
+          a new place hidden in the clouds reveals itself.<br>
+          It is a mysterious canyon with steep cliffs and high peaks.
+        </p>
+        <p data-anim="slide-top" data-anim-delay="500">
+          At first glance, it looks like a beautiful landscape you might encounter during a journey,<br>
+          but the bizarre sounds carried by the wind and the huge nests occupying the peaks are by no means<br>
+          ordinary.<br>
+          Furthermore, a massive monster is flapping its wings above the nests.
+        </p>
+      </div>
+      <h2 class="map-sub-title-2 floating" data-anim="slide-top" data-anim-delay="200">The Blind Bird that Became a Threat</h2>
+      <div class="map-description-2 floating" style="--top: 709px; --left: 1462px;">
+        <p data-anim="slide-top" data-anim-delay="300">
+          As the number of wizards studying magic at the Sage's Tower increased one by one,<br>
+          naturally, those exploring the canyon also began to increase.<br>
+          As a result, those who set out on exploration discover that the owner of the nests often seen in the canyon<br>
+          was a magical beast known as the 'Monstrous Bird'.
+        </p>
+        <p data-anim="slide-top" data-anim-delay="500">
+          It did not particularly threaten people, and even if it was food, it only ate bugs or berries,<br>
+          usually spending most of its time in the nest, so there was no noticeable movement.<br>
+          However, unusually, its eyes hold gems.<br>
+          It was not in the shape of a commonly known eye, and it did not recognize people well,<br>
+          so everyone began to call the Monstrous Bird the 'Blind Bird'.
+        </p>
+        <p data-anim="slide-top" data-anim-delay="700">
+          Then one day, the Monstrous Birds, which usually only stayed in the canyon,<br>
+          suddenly flew all the way to Debesys village and threatened people.<br>
+          At first, they dismissed it as a coincidence and drove them away, but the number of times the Monstrous Birds flew in increased steadily.<br>
+          Furthermore, as rumors of strange dreams began to spread,<br>
+          Debesys village falls into unprecedented confusion and anxiety.
+        </p>
+      </div>
+    </div>
+  </script>
+
+  <!-- MAP 4 -->
+  <script type="text/x-template" id="tpl-map4-view">
+    <div v-if="isMobile" id="map-4-mobile" class="map-view mobile-map-view floating-child">
+      <h1 class="title floating">Likimo Pelkė (8-Player Inst. Dungeon)</h1>
+      <button class="thumbnail floating text-hidden" type="button" @click="openPopup('map-4-image-1')">Zoom Image</button>
+      <div class="text">
+        <h2 class="sub-title">A Story of Those Who Cherish Each Other</h2>
+        <div class="description">
+          <p>Even on this beautiful star of life touched by many gods,<br>there were those who lived in the shadows, unable to look properly at the sky.<br>Since they lived without keeping light from birth to death,<br>they believed such a life was only natural.<br>However, a certain god discovered them, lifted the shadows, and led them out.</p>
+          <p>They were grateful to the god who gave them the gift of light,<br>and in the time of drawing a new future together with other lives,<br>they built a place for the god who led them.<br>Seeing this, the god would secretly appear during the deep hours that life could not perceive,<br>and enjoy a quiet stroll before leaving.</p>
+        </div>
+      </div>
+      <button class="thumbnail-2 floating text-hidden" type="button" @click="openPopup('map-4-image-2')">Zoom Image</button>
+      <div class="text">
+        <h2 class="sub-title sub-title-2">A Place Unfolded in a Strange Dream</h2>
+        <div class="description description-2">
+          <p>Since some point, the number of people in the village sharing the same dream increased.<br>One scene of the dream showed a place covered with beautiful flowers under a blue sky,<br>while another scene showed the same place ruined with snow falling.<br>It was a strange dream where two scenes from one place crossed dizzyingly.</p>
+          <p>One day, when a villager said they had visited that place,<br>everyone opened up, saying they had also been there.<br>They all spoke of unfamiliar emotions felt in an unfamiliar place,<br>complaining of pain of unknown cause.<br>Although none of their lives were in danger, rumors gradually began to circulate that it was due to the devil...</p>
+        </div>
+      </div>
+    </div>
+    <div v-else id="map-4" class="map-view floating-child">
+      <h1 class="map-title floating" data-anim="slide-top" data-anim-delay="0">Likimo Pelkė (8-Player Inst. Dungeon)</h1>
+      <button class="map-thumbnail floating text-hidden" type="button" @click="openPopup('map-4-image-1')">
+        Zoom Image<span class="map-zoom-btn"><span class="icon-zoom"><span></span></span></span>
+      </button>
+      <h2 class="map-sub-title floating" data-anim="slide-top" data-anim-delay="200">A Story of Those Who Cherish Each Other</h2>
+      <div class="map-description floating" style="--top: 709px; --left: 944px;">
+        <p data-anim="slide-top" data-anim-delay="300">
+          Even on this beautiful star of life touched by many gods, there were those who lived in the shadows, unable to look properly at the sky.<br>
+          Since they lived without keeping light from birth to death, they believed such a life was only<br>
+          natural.<br>
+          However, a certain god discovered them, lifted the shadows, and led them out.
+        </p>
+        <p data-anim="slide-top" data-anim-delay="500">
+          They were grateful to the god who gave them the gift of light, and in the time of drawing a new<br>
+          future together with other lives, they built a place for the god who led them.<br>
+          Seeing this, the god would secretly appear during the deep hours that life could not perceive,<br>
+          and enjoy a quiet stroll before leaving.
+        </p>
+      </div>
+      <button class="map-thumbnail-2 floating text-hidden" type=button @click="openPopup('map-4-image-2')">
+        Zoom Image<span class="map-zoom-btn"><span class="icon-zoom"><span></span></span></span>
+      </button>
+      <h2 class="map-sub-title-2 floating" data-anim="slide-top" data-anim-delay="200">A Place Unfolded in a Strange Dream</h2>
+      <div class="map-description-2 floating" style="--top: 709px; --left: 1462px;">
+        <p data-anim=slide-top data-anim-delay="300">
+          Since some point, the number of people in the village sharing the same dream increased.<br>
+          One scene of the dream showed a place covered with beautiful flowers under a blue sky, and another<br>
+          scene showed the same place ruined with snow falling.<br>
+          It was a strange dream where two scenes from one place crossed dizzyingly.
+        </p>
+        <p data-anim=slide-top data-anim-delay=500>
+          One day, when a villager said they had visited that place, everyone opened up, saying they had<br>
+          also been there. They all spoke of unfamiliar emotions felt in an unfamiliar place,<br>
+          complaining of pain of unknown cause.<br>
+          Although none of their lives were in danger, rumors gradually began to circulate that it was due to the devil...
+        </p>
+      </div>
+    </div>
+  </script>
+<!-- ============================================================
+       BOSS MONSTER VIEWS
+       ============================================================ -->
+  <script type="text/x-template" id="tpl-boss-monster-wrap-view">
+    <section id="boss-monster" :class="{ 'is-mobile': isMobile }">
+      <template v-if="isMobile">
+        <layout-right-menu>
+          <ol class="right-menu-list">
+            <li><router-link class="right-menu-item" :to="{ name: 'boss-1' }">Monstrous Bird<br>Peridot</router-link></li>
+            <li><router-link class="right-menu-item" :to="{ name: 'boss-2' }">Lauma</router-link></li>
+            <li><router-link class="right-menu-item" :to="{ name: 'boss-3' }">Giltine</router-link></li>
+            <li><router-link class="right-menu-item" :to="{ name: 'boss-4' }">Belial</router-link></li>
+          </ol>
+        </layout-right-menu>
+        <router-view></router-view>
+      </template>
+      <template v-else>
+        <layout-left-title :sub-title="leftTitleSubTitle" :color="'#fff'">
+          <template v-slot:title>Boss<br>Monsters</template>
+        </layout-left-title>
+        <layout-right-menu>
+          <ol class="right-menu-list">
+            <li><router-link class="right-menu-item" :to="{ name: 'boss-1' }">Monstrous Bird<br>Peridot</router-link></li>
+            <li><router-link class="right-menu-item" :to="{ name: 'boss-2' }">Lauma</router-link></li>
+            <li><router-link class="right-menu-item" :to="{ name: 'boss-3' }">Giltine</router-link></li>
+            <li><router-link class="right-menu-item" :to="{ name: 'boss-4' }">Belial</router-link></li>
+          </ol>
+        </layout-right-menu>
+        <router-view @update:left-title="onUpdateLeftTitle"></router-view>
+      </template>
+    </section>
+  </script>
+
+  <!-- BOSS 1 -->
+  <script type="text/x-template" id="tpl-boss-monster-1-view">
+    <div v-if="isMobile" id="boss-monster-1-mobile" class="mobile-boss-monster-view floating-child">
+      <div class="image floating text-hidden">Image</div>
+      <h1 class="title floating">Monstrous Bird Peridot</h1>
+      <div class="text floating">
+        <div class="description">
+          <p>
+            The leader of the pack of magical beasts with beautiful gems in their eyes and chests, known as the 'Monstrous Birds.'<br>
+            It is called Monstrous Bird Peridot because it harbors the green gem, Peridot.<br>
+            It is said that in the distant past, the old man who was the master of the Sage's Tower often went to see Peridot.<br>
+            Monstrous Birds usually do not leave their nests and canyons, but recently, they have frequently flown to Debesys and threatened the people.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div v-else id="boss-monster-1" class="boss-monster-view floating-child">
+      <h1 class="bm-title floating" data-anim="slide-left" data-anim-delay="400">Monstrous Bird Peridot</h1>
+      <div class="bm-image floating text-hidden" data-anim="slide-left" data-anim-delay="0"></div>
+      <div class="bm-description floating" style="--top: 565px; --left: 685px;" data-anim="slide-left" data-anim-delay="200">
+        <p>
+          The leader of the pack of magical beasts with beautiful gems in their eyes and chests, known as the 'Monstrous Birds.'<br>
+          It is called Monstrous Bird Peridot because it harbors the green gem, Peridot.<br>
+          It is said that in the distant past, the old man who was the master of the Sage's Tower often went to see Peridot.<br>
+          Monstrous Birds usually do not leave their nests and canyons, but recently, they have frequently flown to Debesys and threatened the people.
+        </p>
+      </div>
+    </div>
+  </script>
+
+  <!-- BOSS 2 -->
+  <script type="text/x-template" id="tpl-boss-monster-2-view">
+    <div v-if="isMobile" id="boss-monster-2-mobile" class="mobile-boss-monster-view floating-child">
+      <div class="image floating text-hidden">Image</div>
+      <h1 class="title floating">Lauma</h1>
+      <div class="text floating">
+        <div class="description">
+          <p>
+            Once a spirit who prayed for the health and well-being of life,<br>
+            she betrayed the master she served, falling for the devil's temptation.<br>
+            She was on the verge of extinction as a price for her sin, but was spared<br>
+            by the master's mercy and spent a long time imprisoned.<br>
+            Even under such punishment, she hands with the devil once again.<br>
+            For Lauma, it was an opportunity to stand properly before her master again,<br>
+            but even that choice becomes another wound to her former master.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div v-else id="boss-monster-2" class="boss-monster-view floating-child">
+      <h1 class="bm-title floating" data-anim="slide-left" data-anim-delay="400">Lauma</h1>
+      <div class="bm-image floating text-hidden" data-anim="slide-left" data-anim-delay="0"></div>
+      <div class="bm-description floating" style="--top: 460px; --left: 685px;" data-anim="slide-left" data-anim-delay="200">
+        <p>
+          Once a spirit who prayed for the health and well-being of life,<br>
+          she betrayed the master she served, falling for the devil's temptation.<br>
+          She was on the verge of extinction as a price for her sin, but was spared by the master's mercy and spent a long<br>
+          time imprisoned.<br>
+          Even under such punishment, she hands with the devil once again.<br>
+          For Lauma, it was an opportunity to stand properly before her master again,<br>
+          but even that choice becomes another wound to her former master.
+        </p>
+      </div>
+    </div>
+  </script>
+
+  <!-- BOSS 3 -->
+  <script type="text/x-template" id="tpl-boss-monster-3-view">
+    <div v-if="isMobile" id="boss-monster-3-mobile" class="mobile-boss-monster-view floating-child">
+      <div class="image floating text-hidden">Image</div>
+      <h1 class="title floating">Giltine</h1>
+      <div class="text floating">
+        <div class="description">
+          <p>
+            Once a spirit who prayed for the health and well-being of life,<br>
+            she betrayed the master she served, falling for the devil's temptation.<br>
+            She was on the verge of extinction as a price for her sin, but was spared<br>
+            by the master's mercy and spent a long time imprisoned.<br>
+            Even under such punishment, she hands with the devil once again.<br>
+            For Giltine, there was no hesitation, as the opportunity<br>
+            to become a devil, just like back then, had come.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div v-else id="boss-monster-3" class="boss-monster-view floating-child">
+      <h1 class="bm-title floating" data-anim="slide-left" data-anim-delay="400">Giltine</h1>
+      <div class="bm-image floating text-hidden" data-anim="slide-left" data-anim-delay="0"></div>
+      <div class="bm-description floating" style="--top: 460px; --left: 685px;" data-anim="slide-left" data-anim-delay="200">
+        <p>
+          Once a spirit who prayed for the health and well-being of life,<br>
+          she betrayed the master she served, falling for the devil's temptation.<br>
+          She was on the verge of extinction as a price for her sin, but was spared by the master's mercy and spent a long<br>
+          time imprisoned.<br>
+          Even under such punishment, she hands with the devil once again.<br>
+          For Giltine, there was no hesitation, as the opportunity to become a devil,<br>
+          just like back then, had come.
+        </p>
+      </div>
+    </div>
+  </script>
+
+  <!-- BOSS 4 -->
+  <script type="text/x-template" id="tpl-boss-monster-4-view">
+    <div v-if="isMobile" id="boss-monster-4-mobile" class="mobile-boss-monster-view floating-child">
+      <div class="image floating text-hidden">Image</div>
+      <h1 class="title floating">Belial</h1>
+      <div class="text floating">
+        <div class="description">
+          <p>
+            A beautiful high-ranking demon woman whom many demons in the Demon Realm<br>
+            crave for power and love.<br>
+            No one won Belial's heart, dying or destroying themselves,<br>
+            crushed by fear.<br>
+            Strangely, such Belial has become a follower of Barbatos,<br>
+            executing those who interfere with him.<br>
+            Contrary to her fragile appearance, she spares no means<br>
+            to achieve her goals.<br>
+            When introducing herself, she claims to be a devil who deceives<br>
+            all emotions in the world and enjoys lies.<br>
+            She is showing considerable interest in the Adventurer<br>
+            who defeated Barbatos.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div v-else id="boss-monster-4" class="boss-monster-view floating-child">
+      <h1 class="bm-title floating" data-anim="slide-left" data-anim-delay="400">Belial</h1>
+      <div class="bm-image floating text-hidden" data-anim="slide-left" data-anim-delay="0"></div>
+      <div class="bm-description floating" style="--top: 460px; --left: 685px;" data-anim="slide-left" data-anim-delay="200">
+        <p>
+          A beautiful high-ranking demon woman whom many demons in the Demon Realm<br>
+          crave for power and love.<br>
+          No one won Belial's heart, dying or destroying themselves, crushed by fear.<br>
+          Strangely, such Belial has become a follower of Barbatos, executing those who<br>
+          interfere with him.<br>
+          Contrary to her fragile appearance, she spares no means to achieve her goals.<br>
+          When introducing herself, she claims to be a devil who deceives all emotions in the<br>
+          world and enjoys lies.<br>
+          She is showing considerable interest in the Adventurer who defeated Barbatos.
+        </p>
+      </div>
+    </div>
+  </script>
+
+  <!-- ============================================================
+       NORMAL MONSTER VIEW
+       ============================================================ -->
+  <script type="text/x-template" id="tpl-normal-monster-view">
+    <section v-if="isMobile" id="normal-monster-mobile">
+      <div class="monsters">
+        <!-- 1. Monstrous Bird Jewel -->
+        <div class="monster-item">
+          <div class="image floating text-hidden">Image</div>
+          <h1 class="title floating">Monstrous Bird Jewel</h1>
+          <div class="text floating">
+            <div class="description">
+              <p>
+                A monstrous bird with a large gem embedded in its eye.<br>
+                With a gentle and easygoing nature, it rarely leaves its nest<br>
+                under normal circumstances and does not attack unless threatened.<br>
+                However, at some point, it started flying to Debesys more frequently,<br>
+                causing anxiety among the villagers.<br>
+                According to exploration reports, it shares many similarities with<br>
+                beasts raised in the Demon Realm and is considered a related species.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- 2. Rock Troll -->
+        <div class="monster-item">
+          <div class="image floating text-hidden">Image</div>
+          <h1 class="title floating">Rock Troll</h1>
+          <div class="text floating">
+            <div class="description">
+              <p>
+                A massive monster whose entire body is made of stone,<br>
+                serving as a sentinel that guards the Nest of the Blind Bird.<br>
+                Usually, it huddles tightly under trees without showing its face,<br>
+                making it look like an ordinary rock at first glance.<br>
+                However, if it senses an scent that does not belong to the nest,<br>
+                it reveals its hidden, gargantuan body.<br>
+                It is said to detest humans in particular, pursuing them<br>
+                to the end upon discovery.<br>
+                If you wish to survive, you must never step onto paths<br>
+                filled with rocks.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- 3. Debesys Spider -->
+        <div class="monster-item">
+          <div class="image floating text-hidden">Image</div>
+          <h1 class="title floating">Debesys Spider</h1>
+          <div class="text floating">
+            <div class="description">
+              <p>
+                A giant spider inhabiting the Nest of the Blind Bird.<br>
+                Under the influence of the magic stone dropped by Monstrous Bird Jewel,<br>
+                its body has grown significantly and its appearance has altered drastically.<br>
+                Usually, it remains hidden, but it slowly reveals itself when it detects<br>
+                strong magical energy or presence.<br>
+                According to exploration reports, at some point, it began capturing humans<br>
+                to feast on their life energy.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- 4. Raganaz -->
+        <div class="monster-item">
+          <div class="image floating text-hidden">Image</div>
+          <h1 class="title floating">Raganaz</h1>
+          <div class="text floating">
+            <div class="description">
+              <p>
+                A forest spirit that seeks to conquer the world with the power it once used<br>
+                to care for flowers and trees.<br>
+                One day, it was cursed by a looming danger and fell into corruption.<br>
+                It now withers and kills growing flowers and trees, and drives out<br>
+                every living being within the forest.<br>
+                Using the corrupted forest as a base, it plans to venture outside<br>
+                along with other corrupted entities.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- 5. Zibrina -->
+        <div class="monster-item">
+          <div class="image floating text-hidden">Image</div>
+          <h1 class="title floating">Zibrina</h1>
+          <div class="text floating">
+            <div class="description">
+              <p>
+                Once a beautiful spirit that gathered light to bring warmth to the forest.<br>
+                However, when someone angered the ancient god, the entire forest—which was<br>
+                unrelated to the incident—was punished with annihilation.<br>
+                Relying on the power flowing from the Demon Realm, she barely managed<br>
+                to survive, but turned into a hideous form in return.<br>
+                Despite crying out in injustice, no one listened to her, claiming she was tainted<br>
+                by evil forces. Ultimately, consumed by anger at being abandoned,<br>
+                she became an evil spirit that burns away life.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- 6. Bain -->
+        <div class="monster-item">
+          <div class="image floating text-hidden">Image</div>
+          <h1 class="title floating">Bain</h1>
+          <div class="text floating">
+            <div class="description">
+              <p>
+                A demon who regards fighting as a daily routine from the moment he opens<br>
+                his eyes, to the extent that it would not be an exaggeration to say he is crazy about battle.<br>
+                After challenging Belial for his power and losing, he has been supporting him.<br>
+                Excited by Belial's mention of someone strong enough to oppose a god, he tagged along.<br>
+                Although taciturn and cautious, he surprisingly shows a weak spot for small and cute things.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- 7. Chiuka -->
+        <div class="monster-item">
+          <div class="image floating text-hidden">Image</div>
+          <h1 class="title floating">Chiuka</h1>
+          <div class="text floating">
+            <div class="description">
+              <p>
+                A demon who came out from a corner of the abyss and was colored by nature.<br>
+                During her long stay in the forest that faced destruction, she lost her demonic<br>
+                nature and developed an affection for nature and life.<br>
+                However, when she met Belial again and was severely scolded that a demon should not<br>
+                behave that way, she came to her senses and began working hard to become a proper 'bad demon.'<br>
+                Still, not knowing what she should actually do, she focuses only on chasing away intruders.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- 8. Baubad -->
+        <div class="monster-item">
+          <div class="image floating text-hidden">Image</div>
+          <h1 class="title floating">Baubad</h1>
+          <div class="text floating">
+            <div class="description">
+              <p>
+                A demon born in the deep depths of the abyss that seeks to kill any living thing.<br>
+                He features a contaminated body and corrupted magic that even other demons find repulsive.<br>
+                When a sector of the Demon Realm became heavily contaminated due to Baubad,<br>
+                several demons allegedly joined forces to seal him away.<br>
+                However, traces of Baubad were recently discovered inside Likimo Pelkė,<br>
+                which Belial opened.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section v-else id="normal-monster">
+      <layout-left-title :color="'#fff'">
+        <template v-slot:title>Normal<br>Monsters</template>
+      </layout-left-title>
+      <div class="monsters-container">
+        <!-- 1. Monstrous Bird Jewel -->
+        <div class="normal-monster-item">
+          <div class="nm-title" data-anim="slide-left">Monstrous Bird Jewel</div>
+          <div class="nm-image"></div>
+          <div class="nm-text">
+            <div class="nm-description">
+              <p>
+                A monstrous bird with a large gem embedded in its eye.<br>
+                With a gentle and easygoing nature, it rarely leaves its nest under normal circumstances and does not attack<br>
+                unless threatened.<br>
+                However, at some point, it started flying to Debesys more frequently, causing anxiety among the villagers.<br>
+                According to exploration reports, it shares many similarities with beasts raised in the Demon Realm and is<br>
+                considered a related species.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- 2. Rock Troll -->
+        <div class="normal-monster-item">
+          <div class="nm-title" data-anim="slide-right">Rock Troll</div>
+          <div class="nm-image"></div>
+          <div class="nm-text">
+            <div class="nm-description">
+              <p>
+                A massive monster whose entire body is made of stone, serving as a sentinel that guards the Nest of the Blind Bird.<br>
+                Usually, it huddles tightly under trees without showing its face, making it look like an ordinary rock at first glance.<br>
+                However, if it senses an scent that does not belong to the nest, it reveals its hidden, gargantuan body.<br>
+                It is said to detest humans in particular, pursuing them to the end upon discovery.<br>
+                If you wish to survive, you must never step onto paths filled with rocks.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- 3. Debesys Spider -->
+        <div class="normal-monster-item">
+          <div class="nm-title" data-anim="slide-left">Debesys Spider</div>
+          <div class="nm-image"></div>
+          <div class="nm-text">
+            <div class="nm-description">
+              <p>
+                A giant spider inhabiting the Nest of the Blind Bird.<br>
+                Under the influence of the magic stone dropped by Monstrous Bird Jewel, its body has grown significantly and its<br>
+                appearance has altered drastically.<br>
+                Usually, it remains hidden, but it slowly reveals itself when it detects strong magical energy or presence.<br>
+                According to exploration reports, at some point, it began capturing humans to feast on their life energy.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- 4. Raganaz -->
+        <div class="normal-monster-item">
+          <div class="nm-title" data-anim="slide-right">Raganaz</div>
+          <div class="nm-image"></div>
+          <div class="nm-text">
+            <div class="nm-description">
+              <p>
+                A forest spirit that seeks to conquer the world with the power it once used to care for flowers and trees.<br>
+                One day, it was cursed by a looming danger and fell into corruption.<br>
+                It now withers and kills growing flowers and trees, and drives out every living being within the forest.<br>
+                Using the corrupted forest as a base, it plans to venture outside along with other corrupted entities.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- 5. Zibrina -->
+        <div class="normal-monster-item">
+          <div class="nm-title" data-anim="slide-left">Zibrina</div>
+          <div class="nm-image"></div>
+          <div class="nm-text">
+            <div class="nm-description">
+              <p>
+                Once a beautiful spirit that gathered light to bring warmth to the forest.<br>
+                However, when someone angered the ancient god, the entire forest—which was unrelated to the incident—was<br>
+                punished with annihilation.<br>
+                Relying on the power flowing from the Demon Realm, she barely managed to survive, but turned into a hideous form<br>
+                in return.<br>
+                Despite crying out in injustice, no one listened to her, claiming she was tainted by evil forces. Ultimately,<br>
+                consumed by anger at being abandoned, she became an evil spirit that burns away life.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- 6. Bain -->
+        <div class="normal-monster-item">
+          <div class="nm-title" data-anim="slide-right">Bain</div>
+          <div class="nm-image"></div>
+          <div class="nm-text">
+            <div class="nm-description">
+              <p>
+                A demon who regards fighting as a daily routine from the moment he opens his eyes, to the extent that it would<br>
+                not be an exaggeration to say he is crazy about battle.<br>
+                After challenging Belial for his power and losing, he has been supporting him.<br>
+                Excited by Belial's mention of someone strong enough to oppose a god, he tagged along.<br>
+                Although taciturn and cautious, he surprisingly shows a weak spot for small and cute things.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- 7. Chiuka -->
+        <div class="normal-monster-item">
+          <div class="nm-title" data-anim="slide-left">Chiuka</div>
+          <div class="nm-image"></div>
+          <div class="nm-text">
+            <div class="nm-description">
+              <p>
+                A demon who came out from a corner of the abyss and was colored by nature.<br>
+                During her long stay in the forest that faced destruction, she lost her demonic nature and developed an affection<br>
+                for nature and life.<br>
+                However, when she met Belial again and was severely scolded that a demon should not behave that way, she came<br>
+                to her senses and began working hard to become a proper 'bad demon.'<br>
+                Still, not knowing what she should actually do, she focuses only on chasing away intruders.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- 8. Baubad -->
+        <div class="normal-monster-item">
+          <div class="nm-title" data-anim="slide-right">Baubad</div>
+          <div class="nm-image"></div>
+          <div class="nm-text">
+            <div class="nm-description">
+              <p>
+                A demon born in the deep depths of the abyss that seeks to kill any living thing.<br>
+                He features a contaminated body and corrupted magic that even other demons find repulsive.<br>
+                When a sector of the Demon Realm became heavily contaminated due to Baubad, several demons allegedly joined<br>
+                forces to seal him away.<br>
+                However, traces of Baubad were recently discovered inside Likimo Pelkė, which Belial opened.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </script>
+
+  <!-- ============================================================
+       NPC VIEWS
+       ============================================================ -->
+  <script type="text/x-template" id="tpl-npc-wrap-view">
+    <section id="npc" :class="{ 'is-mobile': isMobile }">
+      <template v-if="isMobile">
+        <layout-right-menu>
+          <ol class="right-menu-list">
+            <li><router-link class="right-menu-item" :to="{ name: 'npc-1' }">Patelo</router-link></li>
+            <li><router-link class="right-menu-item" :to="{ name: 'npc-2' }">Shuvie</router-link></li>
+            <li><router-link class="right-menu-item" :to="{ name: 'npc-3' }">Lacellis</router-link></li>
+            <li><router-link class="right-menu-item" :to="{ name: 'npc-4' }">Marta</router-link></li>
+            <li><router-link class="right-menu-item" :to="{ name: 'npc-5' }">Juriring</router-link></li>
+          </ol>
+        </layout-right-menu>
+        <router-view></router-view>
+      </template>
+      <template v-else>
+        <layout-left-title :sub-title="leftTitleSubTitle" :color="'#fff'">
+          <template v-slot:title>NPC</template>
+        </layout-left-title>
+        <layout-right-menu :toggle="true">
+          <ol class="right-menu-list">
+            <li><router-link class="right-menu-item" :to="{ name: 'npc-1' }">Patelo</router-link></li>
+            <li><router-link class="right-menu-item" :to="{ name: 'npc-2' }">Shuvie</router-link></li>
+            <li><router-link class="right-menu-item" :to="{ name: 'npc-3' }">Lacellis</router-link></li>
+            <li><router-link class="right-menu-item" :to="{ name: 'npc-4' }">Marta</router-link></li>
+            <li><router-link class="right-menu-item" :to="{ name: 'npc-5' }">Juriring</router-link></li>
+          </ol>
+        </layout-right-menu>
+        <router-view @update:left-title="onUpdateLeftTitle"></router-view>
+      </template>
+    </section>
+  </script>
+
+  <!-- NPC 1 -->
+  <script type="text/x-template" id="tpl-npc-1-view">
+    <div v-if="isMobile" id="npc-1-mobile" class="mobile-npc-view floating-child">
+      <h1 class="title floating">Patelo</h1>
+      <div class="image floating text-hidden">Image</div>
+      <div class="text floating">
+        <h2 class="sub-title">A young mage of the Sage's Tower who is respected and called a genius by many.</h2>
+        <div class="description">
+          <p>
+            After becoming a mage upon Wizard Nemo's recommendation,<br>
+            he dedicated himself to researching the flow of mana in the Sage's Tower for a long time.<br>
+            Currently, access to the Sage's Tower is restricted by imperial decree, so he has temporarily left the tower to stay in the village.<br>
+            He is one of the few people that the brothers Notos and Zephyros can trust,<br>
+            and he has a cheerful personality that makes he beloved by all the residents of Debesys.<br>
+            However, because he is quite a big eater, restaurants are somewhat—no, highly—reluctant to have him visit.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div v-else id="npc-1" class="npc-view floating-child">
+      <h1 class="npc-title floating" data-anim="slide-left" data-anim-delay="400">Patelo</h1>
+      <div class="npc-image floating text-hidden" data-anim="slide-left" data-anim-delay="0"></div>
+      <h2 class="npc-sub-title floating" data-anim="slide-left" data-anim-delay="200">
+        A young mage of the Sage's Tower who is respected and called a genius by many.
+      </h2>
+      <div class="npc-description floating" style="--top: 555px; --left: 1449px;" data-anim="slide-left" data-anim-delay="200">
+        <p>
+          After becoming a mage upon Wizard Nemo's recommendation,<br>
+          he dedicated himself to researching the flow of mana in the Sage's Tower for a long time.<br>
+          Currently, access to the Sage's Tower is restricted by imperial decree, so he has temporarily left the tower to stay in the village.<br>
+          He is one of the few people that the brothers Notos and Zephyros can trust,<br>
+          and he has a cheerful personality that makes he beloved by all the residents of Debesys.<br>
+          However, because he is quite a big eater, restaurants are somewhat—no, highly—reluctant to have him visit.
+        </p>
+      </div>
+    </div>
+  </script>
+
+  <!-- NPC 2 -->
+  <script type="text/x-template" id="tpl-npc-2-view">
+    <div v-if="isMobile" id="npc-2-mobile" class="mobile-npc-view floating-child">
+      <h1 class="title floating">Shuvie</h1>
+      <div class="image floating text-hidden">Image</div>
+      <div class="text floating">
+        <h2 class="sub-title">A Jewel Star from Luman who follows the path of sparkling gems.</h2>
+        <div class="description">
+          <p>
+            Initially, she crafted and polished gems with the support of Giscard,<br>
+            but as Eastland regained stability, she set a new goal.<br>
+            That is, to travel across all continents, search for mysterious gems, and complete her illustrated guide!<br>
+            Arriving at Debesys during her journey, she earns travel expenses by working various part-time jobs, including gem crafting.<br>
+            She has a puppy-like personality—full of curiosity and loving people—but she can sometimes be overbearing and exhaust others.<br>
+            Though she is an experienced traveler who has seen it all, she surprisingly gets startled easily by minor things.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div v-else id="npc-2" class="npc-view floating-child">
+      <h1 class="npc-title floating" data-anim="slide-left" data-anim-delay="400">Shuvie</h1>
+      <div class="npc-image floating text-hidden" data-anim="slide-left" data-anim-delay="0"></div>
+      <h2 class="npc-sub-title floating" data-anim="slide-left" data-anim-delay="200">A Jewel Star from Luman who follows the path of sparkling gems.</h2>
+      <div class="npc-description floating" style="--top: 555px; --left: 1449px;" data-anim="slide-left" data-anim-delay="200">
+        <p>
+          Initially, she crafted and polished gems with the support of Giscard,<br>
+          but as Eastland regained stability, she set a new goal.<br>
+          That is, to travel across all continents, search for mysterious gems, and complete her illustrated guide!<br>
+          Arriving at Debesys during her journey, she earns travel expenses by working various part-time jobs, including gem crafting.<br>
+          She has a puppy-like personality—full of curiosity and loving people—but she can sometimes be overbearing and exhaust others.<br>
+          Though she is an experienced traveler who has seen it all, she surprisingly gets startled easily by minor things.
+        </p>
+      </div>
+    </div>
+  </script>
+
+  <!-- NPC 3 -->
+  <script type="text/x-template" id="tpl-npc-3-view">
+    <div v-if="isMobile" id="npc-3-mobile" class="mobile-npc-view floating-child">
+      <h1 class="title floating">Lacellis</h1>
+      <div class="image floating text-hidden">Image</div>
+      <div class="text floating">
+        <h2 class="sub-title">The sous chef of the restaurant 'Threshold of Clouds.'</h2>
+        <div class="description">
+          <p>
+            A native born and raised in Debesys, she loved and enjoyed the food from the restaurant 'Threshold of Clouds' since childhood.<br>
+            Naturally, she ended up working at the place she loved, establishing herself as a key talent in the kitchen.<br>
+            Her dream is to hone her skills further, secure funds, and open a restaurant under her own name.<br>
+            With a diligent and kind nature, she never speaks ill of others—with the sole exception of Patelo.<br>
+            Thanks to the big eater who eats faster than the time it takes to prepare the food, she spends every single day exhausted.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div v-else id="npc-3" class="npc-view floating-child">
+      <h1 class="npc-title floating" data-anim="slide-left" data-anim-delay="400">Lacellis</h1>
+      <div class="npc-image floating text-hidden" data-anim="slide-left" data-anim-delay="0"></div>
+      <h2 class="npc-sub-title floating" data-anim="slide-left" data-anim-delay="200">The sous chef of the restaurant 'Threshold of Clouds.'</h2>
+      <div class="npc-description floating" style="--top: 555px; --left: 1449px;" data-anim="slide-left" data-anim-delay="200">
+        <p>
+          A native born and raised in Debesys, she loved and enjoyed the food from the restaurant 'Threshold of Clouds' since childhood.<br>
+          Naturally, she ended up working at the place she loved, establishing herself as a key talent in the kitchen.<br>
+          Her dream is to hone her skills further, secure funds, and open a restaurant under her own name.<br>
+          With a diligent and kind nature, she never speaks ill of others—with the sole exception of Patelo.<br>
+          Thanks to the big eater who eats faster than the time it takes to prepare the food, she spends every single day exhausted.
+        </p>
+      </div>
+    </div>
+  </script>
+
+  <!-- NPC 4 -->
+  <script type="text/x-template" id="tpl-npc-4-view">
+    <div v-if="isMobile" id="npc-4-mobile" class="mobile-npc-view floating-child">
+      <h1 class="title floating">Marta</h1>
+      <div class="image floating text-hidden">Image</div>
+      <div class="text floating">
+        <h2 class="sub-title">The representative of Debesys village, and a great mage who once managed the Sage's Tower.</h2>
+        <div class="description">
+          <p>
+            Perhaps due to spending long years absorbed in magic research,<br>
+            she gradually felt moments where handling magic became difficult and naturally decided to retire.<br>
+            Although she originally planned to return to her hometown,<br>
+            she remained in the village to take over the representative role, which happened to be vacant.<br>
+            No matter where she goes or what she does, she carries a book around, but she keeps quiet about it, calling it the remaining homework of her life.<br>
+            Respected by all for her gentle and benevolent character, she is still known as a fearsome mentor among mages.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div v-else id="npc-4" class="npc-view floating-child">
+      <h1 class="npc-title floating" data-anim="slide-left" data-anim-delay="400">Marta</h1>
+      <div class="npc-image floating text-hidden" data-anim="slide-left" data-anim-delay="0"></div>
+      <h2 class="npc-sub-title floating" data-anim="slide-left" data-anim-delay="200">
+        The representative of Debesys village, and a great mage who once managed the Sage's Tower.
+      </h2>
+      <div class="npc-description floating" style="--top: 555px; --left: 1449px;" data-anim="slide-left" data-anim-delay="200">
+        <p>
+          Perhaps due to spending long years absorbed in magic research,<br>
+          she gradually felt moments where handling magic became difficult and naturally decided to retire.<br>
+          Although she originally planned to return to her hometown,<br>
+          she remained in the village to take over the representative role, which happened to be vacant.<br>
+          No matter where she goes or what she does, she carries a book around, but she keeps quiet about it, calling it the remaining homework of her life.<br>
+          Respected by all for her gentle and benevolent character, she is still known as a fearsome mentor among mages.
+        </p>
+      </div>
+    </div>
+  </script>
+
+  <!-- NPC 5 -->
+  <script type="text/x-template" id="tpl-npc-5-view">
+    <div v-if="isMobile" id="npc-5-mobile" class="mobile-npc-view floating-child">
+      <h1 class="title floating">Juriring</h1>
+      <div class="image floating text-hidden">Image</div>
+      <div class="text floating">
+        <h2 class="sub-title">A mysterious Priring species that looks like a Jeweling.</h2>
+        <div class="description">
+          <p>
+            Although it had stayed in the Debesys region for a long time,<br>
+            it was invisible to people, making its very existence unknown.<br>
+            Waiting for someone who would recognize it, one day, it met the Adventurer.<br>
+            It has wings on its front and back, but because it held a heavy gem for so long, it seems to have forgotten how to fly.<br>
+            Or perhaps it's just overweight.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div v-else id="npc-5" class="npc-view floating-child">
+      <h1 class="npc-title floating" data-anim="slide-left" data-anim-delay="400">Juriring</h1>
+      <div class="npc-image floating text-hidden" data-anim="slide-left" data-anim-delay="0"></div>
+      <h2 class="npc-sub-title floating" data-anim="slide-left" data-anim-delay="200">A mysterious Priring species that looks like a Jeweling.</h2>
+      <div class="npc-description floating" style="--top: 555px; --left: 1449px;" data-anim="slide-left" data-anim-delay="200">
+        <p>
+          Although it had stayed in the Debesys region for a long time,<br>
+          it was invisible to people, making its very existence unknown.<br>
+          Waiting for someone who would recognize it, one day, it met the Adventurer.<br>
+          It has wings on its front and back, but because it held a heavy gem for so long, it seems to have forgotten how to fly.<br>
+          Or perhaps it's just overweight.
+        </p>
+      </div>
+    </div>
+  </script>
+
+  <!-- HISTORY -->
+  <script type="text/x-template" id="tpl-history-view">
+    <div v-if="isMobile" id="history" class="is-mobile">
+      <div class="content">
+        <h1 class="hide">Update history</h1>
+        <section class="list">
+          <ul>
+            <li v-for="(data, key) in list" :key="key">
+              <a :href="data.url" target="_blank">
+                <span class="thumbnail" :style="{ 'background-image': `url(${data.thumbnail})` }"></span>
+                <h2 class="title">{{ data.title }}</h2>
+              </a>
+            </li>
+          </ul>
+        </section>
+        <nav class="paging" v-if="pagingData.page < pagingData.last">
+          <button class="view-more" type="button" @click="loadHistory(pagingData.page + 1)">View More</button>
+        </nav>
+      </div>
+    </div>
+    <div v-else id="history">
+      <div class="history-content">
+        <h1 class="history-title">Update <em>history</em></h1>
+        <section class="history-list">
+          <ul>
+            <li v-for="(data, key) in list" :key="key">
+              <a :href="data.url" target="_blank">
+                <span class="history-thumbnail" :style="{ 'background-image': `url(${data.thumbnail})` }"></span>
+                <h2 class="history-item-title">{{ data.title }}</h2>
+              </a>
+            </li>
+          </ul>
+        </section>
+        <nav class="history-paging">
+          <router-link class="text-hidden paging-link shortcut first" :to="{ name: 'history', params: { page: pagingData.first } }">First</router-link>
+          <router-link class="text-hidden paging-link shortcut prev" :to="{ name: 'history', params: { page: pagingData.prev } }">Prev</router-link>
+          <router-link class="paging-link page" v-for="page in pagingData.end - pagingData.start + 1" :key="page" :class="{ current: (pagingData.start + page - 1) === pagingData.page }" :to="{ name: 'history', params: { page: pagingData.start + page - 1 } }">{{ pagingData.start + page - 1 }}</router-link>
+          <router-link class="text-hidden paging-link shortcut next" :to="{ name: 'history', params: { page: pagingData.next } }">Next</router-link>
+          <router-link class="text-hidden paging-link shortcut last" :to="{ name: 'history', params: { page: pagingData.last } }">Last</router-link>
+        </nav>
+      </div>
+    </div>
+  </script>
+
+
+  <!-- ============================================================
+       APP ROOT
+       ============================================================ -->
+  <div id="app"></div>
+
+  <!-- Vue 2 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.min.js"></script>
+  <!-- Vue Router 3 CDN (Vue2용) -->
+  <script src="https://cdn.jsdelivr.net/npm/vue-router@3.6.5/dist/vue-router.min.js"></script>
+
+  <!-- App JS -->
+  <script src="js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,466 @@
+/* ============================================================
+   GLOBAL HUB PORTAL NAVIGATION BAR
+   ============================================================ */
+
+#global-hub-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 44px;
+  background: rgba(18, 16, 26, 0.85) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  z-index: 99999 !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 0 40px !important;
+  box-sizing: border-box !important;
+  font-family: 'Outfit', sans-serif !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Logo */
+#global-hub-nav .hub-logo {
+  display: flex !important;
+  align-items: center !important;
+}
+
+#global-hub-nav .hub-logo a {
+  display: flex !important;
+  align-items: center !important;
+  text-decoration: none !important;
+}
+
+#global-hub-nav .hub-logo img {
+  height: 24px !important;
+  width: auto !important;
+  display: block !important;
+  transition: opacity 0.2s ease-in-out !important;
+}
+
+#global-hub-nav .hub-logo a:hover img {
+  opacity: 0.8 !important;
+}
+
+/* Nav Menu */
+#global-hub-nav .hub-menu {
+  display: flex !important;
+  align-items: center !important;
+  gap: 15px !important;
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
+#global-hub-nav .hub-link {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+  text-decoration: none !important;
+  transition: color 0.3s, text-shadow 0.3s !important;
+  padding: 5px 10px !important;
+  border-radius: 4px !important;
+  letter-spacing: 0.5px !important;
+}
+
+#global-hub-nav .hub-link:hover {
+  color: #ffffff !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Active Update 1 (update1: Whisper of the Devil) */
+#global-hub-nav .hub-link.active-update1 {
+  color: #ffffff !important;
+  background: rgba(138, 43, 226, 0.2) !important;
+  border: 1px solid rgba(138, 43, 226, 0.4) !important;
+  text-shadow: 0 0 10px rgba(186, 85, 211, 0.8) !important;
+}
+
+/* Active Update 2 (update2: The Road of Choice) */
+#global-hub-nav .hub-link.active-update2 {
+  color: #ffffff !important;
+  background: rgba(29, 228, 255, 0.15) !important;
+  border: 1px solid rgba(29, 228, 255, 0.4) !important;
+  text-shadow: 0 0 10px rgba(29, 228, 255, 0.8) !important;
+}
+
+#global-hub-nav .hub-divider {
+  color: rgba(255, 255, 255, 0.2) !important;
+  font-size: 14px !important;
+}
+
+/* Right button */
+#global-hub-nav .hub-home-btn {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #ffdd6b !important;
+  text-decoration: none !important;
+  text-transform: uppercase !important;
+  border: 1px solid rgba(255, 221, 107, 0.4) !important;
+  padding: 4px 12px !important;
+  border-radius: 20px !important;
+  transition: all 0.3s !important;
+  letter-spacing: 1px !important;
+}
+
+#global-hub-nav .hub-home-btn:hover {
+  background: #ffdd6b !important;
+  color: #000000 !important;
+  box-shadow: 0 0 10px rgba(255, 221, 107, 0.6) !important;
+}
+
+/* ============================================================
+   LAYOUT SHIFT OVERRIDES (update2)
+   ============================================================ */
+
+#header {
+  top: 44px !important;
+}
+
+.layout-wrap {
+  padding-top: calc(var(--layout-header-height, 90px) + 44px) !important;
+}
+
+#header aside {
+  top: 44px !important;
+}
+
+#header.mobile-header {
+  top: 44px !important;
+}
+
+/* Desktop Navigation Center Alignment Overrides */
+@media screen and (min-width: 1025px) {
+  .header-navigation {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    margin: 0 !important;
+    width: auto !important;
+    flex-grow: 0 !important;
+    z-index: 10 !important;
+  }
+
+  .header-navigation > ul {
+    display: flex !important;
+    flex-grow: 0 !important;
+    justify-content: center !important;
+  }
+
+  .header-navigation > ul > li {
+    flex-grow: 0 !important;
+    width: 230px !important;
+    max-width: none !important;
+    padding: 0 15px !important;
+  }
+
+  .header-navigation > ul > li > .nav-menu {
+    font-size: 16px !important;
+    letter-spacing: -0.3px !important;
+  }
+
+  .header-page-menu {
+    margin-left: auto !important;
+  }
+}
+
+/* Reputation System (System 2) Table Contrast Improvements */
+.sys-table.sys2-theme {
+  background: rgba(12, 22, 12, 0.85) !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5) !important;
+  border: 1px solid rgba(120, 200, 80, 0.25) !important;
+  border-radius: 12px !important;
+}
+
+.sys2-theme td.sys-table-num {
+  background: rgba(100, 200, 60, 0.12) !important;
+  color: #92ec56 !important;
+  text-shadow: 0 0 12px rgba(109, 201, 48, 0.5) !important;
+}
+
+.sys2-theme td.sys-table-label {
+  background: rgba(100, 200, 60, 0.08) !important;
+  color: #92ec56 !important;
+  text-shadow: 0 0 12px rgba(109, 201, 48, 0.5) !important;
+}
+
+.sys2-theme td.sys-table-desc {
+  background: transparent !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+  font-weight: 500 !important;
+}
+
+.sys-table-notice {
+  color: #3c5038 !important;
+  text-shadow: none !important;
+  font-weight: bold !important;
+}
+
+/* Mobile responsive styling for the Global Hub Bar */
+@media screen and (max-width: 1024px) {
+  /* Prevent horizontal scroll issues */
+  body, html {
+    overflow-x: hidden !important;
+    width: 100vw !important;
+  }
+  #wrap {
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
+  .layout-wrap {
+    min-width: 100vw !important;
+    width: 100vw !important;
+    overflow-x: hidden !important;
+    padding-top: calc(85px + 90px) !important;
+  }
+
+  /* Global Hub Nav */
+  #global-hub-nav {
+    padding: 0 25px !important;
+    height: 90px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+  
+  #global-hub-nav .hub-logo img {
+    height: 48px !important;
+  }
+  
+  #global-hub-nav .hub-menu {
+    display: flex !important;
+    align-items: center !important;
+    gap: 15px !important;
+    position: static !important;
+    transform: none !important;
+  }
+  
+  #global-hub-nav .hub-link {
+    font-size: 22px !important;
+    padding: 8px 16px !important;
+    border-radius: 6px !important;
+    text-shadow: none !important;
+  }
+  
+  #global-hub-nav .hub-divider {
+    font-size: 22px !important;
+  }
+  
+  #global-hub-nav .hub-home-btn {
+    display: none !important;
+  }
+  
+  /* Stacked Responsive Header (CSS Grid) */
+  #header {
+    top: 90px !important;
+    height: 85px !important;
+    min-width: 100vw !important;
+    position: fixed !important;
+    left: 0 !important;
+    right: 0 !important;
+    translate: none !important;
+    background: #181624 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+  #header.mobile-header {
+    top: 90px !important;
+  }
+  #header aside {
+    top: 90px !important;
+  }
+  .header-wrap {
+    position: relative !important;
+    display: grid !important;
+    grid-template-areas: 
+      "logo menu"
+      "nav nav" !important;
+    grid-template-columns: 1fr auto !important;
+    grid-template-rows: auto auto !important;
+    align-items: center !important;
+    row-gap: 8px !important;
+    padding: 8px 16px !important;
+    box-sizing: border-box !important;
+    height: 100% !important;
+    max-width: 100vw !important;
+  }
+  .header-logo {
+    grid-area: logo !important;
+    display: flex !important;
+    justify-content: flex-start !important;
+    margin: 0 !important;
+  }
+  .header-logo-link {
+    margin: 0 !important;
+    width: 80px !important;
+    height: 30px !important;
+    background-size: contain !important;
+  }
+  .header-navigation {
+    grid-area: nav !important;
+    margin-left: 0 !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    flex-grow: 0 !important;
+  }
+  .header-navigation > ul {
+    display: flex !important;
+    justify-content: space-around !important;
+    width: 100% !important;
+    gap: 0 !important;
+    flex-grow: 1 !important;
+    flex-wrap: nowrap !important;
+  }
+  .header-navigation > ul > li {
+    max-width: none !important;
+    flex-grow: 1 !important;
+    padding: 0 !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
+  .header-navigation > ul > li > .nav-menu {
+    height: 25px !important;
+    line-height: 25px !important;
+    font-size: 12px !important;
+    padding: 0 4px !important;
+  }
+  .header-navigation > ul > li > .nav-menu::before {
+    display: none !important;
+  }
+  .header-page-menu {
+    grid-area: menu !important;
+    margin-top: 0 !important;
+    justify-self: end !important;
+  }
+  .header-page-menu::before {
+    display: none !important;
+  }
+  .header-page-menu ul {
+    gap: 8px !important;
+  }
+  .header-page-menu .icon-menu {
+    width: 30px !important;
+    height: 30px !important;
+    background-size: 30px 30px !important;
+  }
+  .header-page-menu .icon-menu::before {
+    width: 24px !important;
+    height: 24px !important;
+  }
+  .header-page-menu .icon-menu::after {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  .header-page-menu .icon-menu .icon-ripple {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  /* Main View Scaling */
+  #main {
+    width: 2560px !important;
+    height: 1351px !important;
+    transform: scale(calc(100vw / 2560)) !important;
+    transform-origin: top left !important;
+    margin-bottom: calc(-1351px * (1 - (100vw / 2560))) !important;
+    left: 0 !important;
+  }
+
+  /* System Pages - Inner Layout */
+  .sys-page-inner {
+    padding: 40px 20px 60px !important;
+    gap: 30px !important;
+  }
+
+  /* Typography Adjustments */
+  .sys-title-text {
+    font-size: 24px !important;
+    white-space: normal !important;
+    flex-wrap: wrap !important;
+    line-height: 1.3 !important;
+    gap: 8px !important;
+  }
+  .sys-title-deco {
+    font-size: 16px !important;
+  }
+
+  /* Content Blocks */
+  .sys-content-block {
+    padding: 20px 16px 22px !important;
+  }
+  .sys-content-title-box {
+    font-size: 18px !important;
+    padding: 6px 24px !important;
+    margin-bottom: 16px !important;
+  }
+  .sys-content-list li {
+    font-size: 13px !important;
+    padding-left: 18px !important;
+  }
+  .sys-content-list li::before {
+    font-size: 14px !important;
+    left: 2px !important;
+  }
+  .sys-content-list li br {
+    display: none !important;
+  }
+
+  /* System 2 - Stacked Reputation Table Cards */
+  .sys-table, .sys-table tbody, .sys-table tr, .sys-table td {
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .sys-table colgroup {
+    display: none !important;
+  }
+  .sys-table tr {
+    margin-bottom: 20px !important;
+    border: 1px solid rgba(120, 200, 80, 0.3) !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    background: rgba(12, 22, 12, 0.85) !important;
+  }
+  .sys-table tr:last-child {
+    margin-bottom: 0 !important;
+  }
+  .sys2-theme td.sys-table-num {
+    padding: 8px 12px !important;
+    font-size: 16px !important;
+    text-align: center !important;
+    background: rgba(100, 200, 60, 0.15) !important;
+    color: #92ec56 !important;
+    text-shadow: 0 0 12px rgba(109, 201, 48, 0.5) !important;
+  }
+  .sys2-theme td.sys-table-label {
+    padding: 10px 12px !important;
+    font-size: 14px !important;
+    text-align: center !important;
+    background: rgba(100, 200, 60, 0.1) !important;
+    border-top: 1px dashed rgba(120, 200, 80, 0.2) !important;
+    border-bottom: 1px dashed rgba(120, 200, 80, 0.2) !important;
+    color: #92ec56 !important;
+    text-shadow: 0 0 12px rgba(109, 201, 48, 0.5) !important;
+  }
+  .sys2-theme td.sys-table-desc {
+    padding: 14px 16px !important;
+    font-size: 13px !important;
+    text-align: left !important;
+    background: transparent !important;
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-weight: 500 !important;
+  }
+
+  /* Footer Adjustment */
+  #footer {
+    margin-top: 0 !important;
+    padding: 20px 10px !important;
+    height: auto !important;
+    line-height: 1.5 !important;
+    font-size: 10px !important;
+  }
+}

@@ -1,0 +1,1617 @@
+/* ============================================================
+   PAGES CSS
+   각 페이지별 스타일 (소스의 floating 값들을 CSS 변수로 변환)
+   floating(top, left) => --top: topPx; --left: leftPx;
+   ============================================================ */
+
+/* ============================================================
+   MAIN PAGE - 인트로
+   ============================================================ */
+#main-intro {
+  background: url('../img/web/page/main/intro/bg.jpg') no-repeat center 0;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  height: 1376px;
+}
+
+/* char-1: floating(-89, 0) => top: -89px, left: 0px */
+#main-intro .char-1 {
+  --top: -89px;
+  --left: 0px;
+  width: 2583px;
+  height: 1376px;
+  position: absolute;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+}
+
+#main-intro .char-1 svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+#main-intro .char-1 .char-1-effect-img {
+  position: absolute;
+  transform: translate(404px, 77px);
+  animation: blinking2 1.5s ease-in infinite 2s alternate backwards;
+}
+
+#main-intro .char-1 .char-1-hand-img {
+  position: absolute;
+  transform: translate(1040px, 571px);
+}
+
+/* mirror: floating(548, 990) */
+#main-intro .mirror {
+  --top: 548px;
+  --left: 990px;
+  position: absolute;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  background: url('../img/web/page/main/intro/mirror.png') no-repeat 0 0;
+  background-size: 591px 749px;
+  width: 591px;
+  height: 749px;
+}
+
+/* mirror-effect: floating(673, 1146) */
+#main-intro .mirror-effect {
+  --top: 673px;
+  --left: 1146px;
+  position: absolute;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  background: url('../img/web/page/main/intro/mirror_effect.png') no-repeat 0 0;
+  background-size: 290px 262px;
+  width: 290px;
+  height: 262px;
+  animation: blinking2 1.5s ease-in infinite alternate backwards;
+}
+
+/* char-3: floating(628, 1169) */
+#main-intro .char-3 {
+  --top: 628px;
+  --left: 1169px;
+  position: absolute;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  background: url('../img/web/page/main/intro/char_3.png') no-repeat 0 0;
+  background-size: 322px 580px;
+  width: 322px;
+  height: 580px;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+#main-intro .char-3.on {
+  opacity: 1;
+}
+
+/* char-2: floating(626, 1175) */
+#main-intro .char-2 {
+  --top: 626px;
+  --left: 1175px;
+  position: absolute;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  background: url('../img/web/page/main/intro/char_2.png') no-repeat 0 0;
+  background-size: 419px 423px;
+  width: 419px;
+  height: 423px;
+}
+
+/* bg-cover: floating(459, -60) */
+#main-intro .bg-cover {
+  --top: 459px;
+  --left: -60px;
+  position: absolute;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  background: url('../img/web/page/main/intro/bg_cover.png') no-repeat 0 0;
+  background-size: 2645px 1053px;
+  width: 2645px;
+  height: 1053px;
+}
+
+/* title: floating(760, 143) */
+#main-intro .main-title {
+  --top: 760px;
+  --left: 143px;
+  position: absolute;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  width: 2183px;
+  height: 527px;
+}
+
+#main-intro .main-title svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* char-3-hover zone: floating(399, 1010) */
+#main-intro .char-3-hover {
+  --top: 399px;
+  --left: 1010px;
+  position: absolute;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  width: 533px;
+  height: 593px;
+  cursor: pointer;
+}
+
+/* ============================================================
+   MAIN PAGE - 업데이트
+   ============================================================ */
+#main-update {
+  background: url('../img/web/page/main/update/bg.jpg') no-repeat center 0;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  height: 1440px;
+}
+
+/* title: floating(168, 930) */
+#main-update .update-title {
+  --top: 168px;
+  --left: 930px;
+  position: absolute;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  width: 700px !important;
+  height: auto !important;
+  background: none !important;
+  text-align: center;
+}
+
+#main-update .update-title .title {
+  font-family: 'Cinzel', serif !important;
+  font-size: 56px !important;
+  font-weight: 900 !important;
+  color: #ffffff !important;
+  -webkit-text-stroke: 1.5px #5836db !important;
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.3),
+    0 0 20px rgba(88, 54, 219, 0.8),
+    0 4px 15px rgba(0, 0, 0, 0.9) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 3px !important;
+  line-height: 1.1 !important;
+  margin-bottom: 20px;
+}
+
+#main-update .update-title .sub-title {
+  font-family: 'Outfit', sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  color: #d1c9ea !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9) !important;
+  line-height: 1.6 !important;
+}
+
+/* menu 공통: floating(475) */
+#main-update .update-deco-butterfly {
+  position: absolute !important;
+  top: 370px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 76px !important;
+  height: 86px !important;
+  animation: flutter 3s ease-in-out infinite alternate !important;
+}
+
+#main-update .update-deco-butterfly img {
+  width: 100% !important;
+  height: auto !important;
+}
+
+@keyframes flutter {
+  0% { transform: translateX(-50%) translateY(0px); }
+  50% { transform: translateX(-50%) translateY(-8px); }
+  100% { transform: translateX(-50%) translateY(0px); }
+}
+
+#main-update .update-menu {
+  --top: 475px;
+  position: absolute;
+  top: var(--top);
+  transition-property: scale;
+}
+
+#main-update .update-menu:hover {
+  scale: 1.1;
+}
+
+/* map-senario: floating(false, 652) */
+#main-update .update-menu-map {
+  --left: 652px;
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  background: url('../img/web/page/main/update/btn_map-senario.png') no-repeat 0 0;
+  background-size: 395px 668px;
+  width: 395px;
+  height: 668px;
+}
+
+/* monster: floating(false, 1081) */
+#main-update .update-menu-monster {
+  --left: 1081px;
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  background: url('../img/web/page/main/update/btn_monster.png') no-repeat 0 0;
+  background-size: 395px 668px;
+  width: 395px;
+  height: 668px;
+}
+
+/* npc: floating(false, 1509) */
+#main-update .update-menu-npc {
+  --left: 1509px;
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  background: url('../img/web/page/main/update/btn_npc.png') no-repeat 0 0;
+  background-size: 395px 668px;
+  width: 395px;
+  height: 668px;
+}
+
+#main-update .update-menu .menu-title {
+  position: absolute !important;
+  top: 42px !important;
+  left: 0 !important;
+  width: 100% !important;
+  font-family: 'Cinzel', serif !important;
+  font-size: 20px !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.9),
+    0 0 10px rgba(255, 255, 255, 0.4) !important;
+  letter-spacing: 1.5px !important;
+  text-align: center !important;
+  text-transform: uppercase !important;
+  transition: all 0.3s ease !important;
+}
+
+#main-update .update-menu:hover .menu-title {
+  color: #ffdd6b !important;
+  text-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.9),
+    0 0 15px rgba(255, 221, 107, 0.8) !important;
+}
+
+#main-update .update-menu .menu-btn {
+  position: absolute !important;
+  bottom: 30px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+  pointer-events: none !important;
+  transition: all 0.3s ease !important;
+}
+
+#main-update .update-menu:hover .menu-btn {
+  text-shadow:
+    0 1px 5px rgba(0, 0, 0, 0.9),
+    0 0 8px rgba(255, 255, 255, 0.8) !important;
+}
+
+/* ============================================================
+   SENARIO PAGE
+   ============================================================ */
+#senario {
+  --lt-color: #fff;
+  background: url('../img/web/page/senario/bg.jpg') no-repeat center 0;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  height: 1351px;
+}
+
+/* description: floating(138, 780) */
+#senario .senario-description {
+  --top: 138px;
+  --left: 780px;
+  position: absolute;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  background: url('../img/web/page/senario/frame.png') no-repeat 0 0;
+  background-size: 858px 907px;
+  width: 858px;
+  height: 907px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#senario .senario-description p {
+  display: block;
+  margin: -60px 0 0 295px;
+  width: 410px;
+  color: #220f4f;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 36px;
+  letter-spacing: -0.5px;
+  text-align: center;
+  white-space: normal;
+}
+
+#senario .senario-description p+p {
+  margin: 30px 0 0 300px;
+}
+
+/* char: floating(211, 408) */
+#senario .senario-char {
+  --top: 211px;
+  --left: 408px;
+  position: absolute;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  background: url('../img/web/page/senario/char.png') no-repeat 0 0;
+  background-size: 671px 1134px;
+  width: 671px;
+  height: 1134px;
+}
+
+/* ============================================================
+   MAP PAGE
+   ============================================================ */
+#map {
+  position: relative;
+  --map-color: #000;
+  --map-thumbnail-icon-color: #fff;
+  --map-sub-title-icon-color: #fff;
+  --map-sub-title-icon-background-color: #267f4a;
+}
+
+.map-view {
+  --animation-duration: 0.75s;
+  --animation-distance-y: 100px;
+  position: relative;
+  overflow: hidden;
+  min-height: calc(100vh - var(--layout-header-height));
+}
+
+/* title: floating(145, 663) */
+.map-view .map-title {
+  --top: 145px;
+  --left: 620px;
+  position: absolute;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+}
+
+/* thumbnail: floating(144) left: 944 */
+.map-view .map-thumbnail {
+  --top: 144px;
+  --left: 944px;
+  position: absolute;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* sub-title, description: left: 944, top: 666 */
+.map-view .map-sub-title,
+.map-view .map-description {
+  --top: 666px;
+  --left: 944px;
+  position: absolute;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  color: var(--map-color);
+  width: 450px !important;
+}
+
+.map-view .map-sub-title {
+  display: flex;
+  font-weight: bold;
+  font-size: 18px;
+  font-family: NanumBarunGothic, serif;
+}
+
+.map-view .map-description {
+  --top: 709px;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 25px;
+  letter-spacing: -0.5px;
+}
+
+.map-view .map-description p+p {
+  margin-top: 25px;
+}
+
+/* thumbnail-2: left: 1462 */
+.map-view .map-thumbnail-2 {
+  --top: 144px;
+  --left: 1462px;
+  position: absolute;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.map-view .map-sub-title-2,
+.map-view .map-description-2 {
+  --top: 666px;
+  --left: 1462px;
+  position: absolute;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  color: var(--map-color);
+  width: 450px !important;
+}
+
+.map-view .map-sub-title-2 {
+  display: flex;
+  font-weight: bold;
+  font-size: 18px;
+  font-family: NanumBarunGothic, serif;
+}
+
+.map-view .map-description-2 {
+  --top: 709px;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 25px;
+  letter-spacing: -0.5px;
+}
+
+.map-view .map-description-2 p+p {
+  margin-top: 25px;
+}
+
+/* zoom button */
+.map-view .map-zoom-btn {
+  position: absolute;
+  right: 17px;
+  bottom: 17px;
+  border: 1px solid var(--map-thumbnail-icon-color);
+  background: rgba(255, 255, 255, 0.3);
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-property: background;
+  overflow: hidden;
+}
+
+.map-view .map-zoom-btn:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.map-view .map-zoom-btn .icon-zoom {
+  display: block;
+  position: relative;
+  width: 26px;
+  height: 26px;
+}
+
+.map-view .map-zoom-btn .icon-zoom::before,
+.map-view .map-zoom-btn .icon-zoom::after {
+  display: block;
+  position: absolute;
+  background: var(--map-thumbnail-icon-color);
+  content: "";
+}
+
+.map-view .map-zoom-btn .icon-zoom::before {
+  top: 9px;
+  left: 5px;
+  width: 9px;
+  height: 1px;
+}
+
+.map-view .map-zoom-btn .icon-zoom::after {
+  top: 5px;
+  left: 9px;
+  width: 1px;
+  height: 9px;
+}
+
+.map-view .map-zoom-btn .icon-zoom span {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.map-view .map-zoom-btn .icon-zoom span::before,
+.map-view .map-zoom-btn .icon-zoom span::after {
+  display: block;
+  position: absolute;
+  content: "";
+}
+
+.map-view .map-zoom-btn .icon-zoom span::before {
+  top: 0;
+  left: 0;
+  border: 1px solid var(--map-thumbnail-icon-color);
+  border-radius: 50%;
+  width: 19px;
+  height: 19px;
+  box-sizing: border-box;
+}
+
+.map-view .map-zoom-btn .icon-zoom span::after {
+  top: 18px;
+  left: 19px;
+  transform: rotate(34deg);
+  border-radius: 1px;
+  background: var(--map-thumbnail-icon-color);
+  width: 7px;
+  height: 2px;
+}
+
+/* MAP 1 - 데베시스: 4b2e22.jpg(1076x562)=bg, 236a91.jpg(502x481)=title, 3a4d28.jpg(502x481)=thumbnail */
+/* MAP 1 - 데베시스: map/1/bg.jpg(2560x1351)=bg, map/1/title.png(221x158)=title, map/1/thumbnail.jpg(1016x481)=thumbnail */
+#map-1 {
+  background: url('../img/web/page/map/1/bg.jpg') no-repeat center 0;
+  background-size: cover;
+  height: 1351px;
+}
+
+#map-1 .map-title {
+  background: url('../img/web/page/map/1/title.png') no-repeat 0 0;
+  background-size: 221px 158px;
+  width: 221px;
+  height: 158px;
+}
+
+#map-1 .map-thumbnail {
+  background: url('../img/web/page/map/1/thumbnail.jpg') no-repeat 0 0;
+  background-size: 1016px 481px;
+  width: 1016px;
+  height: 481px;
+}
+
+/* MAP 2 - 속삭임의 언덕: map/2/bg.jpg=bg, map/2/title.png(235x230)=title, map/2/thumbnail.jpg(1016x481)=thumbnail */
+#map-2 {
+  background: url('../img/web/page/map/2/bg.jpg') no-repeat center 0;
+  background-size: cover;
+  height: 1351px;
+}
+
+#map-2 .map-title {
+  background: url('../img/web/page/map/2/title.png') no-repeat 0 0;
+  background-size: 235px 230px;
+  width: 235px;
+  height: 230px;
+}
+
+#map-2 .map-thumbnail {
+  background: url('../img/web/page/map/2/thumbnail.jpg') no-repeat 0 0;
+  background-size: 1016px 481px;
+  width: 1016px;
+  height: 481px;
+}
+
+/* MAP 3 - 눈먼 새의 둥지: map/3/bg.jpg=bg, map/3/title.png(237x262)=title, map/3/thumbnail.jpg(1016x481)=thumbnail */
+#map-3 {
+  background: url('../img/web/page/map/3/bg.jpg') no-repeat center 0;
+  background-size: cover;
+  height: 1351px;
+}
+
+#map-3 .map-title {
+  background: url('../img/web/page/map/3/title.png') no-repeat 0 0;
+  background-size: 237px 262px;
+  width: 237px;
+  height: 262px;
+}
+
+#map-3 .map-thumbnail {
+  background: url('../img/web/page/map/3/thumbnail.jpg') no-repeat 0 0;
+  background-size: 1016px 481px;
+  width: 1016px;
+  height: 481px;
+}
+
+/* MAP 4 - 리키모 폐케: map/4/bg.jpg=bg, map/4/title.png(194x226)=title, map/4/thumbnail_1.jpg(502x481)=thumbnail1, map/4/thumbnail_2.jpg(502x481)=thumbnail2 */
+#map-4 {
+  background: url('../img/web/page/map/4/bg.jpg') no-repeat center 0;
+  background-size: cover;
+  height: 1351px;
+}
+
+#map-4 .map-title {
+  background: url('../img/web/page/map/4/title.png') no-repeat 0 0;
+  background-size: 194px 226px;
+  width: 194px;
+  height: 226px;
+}
+
+#map-4 .map-thumbnail {
+  background: url('../img/web/page/map/4/thumbnail_1.jpg') no-repeat 0 0;
+  background-size: 502px 481px;
+  width: 502px;
+  height: 481px;
+}
+
+#map-4 .map-thumbnail-2 {
+  background: url('../img/web/page/map/4/thumbnail_2.jpg') no-repeat 0 0;
+  background-size: 502px 481px;
+  width: 502px;
+  height: 481px;
+}
+
+/* MAP IMAGE POPUPS */
+/* Map1: map/1/image.jpg(1361x710) */
+.map-image-1 {
+  background: url('../img/web/page/map/1/image.jpg') no-repeat 0 0;
+  background-size: 1361px 710px;
+  width: 1361px;
+  height: 710px;
+  flex-shrink: 0;
+}
+
+/* Map2: map/2/image.jpg(1361x710) */
+.map-2-image-1 {
+  background: url('../img/web/page/map/2/image.jpg') no-repeat 0 0;
+  background-size: 1361px 710px;
+  width: 1361px;
+  height: 710px;
+  flex-shrink: 0;
+}
+
+/* Map3: map/3/image.jpg(1361x710) */
+.map-3-image-1 {
+  background: url('../img/web/page/map/3/image.jpg') no-repeat 0 0;
+  background-size: 1361px 710px;
+  width: 1361px;
+  height: 710px;
+  flex-shrink: 0;
+}
+
+/* Map4 popups: map/4/image_1.jpg(1076x562), map/4/image_2.jpg(1076x562) */
+.map-4-image-1 {
+  background: url('../img/web/page/map/4/image_1.jpg') no-repeat 0 0;
+  background-size: 1076px 562px;
+  width: 1076px;
+  height: 562px;
+  flex-shrink: 0;
+}
+
+.map-4-image-2 {
+  background: url('../img/web/page/map/4/image_2.jpg') no-repeat 0 0;
+  background-size: 1076px 562px;
+  width: 1076px;
+  height: 562px;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   BOSS MONSTER PAGE
+   ============================================================ */
+#boss-monster {
+  --lt-color: #fff;
+  --boss-monster-color: #fff;
+  background: url('../img/web/page/boss-monster/bg.jpg') no-repeat center 0;
+  background-size: cover;
+  position: relative;
+  min-height: calc(100vh - var(--layout-header-height));
+}
+
+.boss-monster-view {
+  --animation-duration: 0.75s;
+  --animation-distance-x: 100px;
+  position: relative;
+}
+
+/* title: floating(387, 681) */
+.boss-monster-view .bm-title {
+  --top: 387px;
+  --left: 681px;
+  position: absolute;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+}
+
+/* sub-title, description: floating(516, 685) */
+.boss-monster-view .bm-sub-title,
+.boss-monster-view .bm-description {
+  --top: 516px;
+  --left: 685px;
+  position: absolute;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  color: var(--boss-monster-color);
+  width: 290px !important;
+}
+
+.boss-monster-view .bm-sub-title {
+  font-weight: bold;
+  font-size: 18px;
+  font-family: NanumBarunGothic, serif;
+}
+
+.boss-monster-view .bm-description {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 25px;
+  letter-spacing: -0.3px;
+}
+
+.boss-monster-view .bm-description p+p {
+  margin-top: 25px;
+}
+
+/* Boss Monster 1 - 괴조 페리도트 */
+#boss-monster-1 {
+  position: relative;
+}
+
+#boss-monster-1 .bm-title {
+  background: url('../img/web/page/boss-monster/1/title.png') no-repeat 0 0;
+  background-size: 359px 96px;
+  width: 359px;
+  height: 96px;
+}
+
+/* image: floating(186, 994) */
+#boss-monster-1 .bm-image {
+  --top: 186px;
+  --left: 994px;
+  position: absolute;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  background: url('../img/web/page/boss-monster/1/image.png') no-repeat 0 0;
+  background-size: 1553px 830px;
+  width: 1553px;
+  height: 830px;
+}
+
+/* Boss Monster 2 - 라우마 */
+#boss-monster-2 {
+  position: relative;
+}
+
+#boss-monster-2 .bm-title {
+  background: url('../img/web/page/boss-monster/2/title.png') no-repeat 0 0;
+  background-size: 179px 96px;
+  width: 179px;
+  height: 96px;
+}
+
+/* image: floating(161, 1124) */
+#boss-monster-2 .bm-image {
+  --top: 161px;
+  --left: 1124px;
+  position: absolute;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  background: url('../img/web/page/boss-monster/2/image.png') no-repeat 0 0;
+  background-size: 949px 1081px;
+  width: 949px;
+  height: 1081px;
+}
+
+/* Boss Monster 3 - 길티네 */
+#boss-monster-3 {
+  position: relative;
+}
+
+#boss-monster-3 .bm-title {
+  background: url('../img/ce6b2c.png') no-repeat 0 0;
+  background-size: 949px 677px;
+  width: 949px;
+  height: 677px;
+}
+
+/* image: floating(199, 732) */
+#boss-monster-3 .bm-image {
+  --top: 199px;
+  --left: 732px;
+  position: absolute;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  background: url('../img/web/page/boss-monster/3/image.png') no-repeat 0 0;
+  background-size: 1326px 1068px;
+  width: 1326px;
+  height: 1068px;
+}
+
+/* Boss Monster 4 - 벨리알 */
+#boss-monster-4 {
+  position: relative;
+}
+
+#boss-monster-4 .bm-title {
+  background: url('../img/1f2188.png') no-repeat 0 0;
+  background-size: 1262px 1016px;
+  width: 1262px;
+  height: 1016px;
+}
+
+/* image: floating(169, 843) */
+#boss-monster-4 .bm-image {
+  --top: 169px;
+  --left: 843px;
+  position: absolute;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  background: url('../img/web/page/boss-monster/4/image.png') no-repeat 0 0;
+  background-size: 1517px 1100px;
+  width: 1517px;
+  height: 1100px;
+}
+
+/* ============================================================
+   NORMAL MONSTER PAGE
+   ============================================================ */
+#normal-monster {
+  --lt-color: #fff;
+  --normal-monster-color: #fff;
+  background: url('../img/web/page/normal-monster/bg.jpg') no-repeat center 0;
+  background-size: 2560px auto;
+  position: relative;
+}
+
+.normal-monster-item {
+  position: relative;
+}
+
+.normal-monster-item .nm-title {
+  position: absolute;
+}
+
+.normal-monster-item .nm-image {
+  position: absolute;
+}
+
+.normal-monster-item .nm-text {
+  position: absolute;
+  color: var(--normal-monster-color);
+  width: 420px !important;
+}
+
+.nm-description {
+  font-size: 15px;
+  line-height: 25px;
+}
+
+.nm-description p+p {
+  margin-top: 25px;
+}
+
+/* odd items: title/text left=1362 */
+.normal-monster-item:nth-child(odd) .nm-title,
+.normal-monster-item:nth-child(odd) .nm-text {
+  --left: 1362px;
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+}
+
+/* even items: title/text left=681 */
+.normal-monster-item:nth-child(even) .nm-title,
+.normal-monster-item:nth-child(even) .nm-text {
+  --left: 681px;
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+}
+
+/* 괴조 쥬얼 - item 1: top=200, image floating(109, 726) */
+.normal-monster-item:nth-child(1) .nm-title {
+  --top: 200px;
+  top: var(--top);
+  background: url('../img/web/page/normal-monster/title_1.png') no-repeat 0 0;
+  background-size: 272px 91px;
+  width: 272px;
+  height: 91px;
+}
+
+.normal-monster-item:nth-child(1) .nm-image {
+  --top: 109px;
+  --left: 726px;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  background: url('../img/web/page/normal-monster/image_1.png') no-repeat 0 0;
+  background-size: 458px 402px;
+  width: 458px;
+  height: 402px;
+}
+
+.normal-monster-item:nth-child(1) .nm-text {
+  --top: 317px;
+  top: var(--top);
+}
+
+/* 바위 트롤 - item 2 */
+.normal-monster-item:nth-child(2) .nm-title {
+  --top: 592px;
+  top: var(--top);
+  background: url('../img/web/page/normal-monster/title_2.png') no-repeat 0 0;
+  background-size: 250px 91px;
+  width: 250px;
+  height: 91px;
+}
+
+.normal-monster-item:nth-child(2) .nm-image {
+  --top: 597px;
+  --left: 1234px;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  background: url('../img/web/page/normal-monster/image_2.png') no-repeat 0 0;
+  background-size: 735px 333px;
+  width: 735px;
+  height: 333px;
+}
+
+.normal-monster-item:nth-child(2) .nm-text {
+  --top: 712px;
+  top: var(--top);
+}
+
+/* 데베시스 거미 - item 3 */
+.normal-monster-item:nth-child(3) .nm-title {
+  --top: 1021px;
+  top: var(--top);
+  background: url('../img/web/page/normal-monster/title_3.png') no-repeat 0 0;
+  background-size: 358px 94px;
+  width: 358px;
+  height: 94px;
+}
+
+.normal-monster-item:nth-child(3) .nm-image {
+  --top: 1001px;
+  --left: 630px;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  background: url('../img/web/page/normal-monster/image_3.png') no-repeat 0 0;
+  background-size: 656px 305px;
+  width: 656px;
+  height: 305px;
+}
+
+.normal-monster-item:nth-child(3) .nm-text {
+  --top: 1136px;
+  top: var(--top);
+}
+
+/* 라가나즈 - item 4 */
+.normal-monster-item:nth-child(4) .nm-title {
+  --top: 1472px;
+  top: var(--top);
+  background: url('../img/web/page/normal-monster/title_4.png') no-repeat 0 0;
+  background-size: 233px 94px;
+  width: 233px;
+  height: 94px;
+}
+
+.normal-monster-item:nth-child(4) .nm-image {
+  --top: 1378px;
+  --left: 1241px;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  background: url('../img/web/page/normal-monster/image_4.png') no-repeat 0 0;
+  background-size: 659px 437px;
+  width: 659px;
+  height: 437px;
+}
+
+.normal-monster-item:nth-child(4) .nm-text {
+  --top: 1586px;
+  top: var(--top);
+}
+
+/* 지브리나 - item 5 */
+.normal-monster-item:nth-child(5) .nm-title {
+  --top: 1915px;
+  top: var(--top);
+  background: url('../img/web/page/normal-monster/title_5.png') no-repeat 0 0;
+  background-size: 232px 91px;
+  width: 232px;
+  height: 91px;
+}
+
+.normal-monster-item:nth-child(5) .nm-image {
+  --top: 1785px;
+  --left: 638px;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  background: url('../img/web/page/normal-monster/image_5.png') no-repeat 0 0;
+  background-size: 614px 505px;
+  width: 614px;
+  height: 505px;
+}
+
+.normal-monster-item:nth-child(5) .nm-text {
+  --top: 2030px;
+  top: var(--top);
+}
+
+/* 바인 - item 6 */
+.normal-monster-item:nth-child(6) .nm-title {
+  --top: 2438px;
+  top: var(--top);
+  background: url('../img/web/page/normal-monster/title_6.png') no-repeat 0 0;
+  background-size: 121px 91px;
+  width: 121px;
+  height: 91px;
+}
+
+.normal-monster-item:nth-child(6) .nm-image {
+  --top: 2339px;
+  --left: 1222px;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  background: url('../img/web/page/normal-monster/image_6.png') no-repeat 0 0;
+  background-size: 672px 524px;
+  width: 672px;
+  height: 524px;
+}
+
+.normal-monster-item:nth-child(6) .nm-text {
+  --top: 2552px;
+  top: var(--top);
+}
+
+/* 치우카 - item 7 */
+.normal-monster-item:nth-child(7) .nm-title {
+  --top: 2948px;
+  top: var(--top);
+  background: url('../img/web/page/normal-monster/title_7.png') no-repeat 0 0;
+  background-size: 177px 92px;
+  width: 177px;
+  height: 92px;
+}
+
+.normal-monster-item:nth-child(7) .nm-image {
+  --top: 2841px;
+  --left: 585px;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  background: url('../img/web/page/normal-monster/image_7.png') no-repeat 0 0;
+  background-size: 768px 504px;
+  width: 768px;
+  height: 504px;
+}
+
+.normal-monster-item:nth-child(7) .nm-text {
+  --top: 3064px;
+  top: var(--top);
+}
+
+/* 바우바드 - item 8 */
+.normal-monster-item:nth-child(8) .nm-title {
+  --top: 3525px;
+  top: var(--top);
+  background: url('../img/web/page/normal-monster/title_8.png') no-repeat 0 0;
+  background-size: 232px 91px;
+  width: 232px;
+  height: 91px;
+}
+
+.normal-monster-item:nth-child(8) .nm-image {
+  --top: 3448px;
+  --left: 1226px;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  background: url('../img/web/page/normal-monster/image_8.png') no-repeat 0 0;
+  background-size: 765px 408px;
+  width: 765px;
+  height: 408px;
+}
+
+.normal-monster-item:nth-child(8) .nm-text {
+  --top: 3638px;
+  top: var(--top);
+}
+
+/* Normal monster page height */
+#normal-monster .monsters-container {
+  position: relative;
+  height: 4200px;
+}
+
+/* ============================================================
+   NPC PAGE
+   ============================================================ */
+#npc {
+  --lt-color: #fff;
+  --npc-color: #000;
+  background: url('../img/web/page/npc/bg.jpg') no-repeat center 0;
+  background-size: cover;
+  position: relative;
+  height: 1351px;
+}
+
+.npc-view {
+  --animation-duration: 0.75s;
+  --animation-distance-x: 100px;
+  position: relative;
+}
+
+/* title: floating(387, 681) / left common: 1449 */
+.npc-view .npc-title {
+  --top: 387px;
+  --left: 681px;
+  position: absolute;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+}
+
+/* sub-title, description: left 1449, top 500 */
+.npc-view .npc-sub-title,
+.npc-view .npc-description {
+  --top: 500px;
+  --left: 1449px;
+  position: absolute;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  color: var(--npc-color);
+  width: 450px !important;
+}
+
+.npc-view .npc-sub-title {
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 25px;
+  font-family: NanumBarunGothic, serif;
+}
+
+.npc-view .npc-description {
+  --top: 555px;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 25px;
+  letter-spacing: -0.3px;
+}
+
+.npc-view .npc-description p+p {
+  margin-top: 25px;
+}
+
+/* NPC 1 - 파텔로 */
+#npc-1 .npc-title {
+  background: url('../img/web/page/npc/1/title.png') no-repeat 0 0;
+  background-size: 176px 100px;
+  width: 176px;
+  height: 100px;
+}
+
+/* image: floating(225, 872) */
+#npc-1 .npc-image {
+  --top: 225px;
+  --left: 872px;
+  position: absolute;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  background: url('../img/web/page/npc/1/image.png') no-repeat 0 0;
+  background-size: 473px 1510px;
+  width: 473px;
+  height: 1510px;
+}
+
+/* NPC 2 - 슈비에 */
+/* ac7c7b.png(473x1510) = 슈비에 타이틀 */
+#npc-2 .npc-title {
+  background: url('../img/web/page/npc/2/title.png') no-repeat 0 0;
+  background-size: 173px 96px;
+  width: 173px;
+  height: 96px;
+}
+
+/* image: floating(263, 814). bc9d7e.png(500x1169) = 슈비에 캐릭터 */
+#npc-2 .npc-image {
+  --top: 263px;
+  --left: 814px;
+  position: absolute;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  background: url('../img/web/page/npc/2/image.png') no-repeat 0 0;
+  background-size: 792px 1135px;
+  width: 792px;
+  height: 1135px;
+}
+
+/* NPC 3 - 라셀리스: cc96f9.jpg(2560x1351)=배경처럼 쓰는 큰 이미지→타이틀로, 5e1cea.png(594x1342)=캐릭터 */
+#npc-3 .npc-title {
+  background: url('../img/web/page/npc/3/title.png') no-repeat 0 0;
+  background-size: 231px 96px;
+  width: 231px;
+  height: 96px;
+}
+
+/* image: floating(312, 866) */
+#npc-3 .npc-image {
+  --top: 312px;
+  --left: 866px;
+  position: absolute;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  background: url('../img/web/page/npc/3/image.png') no-repeat 0 0;
+  background-size: 500px 1169px;
+  width: 500px;
+  height: 1169px;
+}
+
+/* NPC 4 - 마르타: 타이틀 재사용, 2a26e6.png(468x949)=마르타 캐릭터 */
+#npc-4 .npc-title {
+  background: url('../img/web/page/npc/4/title.png') no-repeat 0 0;
+  background-size: 178px 96px;
+  width: 178px;
+  height: 96px;
+}
+
+/* image: floating(291, 797) */
+#npc-4 .npc-image {
+  --top: 291px;
+  --left: 797px;
+  position: absolute;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  background: url('../img/web/page/npc/4/image.png') no-repeat 0 0;
+  background-size: 594px 1342px;
+  width: 594px;
+  height: 1342px;
+}
+
+/* NPC 5 - 쥬리링: 166984.png(576x825)=타이틀, 604a72.png(516x1209)=서브 그래픽, 875ed4.png(792x855)=캐릭터 */
+#npc-5 .npc-title {
+  background: url('../img/web/page/npc/5/title.png') no-repeat 0 0;
+  background-size: 175px 100px;
+  width: 175px;
+  height: 100px;
+}
+
+/* image: floating(408, 735) */
+#npc-5 .npc-image {
+  --top: 408px;
+  --left: 735px;
+  position: absolute;
+  top: var(--top);
+  left: calc(50% + var(--left) - (var(--floating-base-width) / 2));
+  background: url('../img/web/page/npc/5/image.png') no-repeat 0 0;
+  background-size: 664px 572px;
+  width: 664px;
+  height: 572px;
+}
+
+/* ============================================================
+   HISTORY PAGE
+   ============================================================ */
+#history {
+  position: relative;
+  background: radial-gradient(circle at 0.25px 0.25px, #e5e5e5 1px, #fdfdfd 0) 0 0 / 3px 3px;
+  min-height: calc(100vh - var(--layout-header-height));
+  overflow: hidden;
+}
+
+.history-content {
+  margin: 92px auto 160px;
+  width: 1450px;
+  overflow: hidden;
+}
+
+.history-title {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  color: #000;
+  font-weight: lighter;
+  font-size: 24px;
+  line-height: 36px;
+  text-transform: uppercase;
+}
+
+.history-title::before {
+  display: block;
+  margin: 0 7px 0 0;
+  background: #000;
+  width: 2px;
+  height: 18px;
+  content: "";
+}
+
+.history-title em {
+  font-weight: bold;
+}
+
+.history-title em::before {
+  content: "\00a0";
+}
+
+.history-list {
+  margin: 37px 0 0;
+}
+
+.history-list ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 54px 47px;
+}
+
+.history-list a {
+  display: block;
+  position: relative;
+  transition-property: border;
+  border: 1px solid #b9b9b9;
+  width: 450px;
+  height: 304px;
+  overflow: hidden;
+}
+
+.history-list a::after {
+  position: absolute;
+  opacity: 0;
+  z-index: 3;
+  transition-property: opacity;
+  inset: 0;
+  background: #fff;
+  content: "";
+}
+
+.history-list a:hover {
+  border-color: #fc1aa7;
+}
+
+.history-list a:hover::after {
+  opacity: 0.43;
+}
+
+.history-list a:hover .history-thumbnail {
+  transform: scale(1.1);
+}
+
+.history-thumbnail {
+  display: block;
+  transition-property: transform;
+  background: #000 no-repeat center;
+  background-size: 100% auto;
+  width: 450px;
+  height: 258px;
+}
+
+.history-item-title {
+  position: relative;
+  z-index: 1;
+  background: #33313e;
+  height: 46px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 46px;
+  text-align: center;
+}
+
+/* Paging */
+.history-paging {
+  display: flex;
+  justify-content: center;
+  margin: 50px auto;
+}
+
+.paging-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-property: color, font-weight;
+  background: transparent;
+  width: 29px;
+  height: 29px;
+  color: #535353;
+  font-size: 18px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.paging-link.current,
+.paging-link:hover {
+  color: #000;
+  font-weight: bold;
+}
+
+.paging-link.page+.shortcut {
+  margin-left: 12px;
+}
+
+.paging-link.shortcut {
+  position: relative;
+  transition-property: background;
+  margin: 0 6px;
+  border: 1px solid #867d7e;
+  background: #fff;
+}
+
+.paging-link.shortcut::before,
+.paging-link.shortcut::after {
+  display: block;
+  position: absolute;
+  rotate: 45deg;
+  margin: auto;
+  inset: 0 0 0 5px;
+  border: 1px solid #867d7e;
+  border-top: 0;
+  border-right: 0;
+  width: 10px;
+  height: 10px;
+  content: "";
+}
+
+.paging-link.shortcut:hover {
+  background: #e2e2e2;
+}
+
+.paging-link.shortcut+.page {
+  margin-left: 6px;
+}
+
+.paging-link.first::before {
+  translate: -3px;
+}
+
+.paging-link.first::after {
+  translate: 3px;
+}
+
+.paging-link.last::before {
+  translate: -3px;
+}
+
+.paging-link.last::after {
+  translate: 3px;
+}
+
+.paging-link.prev::after,
+.paging-link.next::after {
+  display: none;
+}
+
+.paging-link.next::before,
+.paging-link.last::before,
+.paging-link.next::after,
+.paging-link.last::after {
+  rotate: 225deg;
+  inset: 0 5px 0 0;
+}
+
+/* ============================================================
+   ANIMATIONS (CSS Keyframes)
+   ============================================================ */
+@keyframes blinking2 {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.2;
+  }
+}
+
+@keyframes jello-horizontal {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+/* ============================================================
+   SVG DISPLACEMENT MASK FILTERS
+   ============================================================ */
+#main-intro .char-1 .displacement {
+  filter: url('#displacementFilter1');
+}
+
+#main-intro .main-title .displacement {
+  filter: url('#displacementFilter2');
+}
+
+/* ============================================================
+   ENGLISH localization font and title overrides
+   ============================================================ */
+body {
+  font-family: 'Outfit', sans-serif !important;
+}
+
+/* Boss Monster Title (Dark background - White text) */
+.boss-monster-view .bm-title {
+  background: none !important;
+  width: 350px !important;
+  height: auto !important;
+  font-family: 'Cinzel', serif !important;
+  font-size: 42px !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.4), 0 0 20px rgba(0, 0, 0, 0.8) !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  line-height: 1.2 !important;
+  text-align: left !important;
+  transform: translateY(-20px);
+  white-space: normal !important;
+  word-wrap: normal !important;
+  word-break: keep-all !important;
+}
+
+/* Map Title (Light background - Black text - Wrapped to prevent overlapping thumbnail) */
+.map-view .map-title {
+  background: none !important;
+  width: 320px !important;
+  height: auto !important;
+  font-family: 'Cinzel', serif !important;
+  font-size: 42px !important;
+  font-weight: 800 !important;
+  color: #000000 !important;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 15px rgba(255, 255, 255, 0.4) !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  line-height: 1.2 !important;
+  text-align: left !important;
+  transform: translateY(-20px);
+  white-space: normal !important;
+  word-wrap: normal !important;
+  word-break: keep-all !important;
+}
+
+/* NPC Title (Light background - Black text - Wrapped to prevent overlapping image) */
+.npc-view .npc-title {
+  background: none !important;
+  width: 300px !important;
+  height: auto !important;
+  font-family: 'Cinzel', serif !important;
+  font-size: 42px !important;
+  font-weight: 800 !important;
+  color: #000000 !important;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 15px rgba(255, 255, 255, 0.4) !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  line-height: 1.2 !important;
+  text-align: left !important;
+  transform: translateY(-20px);
+  white-space: normal !important;
+  word-wrap: normal !important;
+  word-break: keep-all !important;
+}
+
+/* Normal Monster Title */
+.normal-monster-item .nm-title {
+  background: none !important;
+  width: 400px !important;
+  height: auto !important;
+  font-family: 'Cinzel', serif !important;
+  font-size: 32px !important;
+  font-weight: 800 !important;
+  color: #f3c246 !important;
+  text-shadow: 0 0 10px rgba(243, 194, 70, 0.3), 0 0 15px rgba(0, 0, 0, 0.9) !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  line-height: 1.2 !important;
+  text-align: left !important;
+  transform: translateY(-10px);
+  white-space: normal !important;
+  word-wrap: normal !important;
+  word-break: keep-all !important;
+}

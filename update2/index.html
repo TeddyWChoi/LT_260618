@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>LaTale - An Exciting and Amazing Story</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="The Road of Choice">
+  <meta property="og:description" content="The Prelude of Destiny starting with the Breath of the Earth">
+  <meta property="og:image" content="img/og.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/mobile.css">
+  <link rel="stylesheet" href="css/global-hub.css">
+</head>
+<body>
+  <!-- Global Hub Portal Navigation Bar -->
+  <div id="global-hub-nav">
+    <div class="hub-logo">
+      <a href="https://latale.papayaplay.com/latale.do" target="_self">
+        <img src="img/logo_papaya.png" alt="Papaya Play" />
+      </a>
+    </div>
+    <div class="hub-menu">
+      <a href="../update1/index.html" class="hub-link">Whisper of the Devil</a>
+      <span class="hub-divider">/</span>
+      <a href="../update2/index.html" class="hub-link active-update2">The Road of Choice</a>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       VUE TEMPLATES (script type=text/x-template)
+       ============================================================ -->
+
+  <!-- ROOT APP -->
+  <script type="text/x-template" id="tpl-app">
+    <div id="wrap">
+      <layout-wrap></layout-wrap>
+    </div>
+  </script>
+
+  <!-- LAYOUT WRAP -->
+  <script type="text/x-template" id="tpl-layout-wrap">
+    <div class="layout-wrap">
+      <layout-header-mobile v-if="isMobile && headerView"></layout-header-mobile>
+      <layout-header v-else-if="headerView"></layout-header>
+      <router-view></router-view>
+      <layout-footer-mobile v-if="isMobile && footerView"></layout-footer-mobile>
+      <layout-footer v-else-if="footerView"></layout-footer>
+      <popup-overlay></popup-overlay>
+    </div>
+  </script>
+
+  <!-- LAYOUT HEADER -->
+  <script type="text/x-template" id="tpl-layout-header">
+    <header id="header">
+      <div class="header-wrap">
+        <!-- Logo -->
+        <h1 class="header-logo">
+          <router-link to="/main" class="header-logo-link">The Road of Choice</router-link>
+        </h1>
+        <!-- Main Navigation -->
+        <nav class="header-navigation">
+          <ul>
+            <li>
+              <router-link to="/system/3" class="nav-menu">Dungeon Point System</router-link>
+            </li>
+            <li>
+              <router-link to="/system/1" class="nav-menu">Constellation System</router-link>
+            </li>
+            <li>
+              <router-link to="/system/2" class="nav-menu">Reputation System</router-link>
+            </li>
+          </ul>
+        </nav>
+        <!-- Page Menu Icons -->
+        <nav class="header-page-menu">
+          <ul>
+            <li>
+              <a class="icon-menu home text-hidden" href="https://latale.papayaplay.com/latale.do" target="_self">
+                <span class="icon-ripple">Go to Official Website</span>
+              </a>
+            </li>
+            <li>
+              <button
+                class="icon-menu music text-hidden"
+                :class="{ playing: soundState }"
+                type="button"
+                @click="soundToggle"
+              >
+                <span class="icon-ripple">BGM</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  </script>
+
+  <!-- LAYOUT FOOTER -->
+  <script type="text/x-template" id="tpl-layout-footer">
+    <footer id="footer" :class="footerType">{{ footerHtml }}</footer>
+  </script>
+
+  <!-- LAYOUT HEADER MOBILE -->
+  <script type="text/x-template" id="tpl-layout-header-mobile">
+    <header id="header" class="mobile-header">
+      <div class="header">
+        <button class="menu-open text-hidden" type="button" @click="menuOpen = true">메뉴 열기</button>
+        <h1 class="to-main">
+          <router-link to="/main">The Road of Choice</router-link>
+        </h1>
+        <a class="shortcut home text-hidden" href="https://latale.papayaplay.com/latale.do" target="_self">홈페이지 바로가기</a>
+      </div>
+      <div v-if="menuOpen" class="aside-menu-back" @click="menuOpen = false"></div>
+      <div class="aside-menu" :class="{ open: menuOpen }">
+        <div class="user-menu">
+          <button class="menu-close text-hidden" type="button" @click="menuOpen = false">메뉴 닫기</button>
+        </div>
+        <nav class="mobile-navigation">
+          <ul>
+            <li>
+              <router-link to="/system/3" class="menu">Dungeon Point System</router-link>
+            </li>
+            <li>
+              <router-link to="/system/1" class="menu">Constellation System</router-link>
+            </li>
+            <li>
+              <router-link to="/system/2" class="menu">Reputation System</router-link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  </script>
+
+  <!-- LAYOUT FOOTER MOBILE -->
+  <script type="text/x-template" id="tpl-layout-footer-mobile">
+    <footer id="footer" class="mobile-footer" :class="footerType">{{ footerHtml }}</footer>
+  </script>
+
+  <!-- POPUP -->
+  <script type="text/x-template" id="tpl-popup">
+    <transition name="popup">
+      <section
+        v-if="popupFlag"
+        class="popup-overlay"
+        :class="{ 'popup-play': popupPlayFlag }"
+        @click.self="closePopup"
+      >
+        <!-- Image Popup -->
+        <template v-if="popupImageFlag">
+          <h1 class="hide">View Image</h1>
+          <div class="popup-body">
+            <button class="popup-close-btn text-hidden-overflow" type="button" @click="closePopup">
+              <span>Close</span>
+            </button>
+            <div class="popup-images" :class="popupImageClass && popupImageClass[0]">
+              <div class="flicking-viewport">
+                <div class="flicking-camera" :style="{ transform: 'translateX(-' + (currentIndex * 100) + '%)' }">
+                  <div
+                    v-for="(imgClass, idx) in popupImageClass"
+                    :key="idx"
+                    :class="imgClass"
+                    style="flex-shrink:0; width:100%;"
+                  ></div>
+                </div>
+              </div>
+              <template v-if="hasMultipleImages">
+                <button class="popup-arrow prev text-hidden-overflow" type="button" @click="prevImage">
+                  <span>Prev</span>
+                </button>
+                <button class="popup-arrow next text-hidden-overflow" type="button" @click="nextImage">
+                  <span>Next</span>
+                </button>
+              </template>
+            </div>
+          </div>
+        </template>
+        <!-- Video Popup -->
+        <template v-if="popupPlayFlag">
+          <h1 class="hide">Watch Video</h1>
+          <div class="popup-body">
+            <button class="popup-close-btn text-hidden-overflow" type="button" @click="closePopup">
+              <span>Close</span>
+            </button>
+            <div class="popup-player" ref="youtubePlayer" id="youtube-player"></div>
+          </div>
+        </template>
+      </section>
+    </transition>
+  </script>
+
+  <!-- LEFT TITLE -->
+  <script type="text/x-template" id="tpl-left-title">
+    <h1 class="left-title system-left-title">
+      <span class="left-title-inner">
+        <span class="left-title-text">
+          <slot></slot>
+        </span>
+      </span>
+    </h1>
+  </script>
+
+  <!-- MAIN VIEW -->
+  <script type="text/x-template" id="tpl-main-view">
+    <div>
+      <section v-if="isMobile" id="main-mobile" class="floating-child">
+        <h1 class="title text-hidden" data-anim="zoom-out" data-anim-delay="200">The Road of Choice</h1>
+      </section>
+      <section v-else id="main" class="floating-child">
+        <div class="char-1 text-hidden" data-anim="slide-bottom" data-anim-delay="200">Promised Land Character 1</div>
+        <div class="char-1-effect text-hidden">Effect 1</div>
+        <div class="bg-cover-1 text-hidden">Background 1</div>
+        <div class="char-2 text-hidden" data-anim="slide-left">Promised Land Character 2</div>
+        <div class="char-2-effect text-hidden">Effect 2</div>
+        <div class="bg-cover-2 text-hidden">Background 2</div>
+        <div class="char-3-effect text-hidden">Effect 3</div>
+        <div class="char-3 text-hidden" data-anim="slide-right">Promised Land Character 3</div>
+        <div class="bg-cover-3 text-hidden">Background 3</div>
+        <div class="bg-cover-4 text-hidden" data-anim="fade">Background 4</div>
+        <div class="char-4 text-hidden" data-anim="fade">Promised Land Character 4</div>
+        <div class="char-5 text-hidden" data-anim="slide-left">Promised Land Character 5</div>
+        <div class="char-6 text-hidden" data-anim="slide-right">Promised Land Character 6</div>
+        <div class="bg-cover-5 text-hidden" data-anim="fade">Background 5</div>
+        <div class="bg-cover-6 text-hidden" data-anim="fade">Background 6</div>
+        <h1 class="main-title text-hidden" data-anim="slide-bottom">The Promised Land</h1>
+      </section>
+    </div>
+  </script>
+
+  <!-- SYSTEM 1 VIEW (별자리 시스템 개선) -->
+  <script type="text/x-template" id="tpl-system1-view">
+    <section id="system-1">
+      <div class="sys-page-inner">
+        <h1 class="sys1-title sys-title-text" data-anim="slide-top">
+          <span class="sys-title-deco">✦✦</span>
+          Constellation System Improvements
+          <span class="sys-title-deco">✦✦</span>
+        </h1>
+        <div class="sys1-content-1 sys-content-block sys1-theme" data-anim="slide-top" data-anim-delay="200">
+          <div class="sys-content-title-box">Constellation Expansion</div>
+          <ul class="sys-content-list">
+            <li>The existing Growth/Luck Constellations are classified as Transcendence 1, and Transcendence 2 Growth/Luck Constellations will be added.</li>
+            <li>Transcendence 2 Constellation Points are accumulated and used separately from Transcendence 1 points,<br>and points can be converted using items exclusive to Transcendence 2 Constellation Points.</li>
+          </ul>
+        </div>
+        <div class="sys1-content-2 sys-content-block sys1-theme" data-anim="slide-top" data-anim-delay="400">
+          <div class="sys-content-title-box">Constellation Improvements</div>
+          <ul class="sys-content-list">
+            <li>It becomes easier to check the quantity of items that grant bonus points.</li>
+            <li>Star images will vary depending on the Growth/Luck Constellations of Transcendence 1 and Transcendence 2.</li>
+            <li>When selecting a stat in the stat display area, the corresponding star in the constellation can be immediately identified.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </script>
+
+  <!-- SYSTEM 2 VIEW (평판 시스템 리뉴얼) -->
+  <script type="text/x-template" id="tpl-system2-view">
+    <section id="system-2">
+      <div class="sys-page-inner">
+        <h1 class="sys2-title sys-title-text" data-anim="slide-top">
+          <span class="sys-title-deco">✦✦</span>
+          Reputation System Renewal
+          <span class="sys-title-deco">✦✦</span>
+        </h1>
+        <div class="sys2-content-2 sys-table-block" data-anim="slide-top" data-anim-delay="200">
+          <table class="sys-table sys2-theme">
+            <colgroup>
+              <col style="width:60px">
+              <col style="width:200px">
+              <col>
+            </colgroup>
+            <tbody>
+              <tr>
+                <td class="sys-table-num">1</td>
+                <td class="sys-table-label">Unlock Condition</td>
+                <td class="sys-table-desc">Check the unlock levels for reputation by region. Reputation is automatically unlocked upon reaching the target level.</td>
+              </tr>
+              <tr>
+                <td class="sys-table-num">2</td>
+                <td class="sys-table-label">Levels & Stats</td>
+                <td class="sys-table-desc">The UI has been updated to show reputation levels, required values, and stat bonuses at a single glance.</td>
+              </tr>
+              <tr>
+                <td class="sys-table-num">3</td>
+                <td class="sys-table-label">Exchange Item</td>
+                <td class="sys-table-desc">Directly view and exchange items available through the reputation system using the button interface.</td>
+              </tr>
+              <tr>
+                <td class="sys-table-num">4</td>
+                <td class="sys-table-label">Teleportation</td>
+                <td class="sys-table-desc">Instantly move to the location of the representative NPC for the selected reputation region.</td>
+              </tr>
+              <tr>
+                <td class="sys-table-num">5</td>
+                <td class="sys-table-label">Details</td>
+                <td class="sys-table-desc">Check detailed information such as active areas, dungeons, and points acquisition methods for reputation quests.</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="sys-table-notice">Some details may be subject to change upon official update release.</p>
+        </div>
+      </div>
+    </section>
+  </script>
+
+  <!-- SYSTEM 3 VIEW (던전 포인트 시스템) -->
+  <script type="text/x-template" id="tpl-system3-view">
+    <section id="system-3">
+      <div class="sys-page-inner">
+        <h1 class="sys3-title sys-title-text" data-anim="slide-top">
+          <span class="sys-title-deco">✦✦</span>
+          Dungeon Point System
+          <span class="sys-title-deco">✦✦</span>
+        </h1>
+        <div class="sys3-content-1 sys-content-block sys3-theme" data-anim="slide-top" data-anim-delay="200">
+          <div class="sys-content-title-box">Dungeon Info Addition</div>
+          <ul class="sys-content-list">
+            <li>Dungeon Point information has been added to the top of the Dungeon Info pop-up interface.</li>
+            <li>You can now choose instant entry without setting Dungeon Points directly from the Dungeon Info window.</li>
+          </ul>
+        </div>
+        <div class="sys3-content-2 sys-content-block sys3-theme" data-anim="slide-top" data-anim-delay="400">
+          <div class="sys-content-title-box">Dungeon Difficulty & Point Settings</div>
+          <ul class="sys-content-list">
+            <li>Upon entering a dungeon, you can spend Dungeon Points to set desired effects like stats helpful for dungeon play,<br>move portals, additional rewards, or special missions.</li>
+            <li>Up to 5 effects and 1 mission can be selected.</li>
+            <li>Effects and missions cannot be selected simultaneously.</li>
+            <li>Dungeon Point effects are applied to the dungeon layout upon entry after selection.</li>
+          </ul>
+        </div>
+        <div class="sys3-content-3 sys-content-block sys3-theme" data-anim="slide-top" data-anim-delay="600">
+          <div class="sys-content-title-box">Dungeon Missions</div>
+          <ul class="sys-content-list">
+            <li>Upon entering after selecting a mission in the Dungeon Point settings, you can choose one of 5 missions.</li>
+            <li>While choosing a mission, the character remains invulnerable and cannot move.</li>
+            <li>When mission conditions are met, the claim button in the mini mission window becomes active,<br>allowing you to click it and claim the reward.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </script>
+
+  <!-- ============================================================
+       VUE APP ROOT
+       ============================================================ -->
+  <div id="app"></div>
+
+  <!-- Vue 2 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.min.js"></script>
+  <!-- Vue Router 3 CDN (Vue2용) -->
+  <script src="https://cdn.jsdelivr.net/npm/vue-router@3.6.5/dist/vue-router.min.js"></script>
+
+  <!-- App JS -->
+  <script src="js/app.js"></script>
+</body>
+</html>

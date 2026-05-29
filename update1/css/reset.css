@@ -1,0 +1,65 @@
+/* Reset CSS */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  animation: none 0.3s ease 0s 1 normal none running;
+  transition: none 0.3s ease 0s;
+}
+
+html, body {
+  font-size: 16px;
+}
+
+body {
+  border: 0;
+  background: #fff;
+  padding: 0;
+  font: 16px/1.5 NanumGothic, sans-serif;
+}
+
+body[data-scroll="false"] {
+  overflow: hidden;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: inherit;
+}
+
+.hide {
+  display: none;
+}
+
+.text-hidden {
+  color: transparent !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  letter-spacing: 0 !important;
+}
+
+@counter-style counter-style-pad-2 {
+  system: numeric;
+  symbols: "0" "1" "2" "3" "4" "5" "6" "7" "8" "9";
+  suffix: " ";
+  pad: 2 "0";
+}

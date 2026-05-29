@@ -1,0 +1,665 @@
+/* ============================================================
+   MAIN PAGE
+   ============================================================ */
+#main {
+  background: url('../img/web/page/main/bg.jpg') no-repeat center 0;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  height: 1351px; /* bg.jpg: 2560x1351 */
+}
+
+/* Floating system: top = as-is, left = calc(50% + left - 1280) */
+/* Base width = 2560px => center offset = 1280 */
+
+#main .char-1 {
+  --top: 0px;
+  --left: 776px;
+  background: url('../img/web/page/main/char_1.png') no-repeat 0 0;
+  background-size: contain;
+  width: 1056px;
+  height: 767px;
+}
+
+#main .char-1[data-animation-complete="true"] {
+  animation: animation-floating 1.5s ease-in-out infinite alternate backwards;
+}
+
+#main .char-1-effect {
+  --top: 0px;
+  --left: 842px;
+  background: url('../img/web/page/main/char_1_effect.png') no-repeat 0 0;
+  background-size: contain;
+  width: 904px;
+  height: 777px;
+  animation: animation-blinking 1.5s ease-in-out infinite alternate backwards;
+}
+
+#main .bg-cover-1 {
+  --top: 0px;
+  --left: 1376px;
+  background: url('../img/web/page/main/bg_cover_1.png') no-repeat 0 0;
+  background-size: contain;
+  width: 1184px;
+  height: 1351px;
+}
+
+#main .char-2 {
+  --top: 64px;
+  --left: 1691px;
+  background: url('../img/web/page/main/char_2.png') no-repeat 0 0;
+  background-size: contain;
+  width: 734px;
+  height: 1007px;
+}
+
+#main .char-2[data-animation-complete="true"] {
+  animation: animation-floating 1.5s ease-in-out infinite alternate backwards;
+}
+
+#main .char-2-effect {
+  --top: 0px;
+  --left: 1770px;
+  background: url('../img/web/page/main/char_2_effect.png') no-repeat 0 0;
+  background-size: contain;
+  width: 562px;
+  height: 1097px;
+  animation: animation-blinking 1.7s ease-in-out infinite alternate backwards;
+}
+
+#main .bg-cover-2 {
+  --top: 0px;
+  --left: 0px;
+  background: url('../img/web/page/main/bg_cover_2.png') no-repeat 0 0;
+  background-size: contain;
+  width: 1170px;
+  height: 1351px;
+}
+
+#main .char-3-effect {
+  --top: 0px;
+  --left: 192px;
+  background: url('../img/web/page/main/char_3_effect.png') no-repeat 0 0;
+  background-size: contain;
+  width: 1220px;
+  height: 969px;
+  animation: animation-blinking 1.3s ease-in-out infinite alternate backwards;
+}
+
+#main .char-3 {
+  --top: 0px;
+  --left: 181px;
+  background: url('../img/web/page/main/char_3.png') no-repeat 0 0;
+  background-size: contain;
+  width: 673px;
+  height: 1034px;
+}
+
+#main .char-3[data-animation-complete="true"] {
+  animation: animation-floating 1.5s ease-in-out 0.6s infinite alternate backwards;
+}
+
+#main .bg-cover-3 {
+  --top: 0px;
+  --left: 0px;
+  background: url('../img/web/page/main/bg_cover_3.png') no-repeat 0 0;
+  background-size: contain;
+  width: 2560px;
+  height: 1351px;
+}
+
+#main .bg-cover-4 {
+  --top: 470px;
+  --left: 509px;
+  background: url('../img/web/page/main/bg_cover_4.png') no-repeat 0 0;
+  background-size: contain;
+  width: 1523px;
+  height: 881px;
+  mix-blend-mode: screen;
+}
+
+#main .bg-cover-4[data-animation-complete="true"] {
+  animation: animation-blinking 1.2s ease-in-out infinite alternate backwards;
+}
+
+#main .char-4 {
+  --top: 533px;
+  --left: 1016px;
+  background: url('../img/web/page/main/char_4.png') no-repeat 0 0;
+  background-size: contain;
+  width: 537px;
+  height: 818px;
+}
+
+#main .char-5 {
+  --top: 888px;
+  --left: 1463px;
+  background: url('../img/web/page/main/char_5.png') no-repeat 0 0;
+  background-size: contain;
+  width: 413px;
+  height: 419px;
+}
+
+#main .char-6 {
+  --top: 794px;
+  --left: 701px;
+  background: url('../img/web/page/main/char_6.png') no-repeat 0 0;
+  background-size: contain;
+  width: 400px;
+  height: 537px;
+}
+
+#main .bg-cover-5 {
+  --top: 758px;
+  --left: 883px;
+  background: url('../img/web/page/main/bg_cover_5.png') no-repeat 0 0;
+  background-size: contain;
+  width: 775px;
+  height: 363px;
+  mix-blend-mode: soft-light;
+}
+
+#main .bg-cover-6 {
+  --top: 806px;
+  --left: 1020px;
+  background: url('../img/web/page/main/bg_cover_6.png') no-repeat 0 0;
+  background-size: contain;
+  width: 531px;
+  height: 267px;
+}
+
+#main .main-title {
+  --top: 952px;
+  --left: 1050px;
+  background: url('../img/web/page/main/title.png') no-repeat 0 0;
+  background-size: contain;
+  width: 461px;
+  height: 236px;
+}
+
+/* ============================================================
+   SYSTEM 1 PAGE (별자리 시스템 개선)
+   ============================================================ */
+#system-1 {
+  --layout-left-title-color: #fff;
+  background: url('../img/web/page/system/1/bg.jpg') no-repeat center 0;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* ============================================================
+   SYSTEM 2 PAGE (평판 시스템 리뉴얼)
+   ============================================================ */
+#system-2 {
+  --layout-left-title-color: #fff;
+  background: url('../img/web/page/system/2/bg.jpg') no-repeat center 0;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* ============================================================
+   SYSTEM 3 PAGE (던전 포인트 시스템)
+   ============================================================ */
+#system-3 {
+  --layout-left-title-color: #fff;
+  background: url('../img/web/page/system/3/bg.jpg') no-repeat center 0;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* ============================================================
+   SHARED SYSTEM PAGE INNER CONTAINER
+   ============================================================ */
+.sys-page-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  padding: 100px 40px 120px;
+  box-sizing: border-box;
+  gap: 48px;
+}
+
+/* ============================================================
+   SHARED SYSTEM TEXT STYLES
+   ============================================================ */
+
+/* --- 타이틀 (sys-title-text) --- */
+.sys-title-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font-family: 'NanumGothic', sans-serif;
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* 시스템 1: 시안 */
+#system-1 .sys1-title {
+  color: #c8faff;
+  text-shadow:
+    0 0 18px rgba(0,220,255,0.85),
+    0 0 6px rgba(0,220,255,0.6);
+}
+
+#system-1 .sys-title-deco {
+  color: #7ef7ff;
+  font-size: 22px;
+  opacity: 0.85;
+}
+
+/* 시스템 2: 연두색 */
+#system-2 .sys2-title {
+  color: #d4ffc8;
+  text-shadow:
+    0 0 18px rgba(100,220,60,0.85),
+    0 0 6px rgba(100,220,60,0.6);
+}
+
+#system-2 .sys-title-deco {
+  color: #b2f08a;
+  font-size: 22px;
+  opacity: 0.85;
+}
+
+/* 시스템 3: 핑크 */
+#system-3 .sys3-title {
+  color: #ffc8e8;
+  text-shadow:
+    0 0 18px rgba(255,80,180,0.85),
+    0 0 6px rgba(255,80,180,0.6);
+}
+
+#system-3 .sys-title-deco {
+  color: #ff9de0;
+  font-size: 22px;
+  opacity: 0.85;
+}
+
+/* --- content 블록 (sys-content-block) --- */
+.sys-content-block {
+  background: rgba(255,255,255,0.04);
+  border-radius: 12px;
+  padding: 30px 36px 34px;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
+}
+
+/* 제목 박스 */
+.sys-content-title-box {
+  display: inline-block;
+  margin: 0 auto 22px;
+  border-radius: 50px;
+  padding: 8px 40px;
+  font-family: 'NanumGothic', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -0.3px;
+  text-align: center;
+}
+
+/* 시스템 1 테마 (cyan) */
+.sys1-theme .sys-content-title-box {
+  background: rgba(0,200,230,0.15);
+  border: 2px solid #00d4f0;
+  color: #00d4f0;
+  text-shadow: 0 0 8px rgba(0,200,230,0.5);
+}
+
+/* 시스템 3 테마 (pink) */
+.sys3-theme .sys-content-title-box {
+  background: rgba(240,60,180,0.12);
+  border: 2px solid #f03cba;
+  color: #f03cba;
+  text-shadow: 0 0 8px rgba(240,60,180,0.5);
+}
+
+/* 불릿 포인트 리스트 */
+.sys-content-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sys-content-list li {
+  position: relative;
+  padding-left: 22px;
+  font-family: 'NanumGothic', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.78);
+  text-align: left;
+}
+
+.sys-content-list li::before {
+  content: '•';
+  position: absolute;
+  left: 4px;
+  top: 0;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.sys1-theme .sys-content-list li::before { color: #00d4f0; }
+.sys3-theme .sys-content-list li::before { color: #f03cba; }
+
+/* --- 표 블록 (sys-table-block / sys2) --- */
+.sys-table-block {
+  box-sizing: border-box;
+}
+
+.sys-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: 'NanumGothic', sans-serif;
+}
+
+.sys-table tbody tr {
+  border-bottom: 1px dashed rgba(120,200,80,0.25);
+}
+
+.sys-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.sys-table td {
+  padding: 18px 16px;
+  font-size: 15px;
+  line-height: 1.6;
+  vertical-align: middle;
+}
+
+/* 시스템 2 테마 (green) */
+.sys2-theme td.sys-table-num {
+  background: rgba(100,200,60,0.12);
+  color: #6dc930;
+  font-size: 20px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.sys2-theme td.sys-table-label {
+  background: rgba(100,200,60,0.08);
+  color: #6dc930;
+  font-weight: 900;
+  font-size: 16px;
+  text-align: center;
+}
+
+.sys2-theme td.sys-table-desc {
+  background: rgba(255,255,255,0.03);
+  color: rgba(255,255,255,0.75);
+  font-size: 14px;
+}
+
+.sys-table-notice {
+  margin: 14px 0 0;
+  text-align: center;
+  font-family: 'NanumGothic', sans-serif;
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
+}
+
+/* ============================================================
+   HISTORY PAGE
+   ============================================================ */
+#history {
+  position: relative;
+  background: radial-gradient(circle at 0.25px 0.25px, #e5e5e5 1px, #fdfdfd 0) 0 0 / 3px 3px;
+  min-height: calc(100vh - var(--layout-header-height, 90px));
+  overflow: hidden;
+}
+
+.history-content {
+  margin: 92px auto 160px;
+  width: 1450px;
+  overflow: hidden;
+}
+
+.history-title {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  color: #000;
+  font-weight: lighter;
+  font-size: 24px;
+  line-height: 36px;
+  text-transform: uppercase;
+}
+
+.history-title::before {
+  display: block;
+  margin: 0 7px 0 0;
+  background: #000;
+  width: 2px;
+  height: 18px;
+  content: "";
+}
+
+.history-title em {
+  font-weight: bold;
+}
+
+.history-title em::before {
+  content: "\00a0";
+}
+
+.history-list {
+  margin: 37px 0 0;
+}
+
+.history-list ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 54px 47px;
+}
+
+.history-list a {
+  display: block;
+  position: relative;
+  transition-property: border;
+  transition-duration: 0.3s;
+  border: 1px solid #b9b9b9;
+  width: 450px;
+  height: 304px;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.history-list a::after {
+  position: absolute;
+  opacity: 0;
+  z-index: 3;
+  transition-property: opacity;
+  transition-duration: 0.3s;
+  inset: 0;
+  background: #fff;
+  content: "";
+}
+
+.history-list a:hover {
+  border-color: #fc1aa7;
+}
+
+.history-list a:hover::after {
+  opacity: 0.43;
+}
+
+.history-list a:hover .history-thumbnail {
+  transform: scale(1.1);
+}
+
+.history-thumbnail {
+  display: block;
+  transition-property: transform;
+  transition-duration: 0.3s;
+  background: #000 no-repeat center;
+  background-size: 100% auto;
+  width: 450px;
+  height: 258px;
+}
+
+.history-item-title {
+  position: relative;
+  z-index: 1;
+  background: #33313e;
+  height: 46px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 46px;
+  text-align: center;
+  margin: 0;
+}
+
+/* Paging */
+.history-paging {
+  display: flex;
+  justify-content: center;
+  margin: 50px auto;
+  align-items: center;
+}
+
+.history-paging .paging-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-property: color, font-weight;
+  transition-duration: 0.3s;
+  background: transparent;
+  width: 29px;
+  height: 29px;
+  color: #535353;
+  font-size: 18px;
+  line-height: 20px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.history-paging .paging-link.current,
+.history-paging .paging-link:hover {
+  color: #000;
+  font-weight: bold;
+}
+
+.history-paging .paging-link.shortcut {
+  position: relative;
+  margin: 0 6px;
+  border: 1px solid #867d7e;
+  background: #fff;
+}
+
+.history-paging .paging-link.shortcut::before,
+.history-paging .paging-link.shortcut::after {
+  display: block;
+  position: absolute;
+  rotate: 45deg;
+  margin: auto;
+  inset: 0 0 0 5px;
+  border: 1px solid #867d7e;
+  border-top: 0;
+  border-right: 0;
+  width: 10px;
+  height: 10px;
+  content: "";
+}
+
+.history-paging .paging-link.shortcut:hover {
+  background: #e2e2e2;
+}
+
+.history-paging .paging-link.page + .paging-link.shortcut {
+  margin-left: 12px;
+}
+
+.history-paging .paging-link.shortcut + .paging-link.page {
+  margin-left: 6px;
+}
+
+.history-paging .paging-link.first::before,
+.history-paging .paging-link.last::before {
+  translate: -3px;
+}
+
+.history-paging .paging-link.first::after,
+.history-paging .paging-link.last::after {
+  translate: 3px;
+}
+
+.history-paging .paging-link.prev::after,
+.history-paging .paging-link.next::after {
+  display: none;
+}
+
+.history-paging .paging-link.next::before,
+.history-paging .paging-link.last::before,
+.history-paging .paging-link.next::after,
+.history-paging .paging-link.last::after {
+  rotate: 225deg;
+  inset: 0 5px 0 0;
+}
+
+/* ============================================================
+   ANIMATION CLASSES
+   ============================================================ */
+.anim-hidden {
+  opacity: 0;
+  transform: none;
+}
+
+.anim-slide-top {
+  animation: animation-slide-top 0.75s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.anim-slide-bottom {
+  animation: animation-slide-bottom 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.anim-slide-left {
+  animation: animation-slide-left 0.75s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.anim-slide-right {
+  animation: animation-slide-right 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.anim-fade {
+  animation: animation-fade 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+/* Loading */
+.loading-view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #33313e;
+  color: #fff;
+  font-size: 24px;
+}

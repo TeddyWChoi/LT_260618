@@ -1,0 +1,101 @@
+/* Root */
+:root {
+  -webkit-tap-highlight-color: transparent;
+  text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  tab-size: 4;
+}
+
+*,
+::after,
+::before {
+  animation: none 0.3s ease-in-out 0s 1 normal none running;
+  transition: none 0.3s ease-in-out 0s;
+  box-sizing: border-box;
+  margin: 0;
+  border-width: 0;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-button {
+  display: none;
+}
+::-webkit-scrollbar-track {
+  margin: 0;
+  border: 0;
+  background: #e0e0e0;
+}
+::-webkit-scrollbar-thumb {
+  border: 1px solid #9e9e9e;
+  background: #bdbdbd;
+}
+
+a {
+  text-decoration: none;
+}
+
+strong,
+em {
+  font-style: normal;
+}
+
+strong {
+  font-weight: bold;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea {
+  vertical-align: middle;
+  -webkit-appearance: none;
+  appearance: none;
+  outline-style: none;
+  border-radius: 0;
+  resize: none;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="search"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  border: 1px solid #9e9e9e;
+  background: transparent;
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  border: 0;
+  background: #e0e0e0;
+}

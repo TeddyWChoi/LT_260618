@@ -1,0 +1,191 @@
+/* Google Fonts */
+@import url('https://hangeul.pstatic.net/hangeul_static/css/nanum-gothic.css');
+@import url('https://hangeul.pstatic.net/hangeul_static/css/nanum-barun-gothic.css');
+
+/* CSS Variables */
+:root {
+  --layout-color: #fff;
+  --layout-background-color: #fff;
+  --layout-min-width: 1400px;
+  --layout-max-width: 2560px;
+  --layout-header-height: 90px;
+  --layout-footer-height: 60px;
+  --floating-base-width: 2560px;
+
+  /* Header variables */
+  --header-background-color: #33313e;
+  --header-border-color: #474456;
+  --header-navigation-color: #c8c8c8;
+  --header-navigation-icon-color: #1de4ff;
+  --header-navigation-active-color: #1de4ff;
+  --header-navigation-highlight-color: #1de4ff;
+  --header-navigation-disabled-color: #6e6c6c;
+  --header-navigation-sub-color: #f1f1f1;
+  --header-navigation-sub-background-color: #2d2b36;
+  --header-navigation-sub-active-color: #ffdd6b;
+  --header-navigation-sub-active-background-color: #3c3a44;
+  --header-history-color: #fff;
+  --header-history-active-color: #ffdd6b;
+  --header-game-start-color: #000;
+  --header-game-start-background-color: #ffdd6b;
+  --header-game-start-active-background-color: #e944b5;
+  --header-not-today-color: #fff;
+
+  /* Scroll */
+  --scroll-left: 0px;
+
+  /* Ripple */
+  --ripple-color: rgba(154, 154, 154, 0.4);
+  --ripple-duration: 0.5s;
+}
+
+/* Counter style for right menu */
+@counter-style counter-style-pad-2 {
+  system: numeric;
+  symbols: "0" "1" "2" "3" "4" "5" "6" "7" "8" "9";
+  suffix: " ";
+  pad: 2 "0";
+}
+
+body {
+  border: 0;
+  background: #fff;
+  padding: 0;
+  font: 16px/1.5 NanumGothic, sans-serif;
+}
+
+body[data-scroll="false"] {
+  overflow: hidden;
+}
+
+/* Floating system */
+.floating-child {
+  position: relative;
+}
+
+.floating-child > * {
+  position: absolute;
+  top: var(--top, 0px);
+  left: calc(50% + var(--left, 0px) - (var(--floating-base-width) / 2));
+}
+
+.floating-center {
+  position: absolute;
+  top: var(--top, 0px);
+  left: 50%;
+  translate: calc(-50% + var(--left, 0px));
+}
+
+.floating-unset {
+  position: unset;
+  top: unset;
+  left: unset;
+  translate: unset;
+}
+
+/* Text hidden */
+.text-hidden {
+  color: transparent !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  letter-spacing: 0 !important;
+}
+
+.text-hidden-overflow {
+  overflow: hidden !important;
+  text-indent: -10000em !important;
+}
+
+/* Hide */
+.hide {
+  display: none;
+}
+
+/* Absolute full */
+.absolute-full {
+  position: absolute;
+  inset: 0;
+}
+
+.pointer-none {
+  pointer-events: none;
+}
+
+/* Ripple effect */
+.ripple {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.ripple::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  opacity: 0;
+  z-index: -1;
+  transition-duration: var(--ripple-duration, 0.5s);
+  transition-property: opacity, background, padding, width, height;
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  border-radius: 50%;
+  background: var(--ripple-color, rgba(154, 154, 154, 0.4));
+  padding: 0;
+  width: 0;
+  height: 0;
+  content: "";
+}
+
+.ripple:hover::before {
+  opacity: 1;
+  padding: 50%;
+  width: calc(100% * 1.414);
+  height: calc(100% * 1.414);
+}
+
+/* Keyframes */
+@keyframes animation-floating {
+  0% { translate: 0; }
+  100% { translate: 0 -10px; }
+}
+
+@keyframes animation-blinking {
+  0% { opacity: 1; }
+  100% { opacity: 0.22; }
+}
+
+@keyframes animation-slide-top {
+  0% { opacity: 0; transform: translateY(100px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes animation-slide-bottom {
+  0% { opacity: 0; transform: translateY(-100px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes animation-slide-left {
+  0% { opacity: 0; transform: translateX(100px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes animation-slide-right {
+  0% { opacity: 0; transform: translateX(-100px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes animation-fade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Animation states */
+[data-animation] {
+  opacity: 0;
+}
+
+[data-animation="done"] {
+  opacity: 1;
+}
+
+/* Scroll tracking for fixed header */
