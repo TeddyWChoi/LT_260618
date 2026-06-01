@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>LaTale - An Exciting and Amazing Story</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="The Road of Choice">
+  <meta property="og:title" content="Path of Choice">
   <meta property="og:description" content="The Prelude of Destiny starting with the Breath of the Earth">
   <meta property="og:image" content="img/og.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +29,7 @@
     <div class="hub-menu">
       <a href="../update1/index.html" class="hub-link">Whisper of the Devil</a>
       <span class="hub-divider">/</span>
-      <a href="../update2/index.html" class="hub-link active-update2">The Road of Choice</a>
+      <a href="../update2/index.html" class="hub-link active-update2">Path of Choice</a>
     </div>
   </div>
 
@@ -62,7 +62,7 @@
       <div class="header-wrap">
         <!-- Logo -->
         <h1 class="header-logo">
-          <router-link to="/main" class="header-logo-link">The Road of Choice</router-link>
+          <router-link to="/main" class="header-logo-link">Path of Choice</router-link>
         </h1>
         <!-- Main Navigation -->
         <nav class="header-navigation">
@@ -71,7 +71,7 @@
               <router-link to="/system/3" class="nav-menu">Dungeon Point System</router-link>
             </li>
             <li>
-              <router-link to="/system/1" class="nav-menu">Constellation System</router-link>
+              <router-link to="/system/1" class="nav-menu">Zodiac System</router-link>
             </li>
             <li>
               <router-link to="/system/2" class="nav-menu">Reputation System</router-link>
@@ -113,7 +113,7 @@
       <div class="header">
         <button class="menu-open text-hidden" type="button" @click="menuOpen = true">메뉴 열기</button>
         <h1 class="to-main">
-          <router-link to="/main">The Road of Choice</router-link>
+          <router-link to="/main">Path of Choice</router-link>
         </h1>
         <a class="shortcut home text-hidden" href="https://latale.papayaplay.com/latale.do" target="_self">홈페이지 바로가기</a>
       </div>
@@ -128,7 +128,7 @@
               <router-link to="/system/3" class="menu">Dungeon Point System</router-link>
             </li>
             <li>
-              <router-link to="/system/1" class="menu">Constellation System</router-link>
+              <router-link to="/system/1" class="menu">Zodiac System</router-link>
             </li>
             <li>
               <router-link to="/system/2" class="menu">Reputation System</router-link>
@@ -173,7 +173,7 @@
               </div>
               <template v-if="hasMultipleImages">
                 <button class="popup-arrow prev text-hidden-overflow" type="button" @click="prevImage">
-                  <span>Prev</span>
+                  <span>Previous</span>
                 </button>
                 <button class="popup-arrow next text-hidden-overflow" type="button" @click="nextImage">
                   <span>Next</span>
@@ -211,7 +211,7 @@
   <script type="text/x-template" id="tpl-main-view">
     <div>
       <section v-if="isMobile" id="main-mobile" class="floating-child">
-        <h1 class="title text-hidden" data-anim="zoom-out" data-anim-delay="200">The Road of Choice</h1>
+        <h1 class="title text-hidden" data-anim="zoom-out" data-anim-delay="200">Path of Choice</h1>
       </section>
       <section v-else id="main" class="floating-child">
         <div class="char-1 text-hidden" data-anim="slide-bottom" data-anim-delay="200">Promised Land Character 1</div>
@@ -229,7 +229,7 @@
         <div class="char-6 text-hidden" data-anim="slide-right">Promised Land Character 6</div>
         <div class="bg-cover-5 text-hidden" data-anim="fade">Background 5</div>
         <div class="bg-cover-6 text-hidden" data-anim="fade">Background 6</div>
-        <h1 class="main-title text-hidden" data-anim="slide-bottom">The Promised Land</h1>
+        <h1 class="main-title text-hidden" data-anim="slide-bottom">Path of Choice</h1>
       </section>
     </div>
   </script>
@@ -240,22 +240,22 @@
       <div class="sys-page-inner">
         <h1 class="sys1-title sys-title-text" data-anim="slide-top">
           <span class="sys-title-deco">✦✦</span>
-          Constellation System Improvements
+          Zodiac System Improvements
           <span class="sys-title-deco">✦✦</span>
         </h1>
         <div class="sys1-content-1 sys-content-block sys1-theme" data-anim="slide-top" data-anim-delay="200">
-          <div class="sys-content-title-box">Constellation Expansion</div>
+          <div class="sys-content-title-box">Zodiac Expansion</div>
           <ul class="sys-content-list">
-            <li>The existing Growth/Luck Constellations are classified as Transcendence 1, and Transcendence 2 Growth/Luck Constellations will be added.</li>
-            <li>Transcendence 2 Constellation Points are accumulated and used separately from Transcendence 1 points,<br>and points can be converted using items exclusive to Transcendence 2 Constellation Points.</li>
+            <li>The existing Growth / Lucky Zodiacs are classified as Ascension 1, and Ascension 2 Growth / Lucky Zodiacs are being added.</li>
+            <li>Ascension 2 Zodiac Points accumulate and are spent separately from Ascension 1 points,<br>and can be converted using items dedicated to Ascension 2 Zodiac Points.</li>
           </ul>
         </div>
         <div class="sys1-content-2 sys-content-block sys1-theme" data-anim="slide-top" data-anim-delay="400">
-          <div class="sys-content-title-box">Constellation Improvements</div>
+          <div class="sys-content-title-box">Zodiac Improvements</div>
           <ul class="sys-content-list">
-            <li>It becomes easier to check the quantity of items that grant bonus points.</li>
-            <li>Star images will vary depending on the Growth/Luck Constellations of Transcendence 1 and Transcendence 2.</li>
-            <li>When selecting a stat in the stat display area, the corresponding star in the constellation can be immediately identified.</li>
+            <li>Easier to check the quantity of items that grant bonus points.</li>
+            <li>Star imagery varies depending on whether the Growth / Lucky Zodiac is Ascension 1 or Ascension 2.</li>
+            <li>When you select a stat in the Stats display panel, the corresponding star in the Zodiac is highlighted right away.</li>
           </ul>
         </div>
       </div>
@@ -282,31 +282,31 @@
               <tr>
                 <td class="sys-table-num">1</td>
                 <td class="sys-table-label">Unlock Condition</td>
-                <td class="sys-table-desc">Check the unlock levels for reputation by region. Reputation is automatically unlocked upon reaching the target level.</td>
+                <td class="sys-table-desc">See the unlock level for each region's reputation. Reputation unlocks automatically once you reach the required level.</td>
               </tr>
               <tr>
                 <td class="sys-table-num">2</td>
                 <td class="sys-table-label">Levels & Stats</td>
-                <td class="sys-table-desc">The UI has been updated to show reputation levels, required values, and stat bonuses at a single glance.</td>
+                <td class="sys-table-desc">Reputation level, required values, and stat bonuses are now visible at a glance.</td>
               </tr>
               <tr>
                 <td class="sys-table-num">3</td>
                 <td class="sys-table-label">Exchange Item</td>
-                <td class="sys-table-desc">Directly view and exchange items available through the reputation system using the button interface.</td>
+                <td class="sys-table-desc">View and exchange items available through that reputation directly via the button interface.</td>
               </tr>
               <tr>
                 <td class="sys-table-num">4</td>
-                <td class="sys-table-label">Teleportation</td>
-                <td class="sys-table-desc">Instantly move to the location of the representative NPC for the selected reputation region.</td>
+                <td class="sys-table-label">Travel</td>
+                <td class="sys-table-desc">Travel directly to the representative NPC location for the selected reputation region.</td>
               </tr>
               <tr>
                 <td class="sys-table-num">5</td>
                 <td class="sys-table-label">Details</td>
-                <td class="sys-table-desc">Check detailed information such as active areas, dungeons, and points acquisition methods for reputation quests.</td>
+                <td class="sys-table-desc">See details on reputation quests — active regions, dungeons, and how to earn points.</td>
               </tr>
             </tbody>
           </table>
-          <p class="sys-table-notice">Some details may be subject to change upon official update release.</p>
+          <p class="sys-table-notice">Some details may change at the time of the live update.</p>
         </div>
       </div>
     </section>
@@ -322,27 +322,27 @@
           <span class="sys-title-deco">✦✦</span>
         </h1>
         <div class="sys3-content-1 sys-content-block sys3-theme" data-anim="slide-top" data-anim-delay="200">
-          <div class="sys-content-title-box">Dungeon Info Addition</div>
+          <div class="sys-content-title-box">Dungeon Info Tab Addition</div>
           <ul class="sys-content-list">
-            <li>Dungeon Point information has been added to the top of the Dungeon Info pop-up interface.</li>
-            <li>You can now choose instant entry without setting Dungeon Points directly from the Dungeon Info window.</li>
+            <li>Dungeon Point info has been added to the top of the Dungeon Info window.</li>
+            <li>You can now choose to enter immediately without applying any Dungeon Point settings, directly from the Dungeon Info window.</li>
           </ul>
         </div>
         <div class="sys3-content-2 sys-content-block sys3-theme" data-anim="slide-top" data-anim-delay="400">
-          <div class="sys-content-title-box">Dungeon Difficulty & Point Settings</div>
+          <div class="sys-content-title-box">Difficulty & Point Settings</div>
           <ul class="sys-content-list">
-            <li>Upon entering a dungeon, you can spend Dungeon Points to set desired effects like stats helpful for dungeon play,<br>move portals, additional rewards, or special missions.</li>
+            <li>When entering a dungeon, you can spend Dungeon Points to apply effects that help your play — stat boosts,<br>travel portals, extra rewards, or special missions.</li>
             <li>Up to 5 effects and 1 mission can be selected.</li>
-            <li>Effects and missions cannot be selected simultaneously.</li>
-            <li>Dungeon Point effects are applied to the dungeon layout upon entry after selection.</li>
+            <li>Effects and missions cannot be selected at the same time.</li>
+            <li>Selected Dungeon Point effects are applied to the dungeon when you enter.</li>
           </ul>
         </div>
         <div class="sys3-content-3 sys-content-block sys3-theme" data-anim="slide-top" data-anim-delay="600">
           <div class="sys-content-title-box">Dungeon Missions</div>
           <ul class="sys-content-list">
-            <li>Upon entering after selecting a mission in the Dungeon Point settings, you can choose one of 5 missions.</li>
-            <li>While choosing a mission, the character remains invulnerable and cannot move.</li>
-            <li>When mission conditions are met, the claim button in the mini mission window becomes active,<br>allowing you to click it and claim the reward.</li>
+            <li>After choosing a mission in Dungeon Point settings, on entry you can pick one of 5 mission types.</li>
+            <li>While selecting a mission, the character is invulnerable but cannot move.</li>
+            <li>When a mission condition is met, the Claim button on the on-screen mini mission window becomes active,<br>letting you click it to receive the reward.</li>
           </ul>
         </div>
       </div>

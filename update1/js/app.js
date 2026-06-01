@@ -19,7 +19,7 @@
   };
 
   var SITE_TITLE = 'LaTale - An Exciting and Amazing Story';
-  var PAGE_TITLE = 'Whisper of the Devil';
+  var PAGE_TITLE = 'Devil\'s Whisper';
 
   function getPageTitle(sub) {
     if (sub) return sub + ' - ' + PAGE_TITLE;
@@ -544,7 +544,7 @@
       } else {
         store.footerType = 'white';
       }
-      document.title = getPageTitle('Likimo Pelkė');
+      document.title = getPageTitle('Rikimo Pelke');
       this.$emit('update:left-title', { subTitle: '04' });
       initAnimations();
     },
@@ -595,7 +595,7 @@
     };
   }
 
-  var BossMonster1View = makeBossMonsterView('#tpl-boss-monster-1-view', 'Monstrous Bird Peridot', '01');
+  var BossMonster1View = makeBossMonsterView('#tpl-boss-monster-1-view', 'Peridot, the Strange Bird', '01');
   var BossMonster2View = makeBossMonsterView('#tpl-boss-monster-2-view', 'Lauma', '02');
   var BossMonster3View = makeBossMonsterView('#tpl-boss-monster-3-view', 'Giltine', '03');
   var BossMonster4View = makeBossMonsterView('#tpl-boss-monster-4-view', 'Belial', '04');
@@ -645,9 +645,9 @@
     };
   }
 
-  var Npc1View = makeNpcView('#tpl-npc-1-view', 'Patelo', '01');
+  var Npc1View = makeNpcView('#tpl-npc-1-view', 'Patello', '01');
   var Npc2View = makeNpcView('#tpl-npc-2-view', 'Shuvie', '02');
-  var Npc3View = makeNpcView('#tpl-npc-3-view', 'Lacellis', '03');
+  var Npc3View = makeNpcView('#tpl-npc-3-view', 'Laselis', '03');
   var Npc4View = makeNpcView('#tpl-npc-4-view', 'Marta', '04');
   var Npc5View = makeNpcView('#tpl-npc-5-view', 'Juriring', '05');
 

@@ -5,7 +5,7 @@
      CONFIG
      ============================================================ */
   var siteConfig = {
-    title: "The Road of Choice",
+    title: "Path of Choice",
     siteTitle: "LaTale - An Exciting and Amazing Story",
     copyright: "COPYRIGHT © ACTOZ SOFT CO., LTD. ALL RIGHTS RESERVED.",
     links: {
@@ -503,7 +503,7 @@
   router.afterEach(function(to) {
     var titles = {
       'main': siteConfig.title,
-      'system-1': 'Constellation System | ' + siteConfig.title,
+      'system-1': 'Zodiac System | ' + siteConfig.title,
       'system-2': 'Reputation System | ' + siteConfig.title,
       'system-3': 'Dungeon Point System | ' + siteConfig.title
     };
