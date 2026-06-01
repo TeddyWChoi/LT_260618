@@ -921,7 +921,7 @@
 }
 
 .normal-monster-item:nth-child(1) .nm-text {
-  --top: 260px;
+  --top: 310px;
   top: var(--top);
 }
 
@@ -947,7 +947,7 @@
 }
 
 .normal-monster-item:nth-child(2) .nm-text {
-  --top: 652px;
+  --top: 662px;
   top: var(--top);
 }
 
@@ -973,7 +973,7 @@
 }
 
 .normal-monster-item:nth-child(3) .nm-text {
-  --top: 1081px;
+  --top: 1091px;
   top: var(--top);
 }
 
@@ -999,7 +999,7 @@
 }
 
 .normal-monster-item:nth-child(4) .nm-text {
-  --top: 1532px;
+  --top: 1542px;
   top: var(--top);
 }
 
@@ -1025,7 +1025,7 @@
 }
 
 .normal-monster-item:nth-child(5) .nm-text {
-  --top: 1975px;
+  --top: 1985px;
   top: var(--top);
 }
 
@@ -1051,7 +1051,7 @@
 }
 
 .normal-monster-item:nth-child(6) .nm-text {
-  --top: 2498px;
+  --top: 2508px;
   top: var(--top);
 }
 
@@ -1077,7 +1077,7 @@
 }
 
 .normal-monster-item:nth-child(7) .nm-text {
-  --top: 3008px;
+  --top: 3018px;
   top: var(--top);
 }
 
@@ -1103,7 +1103,7 @@
 }
 
 .normal-monster-item:nth-child(8) .nm-text {
-  --top: 3585px;
+  --top: 3595px;
   top: var(--top);
 }
 
