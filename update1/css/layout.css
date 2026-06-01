@@ -658,8 +658,8 @@ aside {
 .left-title {
   --lt-top: 85px;
   --lt-left: 72px;
-  --lt-width: 68px;
-  --lt-height: 68px;
+  --lt-width: 84px;
+  --lt-height: 84px;
   --lt-color: #000;
 
   display: flex;
@@ -702,8 +702,8 @@ aside {
 }
 
 .left-title-text {
-  font-size: 15px;
-  line-height: 18px;
+  font-size: 14px;
+  line-height: 17px;
 }
 
 .left-title-sub {

@@ -681,7 +681,7 @@
 .left-title {
   --left-title-top: 85px;
   --left-title-left: 72px;
-  --left-title-width: 68px;
+  --left-title-width: 84px;
   --left-title-color: #000;
   display: flex;
   position: absolute;
@@ -719,8 +719,8 @@
 }
 
 .left-title-text {
-  font-size: 15px;
-  line-height: 18px;
+  font-size: 14px;
+  line-height: 17px;
 }
 
 /* White color for system pages */
