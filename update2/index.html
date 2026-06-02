@@ -27,7 +27,7 @@
       </a>
     </div>
     <div class="hub-menu">
-      <a href="../update1/index.html" class="hub-link">Whisper of the Devil</a>
+      <a href="../update1/index.html" class="hub-link">Devil's Whisper</a>
       <span class="hub-divider">/</span>
       <a href="../update2/index.html" class="hub-link active-update2">Path of Choice</a>
     </div>
@@ -111,16 +111,16 @@
   <script type="text/x-template" id="tpl-layout-header-mobile">
     <header id="header" class="mobile-header">
       <div class="header">
-        <button class="menu-open text-hidden" type="button" @click="menuOpen = true">메뉴 열기</button>
+        <button class="menu-open text-hidden" type="button" @click="menuOpen = true">Open Menu</button>
         <h1 class="to-main">
           <router-link to="/main">Path of Choice</router-link>
         </h1>
-        <a class="shortcut home text-hidden" href="https://latale.papayaplay.com/latale.do" target="_self">홈페이지 바로가기</a>
+        <a class="shortcut home text-hidden" href="https://latale.papayaplay.com/latale.do" target="_self">Go to Official Website</a>
       </div>
       <div v-if="menuOpen" class="aside-menu-back" @click="menuOpen = false"></div>
       <div class="aside-menu" :class="{ open: menuOpen }">
         <div class="user-menu">
-          <button class="menu-close text-hidden" type="button" @click="menuOpen = false">메뉴 닫기</button>
+          <button class="menu-close text-hidden" type="button" @click="menuOpen = false">Close Menu</button>
         </div>
         <nav class="mobile-navigation">
           <ul>
