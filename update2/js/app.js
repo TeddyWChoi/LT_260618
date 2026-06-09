@@ -7,13 +7,7 @@
   var siteConfig = {
     title: "Path of Choice",
     siteTitle: "LaTale - An Exciting and Amazing Story",
-    copyright: "COPYRIGHT © ACTOZ SOFT CO., LTD. ALL RIGHTS RESERVED.",
-    links: {
-      ultraBurning: "/event/2025/ultra-burning-5-1/",
-      main: "/event/2025/4q-main/",
-      specialSale: "/news/event#link=CD1C01B66FF443F3C7BC3CD94C0DBC26941E91D00AF3E7E4A6AFD9B773AC37FF33E7E5F17BAC63F879BE876BE519A442",
-      specialSale2: "/news/event#link=66F890F0574046BC887BC64EC44D67B90A3DF830A9C21053C03D5784B0EB2FDCA1C0B7C401F0E218248D399F97BC960D"
-    }
+    copyright: "COPYRIGHT © ACTOZ SOFT CO., LTD. ALL RIGHTS RESERVED."
   };
 
   /* ============================================================
@@ -219,8 +213,7 @@
     data: function() {
       return {
         menuToggleFlag: true,
-        store: store,
-        links: siteConfig.links
+        store: store
       };
     },
     computed: {
@@ -254,7 +247,6 @@
     data: function () {
       return {
         menuOpen: false,
-        links: siteConfig.links,
       };
     },
     watch: {

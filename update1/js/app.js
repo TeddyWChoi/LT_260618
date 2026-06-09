@@ -12,10 +12,6 @@
      ============================================================ */
   var LINKS = {
     site: 'https://latale.papayaplay.com/latale.do',
-    update: 'https://www.latale.com/event/2025/4q-update',
-    ultraBurning: 'https://www.latale.com/event/2025/ultra-burning-5-1/',
-    main: 'https://www.latale.com/event/2025/4q-main/',
-    specialSale: 'https://www.latale.com/news/event#link=CD1C01B66FF443F3C7BC3CD94C0DBC26941E91D00AF3E7E4A6AFD9B773AC37FF33E7E5F17BAC63F879BE876BE519A442',
   };
 
   var SITE_TITLE = 'LaTale - An Exciting and Amazing Story';
