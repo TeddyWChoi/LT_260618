@@ -746,7 +746,7 @@ aside {
 .right-menu {
   position: absolute;
   right: 103px;
-  bottom: calc(50% + -300px);
+  bottom: calc(50% + -250px);
   z-index: 500;
 }
 

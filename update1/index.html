@@ -11,7 +11,9 @@
   <meta property="og:image" content="img/og.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/pages.css">
@@ -129,6 +131,7 @@
         <h1 class="to-main">
           <router-link to="/main">Devil's Whisper</router-link>
         </h1>
+        <a class="shortcut home text-hidden" href="https://latale.papayaplay.com/latale.do" target="_self">Go to Official Website</a>
       </div>
       <div v-if="menuOpen" class="aside-menu-back" @click="menuOpen = false"></div>
       <div class="aside-menu" :class="{ open: menuOpen }">
@@ -691,7 +694,7 @@
       </div>
     </div>
   </script>
-<!-- ============================================================
+  <!-- ============================================================
        BOSS MONSTER VIEWS
        ============================================================ -->
   <script type="text/x-template" id="tpl-boss-monster-wrap-view">
@@ -728,20 +731,20 @@
   <script type="text/x-template" id="tpl-boss-monster-1-view">
     <div v-if="isMobile" id="boss-monster-1-mobile" class="mobile-boss-monster-view floating-child">
       <div class="image floating text-hidden">Image</div>
-      <h1 class="title floating">Peridot, the Strange Bird</h1>
+      <h1 class="title floating">Peridot,<br/> the Strange Bird</h1>
       <div class="text floating">
         <div class="description">
           <p>
-            Leader of the flock of demonic beasts — known as "Strange Birds" — that bear beautiful gemstones in their eyes and chests.<br>
-            Because it harbors the green gemstone Peridot, it is called Peridot the Strange Bird.<br>
-            It is said that long, long ago, the old man who was master of the Sage's Tower would often go to see Peridot.<br>
+            Leader of the flock of demonic beasts — known as "Strange Birds" — that bear beautiful gemstones in their eyes and chests.
+            Because it harbors the green gemstone Peridot, it is called Peridot the Strange Bird.
+            It is said that long, long ago, the old man who was master of the Sage's Tower would often go to see Peridot.
             The Strange Birds generally do not leave their nests or the canyon, but recently they have been flying to Debesys often and threatening the people.
           </p>
         </div>
       </div>
     </div>
     <div v-else id="boss-monster-1" class="boss-monster-view floating-child">
-      <h1 class="bm-title floating" data-anim="slide-left" data-anim-delay="400">Peridot, the Strange Bird</h1>
+      <h1 class="bm-title floating" data-anim="slide-left" data-anim-delay="400">Peridot,<br/> the Strange Bird</h1>
       <div class="bm-image floating text-hidden" data-anim="slide-left" data-anim-delay="0"></div>
       <div class="bm-description floating" style="--top: 565px; --left: 685px;" data-anim="slide-left" data-anim-delay="200">
         <p>
@@ -780,8 +783,7 @@
         <p>
           Once a spirit who prayed for the health and well-being of all life,<br>
           she fell to a demon's temptation and betrayed the master she served.<br>
-          She faced annihilation as the price of her sin, but her master's mercy spared her, and she spent long<br>
-          ages imprisoned.<br>
+          She faced annihilation as the price of her sin, but her master's mercy spared her, and she spent long ages imprisoned.<br>
           Even amid that punishment, she takes a demon's hand once again.<br>
           For Lauma, it was a chance to stand properly before her master once more —<br>
           yet even that choice becomes another wound for her former master.
@@ -816,8 +818,7 @@
         <p>
           Once a spirit who prayed for the health and well-being of all life,<br>
           she fell to a demon's temptation and betrayed the master she served.<br>
-          She faced annihilation as the price of her sin, but her master's mercy spared her, and she spent long<br>
-          ages imprisoned.<br>
+          She faced annihilation as the price of her sin, but her master's mercy spared her, and she spent long ages imprisoned.<br>
           Even amid that punishment, she takes a demon's hand once again.<br>
           For Giltine, there was no hesitation — the chance to become a demon,<br>
           just as before, had come at last.
@@ -834,18 +835,12 @@
       <div class="text floating">
         <div class="description">
           <p>
-            A high-ranking demoness so beautiful that many demons of the demon world<br>
-            crave her power and love.<br>
-            None who sought Belial's heart and failed has ever survived —<br>
-            they died or crumbled to ruin under her dread.<br>
-            Yet, strangely, Belial has become a follower of Barbatos (the demon who defied the gods),<br>
-            eliminating those who stand in his way.<br>
-            Despite her delicate appearance, she stops at nothing<br>
-            to achieve her goals.<br>
-            She introduces herself as a demon who deceives<br>
-            every feeling in the world and delights in lies.<br>
-            She has taken considerable interest in the Adventurer<br>
-            who defeated Barbatos.
+            A high-ranking demoness so beautiful that many demons of the demon world crave her power and love.
+            None who sought Belial's heart and failed has ever survived — they died or crumbled to ruin under her dread.
+            Yet, strangely, Belial has become a follower of Barbatos (the demon who defied the gods), eliminating those who stand in his way.
+            Despite her delicate appearance, she stops at nothing to achieve her goals.
+            She introduces herself as a demon who deceives every feeling in the world and delights in lies.
+            She has taken considerable interest in the Adventurer who defeated Barbatos.
           </p>
         </div>
       </div>

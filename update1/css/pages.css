@@ -700,7 +700,7 @@
   background: url('../img/web/page/boss-monster/bg.jpg') no-repeat center 0;
   background-size: cover;
   position: relative;
-  min-height: calc(100vh - var(--layout-header-height));
+  height: 1351px;
 }
 
 .boss-monster-view {

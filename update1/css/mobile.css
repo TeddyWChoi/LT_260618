@@ -17,7 +17,7 @@
     min-width: 720px !important;
     max-width: 720px !important;
     margin: 0 auto !important;
-    padding-top: 110px !important;
+    padding-top: 130px !important;
     overflow: hidden !important;
     --floating-base-width: 720px;
   }
@@ -39,7 +39,7 @@
     z-index: 800 !important;
     margin: 0 auto !important;
     width: 720px !important;
-    height: 110px !important;
+    height: 130px !important;
     background: #33313e !important;
     border-bottom: 2px solid #474456 !important;
     translate: none !important;
@@ -49,7 +49,7 @@
   .mobile-header .header {
     display: flex;
     position: relative;
-    height: 110px;
+    height: 130px;
     align-items: center;
   }
 
@@ -58,7 +58,7 @@
     background: transparent;
     border: none;
     width: 100px;
-    height: 110px;
+    height: 130px;
     cursor: pointer;
   }
 
@@ -99,8 +99,8 @@
     position: relative;
     background: transparent;
     border: none;
-    width: 110px;
-    height: 110px;
+    width: 130px;
+    height: 130px;
     cursor: pointer;
   }
 
@@ -152,22 +152,22 @@
   /* Aside Menu sliding drawer */
   .mobile-header .aside-menu-back {
     position: fixed;
-    inset: 90px 0 0 0 !important;
+    inset: 130px 0 0 0 !important;
     z-index: 998;
     background: rgba(0, 0, 0, 0.7);
     border: none;
     width: 100vw;
-    height: calc(100vh - 90px) !important;
+    height: calc(100vh - 130px) !important;
     cursor: pointer;
   }
 
   .mobile-header .aside-menu {
     position: fixed;
-    top: 90px !important;
+    top: 130px !important;
     left: 0;
     z-index: 999;
     width: 624px;
-    height: calc(100vh - 90px) !important;
+    height: calc(100vh - 130px) !important;
     background: #fff;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
@@ -182,7 +182,7 @@
     display: flex;
     align-items: center;
     background: #33313e;
-    height: 110px;
+    height: 130px;
     padding: 0 30px;
     position: relative;
   }
@@ -255,7 +255,7 @@
 
   /* Aside Navigation Accordion list */
   .mobile-header .mobile-navigation {
-    height: calc(100vh - 110px);
+    height: calc(100vh - 130px);
     overflow-y: auto;
     color: #000;
   }
@@ -1215,7 +1215,7 @@
   #history.is-mobile {
     position: relative;
     background: radial-gradient(circle at 0.25px 0.25px, #e5e5e5 1px, #fdfdfd 0) 0 0 / 3px 3px;
-    min-height: calc(100vh - 110px);
+    min-height: calc(100vh - 130px);
     overflow: hidden;
   }
 

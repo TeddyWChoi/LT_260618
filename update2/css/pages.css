@@ -367,6 +367,20 @@
 .sys1-theme .sys-content-list li::before { color: #00d4f0; }
 .sys3-theme .sys-content-list li::before { color: #f03cba; }
 
+/* 이미지 추가 */
+.sys-content-image {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.sys-content-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 /* --- 표 블록 (sys-table-block / sys2) --- */
 .sys-table-block {
   box-sizing: border-box;
