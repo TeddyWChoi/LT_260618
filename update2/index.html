@@ -262,7 +262,7 @@
             <li>When you select a stat in the Stats display panel, the corresponding star in the Zodiac is highlighted right away.</li>
           </ul>
           <div class="sys-content-image">
-            <img :src="isMobile ? 'img/mobile/page/system/1/content_2.png' : 'img/web/page/system/1/content_2.png'" alt="Zodiac Improvements">
+            <img :src="isMobile ? 'img/mobile/page/system/1/content_2.png' : 'img/web/page/system/1/content_2.png'" alt="Zodiac Improvements" @click="openPopup('sys-pop-zodiac')">
           </div>
         </div>
       </div>
@@ -280,7 +280,7 @@
         </h1>
         <div class="sys2-content-2 sys-table-block" data-anim="slide-top" data-anim-delay="200">
           <div class="sys-content-image" style="margin: 0 0 30px 0;">
-            <img :src="isMobile ? 'img/mobile/page/system/2/content_1.png' : 'img/web/page/system/2/content_1.png'" alt="Reputation System Renewal">
+            <img :src="isMobile ? 'img/mobile/page/system/2/content_1.png' : 'img/web/page/system/2/content_1.png'" alt="Reputation System Renewal" @click="openPopup('sys-pop-reputation')">
           </div>
           <table class="sys-table sys2-theme">
             <colgroup>
@@ -338,7 +338,7 @@
             <li>You can now choose to enter immediately without applying any Dungeon Point settings, directly from the Dungeon Info window.</li>
           </ul>
           <div class="sys-content-image">
-            <img :src="isMobile ? 'img/mobile/page/system/3/content_1.png' : 'img/web/page/system/3/content_1.png'" alt="Dungeon Info Tab Addition">
+            <img :src="isMobile ? 'img/mobile/page/system/3/content_1.png' : 'img/web/page/system/3/content_1.png'" alt="Dungeon Info Tab Addition" @click="openPopup('sys-pop-dp1')">
           </div>
         </div>
         <div class="sys3-content-2 sys-content-block sys3-theme" data-anim="slide-top" data-anim-delay="400">
@@ -350,7 +350,7 @@
             <li>Selected Dungeon Point effects are applied to the dungeon when you enter.</li>
           </ul>
           <div class="sys-content-image">
-            <img :src="isMobile ? 'img/mobile/page/system/3/content_2.png' : 'img/web/page/system/3/content_2.png'" alt="Difficulty & Point Settings">
+            <img :src="isMobile ? 'img/mobile/page/system/3/content_2.png' : 'img/web/page/system/3/content_2.png'" alt="Difficulty & Point Settings" @click="openPopup('sys-pop-dp2')">
           </div>
         </div>
         <div class="sys3-content-3 sys-content-block sys3-theme" data-anim="slide-top" data-anim-delay="600">
@@ -361,7 +361,7 @@
             <li>When a mission condition is met, the Claim button on the on-screen mini mission window becomes active, letting you click it to receive the reward.</li>
           </ul>
           <div class="sys-content-image">
-            <img :src="isMobile ? 'img/mobile/page/system/3/content_3.png' : 'img/web/page/system/3/content_3.png'" alt="Dungeon Missions">
+            <img :src="isMobile ? 'img/mobile/page/system/3/content_3.png' : 'img/web/page/system/3/content_3.png'" alt="Dungeon Missions" @click="openPopup('sys-pop-dp3')">
           </div>
         </div>
       </div>

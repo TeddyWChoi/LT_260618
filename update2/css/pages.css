@@ -379,6 +379,57 @@
   height: auto;
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.sys-content-image img:hover {
+  transform: scale(1.02);
+  filter: brightness(1.08);
+}
+
+#system-1 .sys-content-image img:hover {
+  box-shadow: 0 10px 30px rgba(0, 220, 255, 0.35);
+}
+
+#system-2 .sys-content-image img:hover {
+  box-shadow: 0 10px 30px rgba(100, 220, 60, 0.35);
+}
+
+#system-3 .sys-content-image img:hover {
+  box-shadow: 0 10px 30px rgba(255, 80, 180, 0.35);
+}
+
+/* SYSTEM IMAGE POPUPS */
+.sys-pop-zodiac {
+  background: url('../img/web/page/system/1/content_2.png') no-repeat center center;
+  background-size: contain;
+  width: 1024px;
+  height: 768px;
+}
+.sys-pop-reputation {
+  background: url('../img/web/page/system/2/content_1.png') no-repeat center center;
+  background-size: contain;
+  width: 1024px;
+  height: 695px;
+}
+.sys-pop-dp1 {
+  background: url('../img/web/page/system/3/content_1.png') no-repeat center center;
+  background-size: contain;
+  width: 1024px;
+  height: 912px;
+}
+.sys-pop-dp2 {
+  background: url('../img/web/page/system/3/content_2.png') no-repeat center center;
+  background-size: contain;
+  width: 1024px;
+  height: 614px;
+}
+.sys-pop-dp3 {
+  background: url('../img/web/page/system/3/content_3.png') no-repeat center center;
+  background-size: contain;
+  width: 1024px;
+  height: 235px;
 }
 
 /* --- 표 블록 (sys-table-block / sys2) --- */

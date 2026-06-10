@@ -172,6 +172,11 @@
       isMobile: function () {
         return store.isMobile;
       }
+    },
+    methods: {
+      openPopup: function (imageClass) {
+        store.openImagePopup(imageClass);
+      }
     }
   });
 

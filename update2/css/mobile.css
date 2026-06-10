@@ -327,4 +327,31 @@
     --top: 862px;
     --left: 127px;
   }
+
+  /* SYSTEM IMAGE POPUPS - MOBILE OVERRIDES */
+  .sys-pop-zodiac {
+    background-image: url('../img/mobile/page/system/1/content_2.png') !important;
+    width: 680px !important;
+    height: 510px !important;
+  }
+  .sys-pop-reputation {
+    background-image: url('../img/mobile/page/system/2/content_1.png') !important;
+    width: 680px !important;
+    height: 461px !important;
+  }
+  .sys-pop-dp1 {
+    background-image: url('../img/mobile/page/system/3/content_1.png') !important;
+    width: 680px !important;
+    height: 605px !important;
+  }
+  .sys-pop-dp2 {
+    background-image: url('../img/mobile/page/system/3/content_2.png') !important;
+    width: 680px !important;
+    height: 408px !important;
+  }
+  .sys-pop-dp3 {
+    background-image: url('../img/mobile/page/system/3/content_3.png') !important;
+    width: 680px !important;
+    height: 156px !important;
+  }
 }
