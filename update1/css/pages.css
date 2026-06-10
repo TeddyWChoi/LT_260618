@@ -209,9 +209,17 @@
 }
 
 @keyframes flutter {
-  0% { transform: translateX(-50%) translateY(0px); }
-  50% { transform: translateX(-50%) translateY(-8px); }
-  100% { transform: translateX(-50%) translateY(0px); }
+  0% {
+    transform: translateX(-50%) translateY(0px);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(-8px);
+  }
+
+  100% {
+    transform: translateX(-50%) translateY(0px);
+  }
 }
 
 #main-update .update-menu {
@@ -1584,8 +1592,8 @@ body {
   font-family: 'Cinzel', serif !important;
   font-size: 42px !important;
   font-weight: 800 !important;
-  color: #000000 !important;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 15px rgba(255, 255, 255, 0.4) !important;
+  color: #ffffff !important;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 0, 0, 0.4) !important;
   letter-spacing: 2px !important;
   text-transform: uppercase !important;
   line-height: 1.2 !important;

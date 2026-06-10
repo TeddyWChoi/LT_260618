@@ -6,7 +6,8 @@
   background-size: cover;
   position: relative;
   overflow: hidden;
-  height: 1351px; /* bg.jpg: 2560x1351 */
+  height: 1351px;
+  /* bg.jpg: 2560x1351 */
 }
 
 /* Floating system: top = as-is, left = calc(50% + left - 1280) */
@@ -258,8 +259,8 @@
 #system-1 .sys1-title {
   color: #c8faff;
   text-shadow:
-    0 0 18px rgba(0,220,255,0.85),
-    0 0 6px rgba(0,220,255,0.6);
+    0 0 18px rgba(0, 220, 255, 0.85),
+    0 0 6px rgba(0, 220, 255, 0.6);
 }
 
 #system-1 .sys-title-deco {
@@ -272,8 +273,8 @@
 #system-2 .sys2-title {
   color: #d4ffc8;
   text-shadow:
-    0 0 18px rgba(100,220,60,0.85),
-    0 0 6px rgba(100,220,60,0.6);
+    0 0 18px rgba(100, 220, 60, 0.85),
+    0 0 6px rgba(100, 220, 60, 0.6);
 }
 
 #system-2 .sys-title-deco {
@@ -286,8 +287,8 @@
 #system-3 .sys3-title {
   color: #ffc8e8;
   text-shadow:
-    0 0 18px rgba(255,80,180,0.85),
-    0 0 6px rgba(255,80,180,0.6);
+    0 0 18px rgba(255, 80, 180, 0.85),
+    0 0 6px rgba(255, 80, 180, 0.6);
 }
 
 #system-3 .sys-title-deco {
@@ -298,7 +299,7 @@
 
 /* --- content 블록 (sys-content-block) --- */
 .sys-content-block {
-  background: rgba(255,255,255,0.04);
+  background: rgba(255, 255, 255, 0.04);
   border-radius: 12px;
   padding: 30px 36px 34px;
   box-sizing: border-box;
@@ -321,18 +322,18 @@
 
 /* 시스템 1 테마 (cyan) */
 .sys1-theme .sys-content-title-box {
-  background: rgba(0,200,230,0.15);
+  background: #fff;
   border: 2px solid #00d4f0;
   color: #00d4f0;
-  text-shadow: 0 0 8px rgba(0,200,230,0.5);
+
 }
 
 /* 시스템 3 테마 (pink) */
 .sys3-theme .sys-content-title-box {
-  background: rgba(240,60,180,0.12);
+  background: #fff;
   border: 2px solid #f03cba;
   color: #f03cba;
-  text-shadow: 0 0 8px rgba(240,60,180,0.5);
+
 }
 
 /* 불릿 포인트 리스트 */
@@ -351,7 +352,7 @@
   font-family: 'NanumGothic', sans-serif;
   font-size: 15px;
   line-height: 1.7;
-  color: rgba(255,255,255,0.78);
+  color: rgba(255, 255, 255, 0.78);
   text-align: left;
 }
 
@@ -364,8 +365,13 @@
   line-height: 1.5;
 }
 
-.sys1-theme .sys-content-list li::before { color: #00d4f0; }
-.sys3-theme .sys-content-list li::before { color: #f03cba; }
+.sys1-theme .sys-content-list li::before {
+  color: #00d4f0;
+}
+
+.sys3-theme .sys-content-list li::before {
+  color: #f03cba;
+}
 
 /* 이미지 추가 */
 .sys-content-image {
@@ -407,24 +413,28 @@
   width: 1024px;
   height: 768px;
 }
+
 .sys-pop-reputation {
   background: url('../img/web/page/system/2/content_1.png') no-repeat center center;
   background-size: contain;
   width: 1024px;
   height: 695px;
 }
+
 .sys-pop-dp1 {
   background: url('../img/web/page/system/3/content_1.png') no-repeat center center;
   background-size: contain;
   width: 1024px;
   height: 912px;
 }
+
 .sys-pop-dp2 {
   background: url('../img/web/page/system/3/content_2.png') no-repeat center center;
   background-size: contain;
   width: 1024px;
   height: 614px;
 }
+
 .sys-pop-dp3 {
   background: url('../img/web/page/system/3/content_3.png') no-repeat center center;
   background-size: contain;
@@ -446,7 +456,7 @@
 }
 
 .sys-table tbody tr {
-  border-bottom: 1px dashed rgba(120,200,80,0.25);
+  border-bottom: 1px dashed rgba(120, 200, 80, 0.25);
 }
 
 .sys-table tbody tr:last-child {
@@ -462,7 +472,7 @@
 
 /* 시스템 2 테마 (green) */
 .sys2-theme td.sys-table-num {
-  background: rgba(100,200,60,0.12);
+  background: rgba(100, 200, 60, 0.12);
   color: #6dc930;
   font-size: 20px;
   font-weight: 900;
@@ -470,7 +480,7 @@
 }
 
 .sys2-theme td.sys-table-label {
-  background: rgba(100,200,60,0.08);
+  background: rgba(100, 200, 60, 0.08);
   color: #6dc930;
   font-weight: 900;
   font-size: 16px;
@@ -478,8 +488,8 @@
 }
 
 .sys2-theme td.sys-table-desc {
-  background: rgba(255,255,255,0.03);
-  color: rgba(255,255,255,0.75);
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.75);
   font-size: 14px;
 }
 
@@ -488,7 +498,7 @@
   text-align: center;
   font-family: 'NanumGothic', sans-serif;
   font-size: 13px;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255, 255, 255, 0.45);
 }
 
 /* ============================================================
@@ -659,11 +669,11 @@
   background: #e2e2e2;
 }
 
-.history-paging .paging-link.page + .paging-link.shortcut {
+.history-paging .paging-link.page+.paging-link.shortcut {
   margin-left: 12px;
 }
 
-.history-paging .paging-link.shortcut + .paging-link.page {
+.history-paging .paging-link.shortcut+.paging-link.page {
   margin-left: 6px;
 }
 
