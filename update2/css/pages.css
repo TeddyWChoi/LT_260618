@@ -498,7 +498,7 @@
   text-align: center;
   font-family: 'NanumGothic', sans-serif;
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.45);
+  color: #e0e0e0;
 }
 
 /* ============================================================
@@ -737,4 +737,42 @@
   background: #33313e;
   color: #fff;
   font-size: 24px;
+}
+
+/* ============================================================
+   FLOATING BANNER (TO UPDATE 1)
+   ============================================================ */
+.floating-banner {
+  position: fixed;
+  top: 120px;
+  right: 20px;
+  z-index: 799;
+  width: 140px;
+  height: auto;
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
+}
+
+.floating-banner img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.floating-banner:hover {
+  transform: translateY(-6px) scale(1.05);
+  filter: drop-shadow(0 15px 24px rgba(0, 0, 0, 0.6)) brightness(1.05);
+}
+
+@media screen and (min-width: 2600px) {
+  .floating-banner {
+    right: calc(50% - 1280px + 20px);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .floating-banner {
+    display: none !important;
+  }
 }

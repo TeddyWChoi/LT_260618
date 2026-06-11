@@ -7,7 +7,7 @@
   var siteConfig = {
     title: "Path of Choice",
     siteTitle: "LaTale - An Exciting and Amazing Story",
-    copyright: "COPYRIGHT © ACTOZ SOFT CO., LTD. ALL RIGHTS RESERVED."
+    copyright: ""
   };
 
   /* ============================================================

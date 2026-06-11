@@ -23,19 +23,7 @@
 </head>
 
 <body>
-  <!-- Global Hub Portal Navigation Bar -->
-  <div id="global-hub-nav">
-    <div class="hub-logo">
-      <a href="https://latale.papayaplay.com/latale.do" target="_self">
-        <img src="img/logo_papaya.png" alt="Papaya Play" />
-      </a>
-    </div>
-    <div class="hub-menu">
-      <a href="../update1/index.html" class="hub-link">Devil's Whisper</a>
-      <span class="hub-divider">/</span>
-      <a href="../update2/index.html" class="hub-link active-update2">Path of Choice</a>
-    </div>
-  </div>
+
 
   <!-- ============================================================
        VUE TEMPLATES (script type=text/x-template)
@@ -265,6 +253,7 @@
             <img :src="isMobile ? 'img/mobile/page/system/1/content_2.png' : 'img/web/page/system/1/content_2.png'" alt="Zodiac Improvements" @click="openPopup('sys-pop-zodiac')">
           </div>
         </div>
+        <p class="sys-table-notice" style="margin-top: 20px;">Some details may change at the time of the live update.</p>
       </div>
     </section>
   </script>
@@ -316,8 +305,8 @@
               </tr>
             </tbody>
           </table>
-          <p class="sys-table-notice">Some details may change at the time of the live update.</p>
         </div>
+        <p class="sys-table-notice" style="margin-top: 20px;">Some details may change at the time of the live update.</p>
       </div>
     </section>
   </script>
@@ -364,6 +353,7 @@
             <img :src="isMobile ? 'img/mobile/page/system/3/content_3.png' : 'img/web/page/system/3/content_3.png'" alt="Dungeon Missions" @click="openPopup('sys-pop-dp3')">
           </div>
         </div>
+        <p class="sys-table-notice" style="margin-top: 20px;">Some details may change at the time of the live update.</p>
       </div>
     </section>
   </script>
@@ -372,6 +362,13 @@
        VUE APP ROOT
        ============================================================ -->
   <div id="app"></div>
+
+  <!-- Floating Banner (To Update 1) -->
+  <div class="floating-banner">
+    <a href="../update1/index.html">
+      <img src="img/banner_update1.png" alt="Devil's Whisper Update">
+    </a>
+  </div>
 
   <!-- Vue 2 CDN -->
   <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.min.js"></script>

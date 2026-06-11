@@ -9,6 +9,7 @@ server.py
 src/
 dist/
 dist2/
+scratch/
 
 # 번역 리스트
 translation_list.csv

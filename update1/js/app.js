@@ -28,7 +28,7 @@
   var store = Vue.observable({
     headerView: true,
     footerView: true,
-    footerHtml: 'COPYRIGHT © ACTOZ SOFT CO., LTD. ALL RIGHTS RESERVED.',
+    footerHtml: '',
     footerType: '',
     popupImageClass: null,  // string[] 또는 null
     popupPlayCode: null,    // YouTube video ID 또는 null
@@ -360,7 +360,7 @@
       } else {
         store.footerType = '';
       }
-      store.footerHtml = 'COPYRIGHT © ACTOZ SOFT CO., LTD. ALL RIGHTS RESERVED.';
+      store.footerHtml = '';
       document.title = getPageTitle();
       initAnimations();
 

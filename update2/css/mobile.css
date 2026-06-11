@@ -17,7 +17,7 @@
     min-width: 720px !important;
     max-width: 720px !important;
     margin: 0 auto !important;
-    padding-top: 220px !important; /* GNB height (90px) + mobile header height (130px) = 220px */
+    padding-top: 130px !important; /* mobile header height (130px) */
     overflow: hidden !important;
     --floating-base-width: 720px;
   }
@@ -33,7 +33,7 @@
      ============================================================ */
   header.mobile-header {
     position: fixed !important;
-    top: 90px !important; /* Below the GNB */
+    top: 0 !important;
     right: 0 !important;
     left: 0 !important;
     z-index: 800 !important;
@@ -157,22 +157,22 @@
   /* Aside Menu sliding drawer */
   .mobile-header .aside-menu-back {
     position: fixed;
-    inset: 220px 0 0 0 !important;
+    inset: 130px 0 0 0 !important;
     z-index: 998;
     background: rgba(0, 0, 0, 0.7);
     border: none;
     width: 100vw;
-    height: calc(100vh - 220px) !important;
+    height: calc(100vh - 130px) !important;
     cursor: pointer;
   }
 
   .mobile-header .aside-menu {
     position: fixed;
-    top: 220px !important;
+    top: 130px !important;
     left: 0;
     z-index: 999;
     width: 624px;
-    height: calc(100vh - 220px) !important;
+    height: calc(100vh - 130px) !important;
     background: #181624; /* Dark theme drawer */
     transform: translateX(-100%);
     transition: transform 0.3s ease;
@@ -262,7 +262,7 @@
 
   /* Aside Navigation list */
   .mobile-header .mobile-navigation {
-    height: calc(100vh - 220px);
+    height: calc(100vh - 130px);
     overflow-y: auto;
     color: #fff;
   }
